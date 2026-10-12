@@ -537,5 +537,12 @@ window.PLACE_INFO = {
     tips: [
       { zh: "入住 15:00；退房 11:00", en: "Check-in 15:00; check-out 11:00" }
     ]
+  },
+  ushigoroshinjuku: {
+    about: { zh: "高級和牛燒肉，由店員代為燒烤。這是 Vanjai 所選銀座店的新宿分店，方便新宿購物後用餐。", en: "Upscale wagyu yakiniku, grilled for you by the staff. The Shinjuku branch of Vanjai's Ginza pick, handy after shopping in Shinjuku." },
+    todo: [],
+    tips: [
+      { zh: "尚未訂位；新宿分店的地址及套餐請以官網為準", en: "Not booked; check the official site for the Shinjuku branch's address and courses" }
+    ]
   }
 };

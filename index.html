@@ -526,7 +526,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
       } else if (it.type === 'branches') {
         flush();
         var split = it.mode === 'split';
-        out += '<div class="fork"><div class="fork-head">' + (split
+        out += '<div class="fork"><div class="fork-head">' + (it.head ? bi(it.head) : split
             ? '<span class="zh">分頭行動</span><span class="en">Split up</span>'
             : '<span class="zh">選擇一條路線</span><span class="en">Pick one route</span>') + '</div>' +
           it.options.map(function (o, k) {
