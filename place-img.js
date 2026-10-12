@@ -28,5 +28,12 @@ window.PLACE_IMG = {
   daikanyama: {"src": "img/daikanyama.jpg", "by": "Syced", "lic": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Streetview_in_Daikanyama_(79795).jpg"},
   ebisu: {"src": "img/ebisu.jpg", "by": "Ximonic (Simo Räsänen)", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Shibuya_and_Shinjuku_from_Yebisu_Garden_Place_Tower,_Ebisu,_Tokyo,_Japan,_2024_May.jpg"},
   odaiba: {"src": "img/odaiba.jpg", "by": "Stephen Kelly", "lic": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Views_of_Rainbow_Bridge_and_Tokyo_Tower_from_Odaiba_at_night_2013-09-11.jpg"},
-  shinjuku: {"src": "img/shinjuku.jpg", "by": "Basile Morin", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Colorful_neon_street_signs_in_Kabukich%C5%8D,_Shinjuku,_Tokyo.jpg"}
+  shinjuku: {"src": "img/shinjuku.jpg", "by": "Basile Morin", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Colorful_neon_street_signs_in_Kabukich%C5%8D,_Shinjuku,_Tokyo.jpg"},
+  yoyogi: {"src": "img/yoyogi.jpg", "by": "Syced", "lic": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Yoyogi_Park_and_Shinjuku,_seen_from_Shibuya_Stream.jpg"},
+  oshino: {"src": "img/oshino.jpg", "by": "lumoplank", "lic": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Oshino_Hakkai_-_Oshino6878.jpg"},
+  kawaguchiko: {"src": "img/kawaguchiko.jpg", "by": "LMP 2001", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Mount_Fuji_view_from_Lake_Kawaguchi_2024-12-01.jpg"},
+  senkyaku: {"src": "img/senkyaku.jpg", "by": "Fred Cherrygarden", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Toyosu_Senkyaku_Banrai.jpg"},
+  hibiya: {"src": "img/hibiya.jpg", "by": "江戸村のとくぞう", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Tokyo_Midtown_Hibiya-3a.jpg"},
+  shinbashi: {"src": "img/shinbashi.jpg", "by": "Mike Peel", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:At_Tokyo_2024_674.jpg"},
+  uogashi: {"src": "img/uogashi.jpg", "by": "Hamamatsuichiro", "lic": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:%E7%AF%89%E5%9C%B0%E9%AD%9A%E6%B2%B3%E5%B2%B8%E6%B5%B7%E5%B9%B8%E6%A9%8B%E6%A3%9F%E5%A4%96%E8%A6%B3.jpg"}
 };

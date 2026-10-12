@@ -213,6 +213,32 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .factlist b { display: block; font-weight: 500; }
 .factlist span { font-size: var(--s-sm); color: var(--muted); }
 
+/* Days */
+.daylist { padding: 2px 14px; }
+.daylist a { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; text-decoration: none; min-height: 52px; }
+.daylist a + a { border-top: 1px solid var(--line); }
+.daylist .dn { text-align: center; line-height: 1.1; }
+.daylist .dn b { display: block; font-family: var(--f-latin); font-weight: 500; font-size: 1.5rem; color: var(--bronze); }
+.daylist .dn small { font-size: 0.75rem; color: var(--muted); }
+.daylist .tx { font-size: var(--s-sm); line-height: 1.5; min-width: 0; }
+.daylist a.is-today { background: var(--bronze-soft); margin-inline: -14px; padding-inline: 14px; }
+.who { display: inline-block; font-size: 0.8125rem; font-weight: 500; padding: 1px 8px; border-radius: 999px; white-space: nowrap; vertical-align: 1px; }
+.who-all { color: var(--moss); background: var(--moss-soft); }
+.who-split { color: var(--ochre); background: var(--ochre-soft); }
+.who-jv { color: var(--bronze); background: var(--bronze-soft); }
+.day-cards { display: grid; gap: 10px; }
+.dcard { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; text-decoration: none; }
+.dcard .dd { text-align: center; line-height: 1.1; align-self: start; padding-top: 2px; }
+.dcard .dd b { display: block; font-family: var(--f-latin); font-weight: 500; font-size: 1.9rem; color: var(--bronze); }
+.dcard .dd small { font-size: 0.8125rem; color: var(--muted); }
+.dcard .w { min-width: 0; display: grid; gap: 4px; justify-items: start; line-height: 1.45; }
+.dcard .w b { font-family: var(--f-display); font-weight: 500; font-size: 1.0625rem; }
+.dcard .w small { color: var(--muted); font-size: var(--s-xs); }
+.dcard .th { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; }
+.dcard.is-today { box-shadow: inset 0 0 0 1.5px var(--bronze); }
+.daynav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.daynav .btn { grid-auto-flow: column; gap: 6px; min-height: 52px; font-size: var(--s-xs); }
+
 /* Plan list */
 .group-lbl { margin: 24px 2px 10px; font-size: var(--s-xs); letter-spacing: .1em; color: var(--muted); display: flex; align-items: center; gap: 12px; }
 .group-lbl::after { content: ""; flex: 1; height: 1px; background: var(--line); }
@@ -392,7 +418,7 @@ footer a { color: var(--bronze); }
   var ICON = {
     home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
     plans: '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5"/>',
-    calendar: '<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+    days: '<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
     hotels: '<path d="M3 19V7M3 13h18v6M21 19v-4a3 3 0 0 0-3-3h-7v1"/><circle cx="7.5" cy="10" r="1.8"/>',
     food: '<path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 4c0 2 2 2 2 4M14 4c0 2 2 2 2 4"/>',
     back: '<path d="M15 5l-7 7 7 7"/>',
@@ -522,6 +548,27 @@ footer a { color: var(--bronze); }
     return im ? '<div class="credit"><span class="zh">相片</span><span class="en">Photo</span>: <a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + esc(im.lic) + '</div>' : '';
   }
 
+  // ---------- Day helpers ----------
+  var WHO = {
+    all: { zh: '四人', en: 'All four' },
+    split: { zh: '分開', en: 'Splitting up' },
+    jv: { zh: 'John・Vanjai', en: 'John & Vanjai' }
+  };
+  function dayIndex(date) { return T.calendar.map(function (c) { return c.date; }).indexOf(date); }
+  function dayImage(c) {
+    var f = flat(c.items || []);
+    for (var i = 0; i < f.length; i++) { var p = f[i].place; if (p && IMG[p]) return IMG[p]; }
+    return c.plan && ideaByCode[c.plan] ? planImage(ideaByCode[c.plan]) : null;
+  }
+  function dateLabel(c) {
+    var d = parse(c.date);
+    return { zh: '第 ' + (dayIndex(c.date) + 1) + ' 日 · ' + (d.getMonth() + 1) + ' 月 ' + d.getDate() + ' 日（週' + WEEK_ZH[d.getDay()] + '）',
+             en: 'Day ' + (dayIndex(c.date) + 1) + ' · ' + WEEK_EN[d.getDay()] + ' ' + d.getDate() + ' Dec' };
+  }
+  function daysWith(id) { return T.calendar.filter(function (c) { return flat(c.items || []).some(function (it) { return it.place === id; }); }); }
+  function dayChip(c) { var d = parse(c.date); return '<a class="chip" href="#/day/' + c.date + '"><b>' + d.getDate() + '</b><span class="zh">12月 · 週' + WEEK_ZH[d.getDay()] + '</span><span class="en">' + WEEK_EN[d.getDay()] + '</span></a>'; }
+  function whoTag(c) { return c.who && WHO[c.who] ? '<span class="who who-' + c.who + '">' + bi(WHO[c.who]) + '</span>' : ''; }
+
   // ---------- Screens ----------
   var screens = {};
 
@@ -530,34 +577,41 @@ footer a { color: var(--bronze); }
     var today = '';
     if (inTrip) {
       var c = T.calendar.filter(function (x) { return x.date === todayStr; })[0];
-      var idea = c && c.plan ? ideaByCode[c.plan] : null;
       var tn = c && c.notes ? c.notes.map(function (n) { return bi(n); }).join(' · ') : '';
-      today = '<a class="card today-card" href="' + (idea ? '#/plan/' + idea.code : '#/calendar') + '"><span class="lbl"><span class="zh">今日 · ' + md(now) + '</span><span class="en">TODAY · ' + md(now) + '</span></span>' +
-        '<b>' + (idea ? esc(idea.code) + ' · ' + bi(idea.title) : c && c.fixed ? bi(c.fixed) : bi({ zh: '待排', en: 'Not yet planned' })) + '</b>' +
+      today = '<a class="card today-card" href="' + (c ? '#/day/' + c.date : '#/days') + '"><span class="lbl"><span class="zh">今日 · ' + md(now) + '</span><span class="en">TODAY · ' + md(now) + '</span></span>' +
+        '<b>' + (c && c.title ? bi(c.title) : bi({ zh: '自由活動', en: 'Free time' })) + '</b>' +
         (tn ? '<span class="nts">' + tn + '</span>' : '') + '</a>';
     }
     var h = '<div class="eyebrow">Tokyo · December 2026</div>' +
       '<h1><span class="zh">東京聖誕之旅</span><span class="en">Tokyo at Christmas</span></h1>' +
-      '<div class="meta"><span class="zh">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : '（暫定）') + ' · ' + nights + ' 晚 · ' + esc(T.people.zh) + '</span>' +
-      '<span class="en">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : ' (draft)') + ' · ' + nights + ' nights · ' + esc(T.people.en) + '</span></div>';
+      '<div class="meta"><span class="zh">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : '（暫定）') + ' · ' + esc(T.people.zh) + '</span>' +
+      '<span class="en">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : ' (draft)') + ' · ' + esc(T.people.en) + '</span></div>';
     if (today) h += '<div class="sec" style="margin-top:16px">' + today + '</div>';
     else h += (T.status ? '<div class="wip">' + bi(T.status) + '</div>' : '') +
       '<div class="changes"><span class="lbl"><span class="zh">今次更新 · 第 ' + T.version + ' 版 · ' + esc(T.updated) + '</span><span class="en">What\'s new · v' + T.version + ' · ' + esc(T.updated) + '</span></span>' + bi(T.changes) + '</div>';
 
+    // Day list at a glance
+    h += '<div class="sec"><h2 class="sec-title"><span class="zh">每日一覽</span><span class="en">Day by day</span></h2><div class="card daylist">' +
+      T.calendar.map(function (c) {
+        var d = parse(c.date);
+        return '<a href="#/day/' + c.date + '"' + (c.date === todayStr ? ' class="is-today"' : '') + '><span class="dn"><b>' + d.getDate() + '</b><small><span class="zh">週' + WEEK_ZH[d.getDay()] + '</span><span class="en">' + WEEK_EN[d.getDay()] + '</span></small></span>' +
+          '<span class="tx">' + bi(c.title) + (c.who && c.who !== 'all' ? ' ' + whoTag(c) : '') + '</span>' + svg('chev', 'chev') + '</a>';
+      }).join('') + '</div></div>';
+
     var img = function (id) { return IMG[id] ? '<img src="' + esc(IMG[id].src) + '" alt="" loading="lazy">' : ''; };
     h += '<div class="sec tiles">' +
-      '<a class="tile" href="#/plans">' + img('skytree') + '<span><span class="zh">行程選擇</span><span class="en">Day plans</span><small><span class="zh">' + T.ideas.length + ' 個選擇</span><span class="en">' + T.ideas.length + ' options</span></small></span></a>' +
-      '<a class="tile" href="#/calendar">' + img('marunouchi') + '<span><span class="zh">日曆</span><span class="en">Calendar</span><small>' + md(s) + '–' + md(e) + '</small></span></a>' +
-      '<a class="tile" href="#/hotels">' + img('shibuya') + '<span><span class="zh">酒店</span><span class="en">Hotels</span><small><span class="zh">' + (T.hotels || []).length + ' 間候選</span><span class="en">' + (T.hotels || []).length + ' options</span></small></span></a>' +
+      '<a class="tile" href="#/days">' + img('kawaguchiko') + '<span><span class="zh">每日行程</span><span class="en">Daily plan</span><small>' + md(s) + '–' + md(e) + '</small></span></a>' +
+      '<a class="tile" href="#/plans">' + img('skytree') + '<span><span class="zh">其他選擇</span><span class="en">Other options</span><small><span class="zh">' + T.ideas.length + ' 個</span><span class="en">' + T.ideas.length + ' ideas</span></small></span></a>' +
+      '<a class="tile" href="#/hotels">' + img('hibiya') + '<span><span class="zh">酒店</span><span class="en">Hotels</span><small><span class="zh">' + (T.hotels || []).length + ' 間</span><span class="en">' + (T.hotels || []).length + ' hotels</span></small></span></a>' +
       '<a class="tile" href="#/food">' + img('tsukiji') + '<span><span class="zh">餐廳</span><span class="en">Food</span><small><span class="zh">' + foodRows.length + ' 間</span><span class="en">' + foodRows.length + ' places</span></small></span></a>' +
       '</div>';
 
     var open = [];
-    T.ideas.forEach(function (x) { x.items.forEach(function (it) { if (it.type === 'tbd') open.push({ code: x.code, text: it.text }); }); });
+    T.calendar.forEach(function (c) { (c.items || []).forEach(function (it) { if (it.type === 'tbd') open.push({ c: c, text: it.text }); }); });
     if (open.length) {
       h += '<div class="sec"><h2 class="sec-title"><span class="zh">仲未決定</span><span class="en">Still to decide</span></h2>' +
         '<div class="card todo-list">' + open.map(function (o) {
-          return '<a href="#/plan/' + o.code + '"><span class="code">' + esc(o.code) + '</span><span class="tx">' + bi(o.text) + '</span>' + svg('chev', 'chev') + '</a>';
+          return '<a href="#/day/' + o.c.date + '"><span class="code">' + parse(o.c.date).getDate() + '</span><span class="tx">' + bi(o.text) + '</span>' + svg('chev', 'chev') + '</a>';
         }).join('') + '</div></div>';
     }
     h += '<div class="sec"><h2 class="sec-title"><span class="zh">留意</span><span class="en">Good to know</span></h2><ul class="card factlist">' +
@@ -566,32 +620,82 @@ footer a { color: var(--bronze); }
     return { title: null, html: h };
   };
 
-  screens.plans = function () {
-    var groups = [
-      { key: ['suggested', 'either'], label: { zh: '建議組合', en: 'Suggested set' } },
-      { key: ['alt'], label: { zh: '後備選擇', en: 'Backups' } }
-    ];
-    var h = '<h1><span class="zh">行程選擇</span><span class="en">Day plans</span></h1>' +
-      '<p class="lede"><span class="zh">大約揀 7 至 8 個。撳入去睇每日去邊、做咩。想去邊個、唔想去邊個，講個英文字母就得，例如「A 好，H 唔使」。</span><span class="en">We\'ll pick about 7–8. Tap one to see where we\'d go and what to do. Just mention the letter, e.g. "A yes, skip H".</span></p>';
-    groups.forEach(function (g) {
-      var list = T.ideas.filter(function (x) { return g.key.indexOf(x.pick) >= 0; });
-      if (!list.length) return;
-      h += '<div class="group-lbl">' + bi(g.label) + '</div><div class="plan-cards">';
-      list.forEach(function (x) {
-        var im = planImage(x);
-        h += '<a class="card pcard" href="#/plan/' + x.code + '"><div class="img">' + (im ? '<img src="' + esc(im.src) + '" alt="" loading="lazy">' : '') +
-          '<span class="code">' + esc(x.code) + '</span></div><div class="body"><h3>' + bi(x.title) + '</h3>' +
-          '<div class="facts-row"><span class="pick ' + x.pick + '">' + bi(PICK[x.pick]) + '</span>' + hoursOf(x) + walkBar(x.walk) + '</div>' +
-          '<div class="stops"><span class="zh">' + stopLine(x.items, 'zh') + '</span><span class="en">' + stopLine(x.items, 'en') + '</span></div>' +
-          '</div></a>';
-      });
-      h += '</div>';
+  screens.days = function () {
+    function periodOf(date) {
+      for (var i = 0; i < (T.periods || []).length; i++) { var p = T.periods[i]; if (date >= p.from && date <= p.to) return p; }
+      return null;
+    }
+    var h = '<h1><span class="zh">每日行程</span><span class="en">Daily plan</span></h1>' +
+      '<p class="lede"><span class="zh">全部仲係計劃，未訂。撳入去睇每日去邊、做咩。對邊日有意見，講日子就得，例如「21 號太多路行」。</span><span class="en">All still plans, nothing booked. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
+    var curP, open = false;
+    T.calendar.forEach(function (c) {
+      var p = periodOf(c.date);
+      if (!open || p !== curP) {
+        if (open) h += '</div>';
+        h += p ? '<div class="period"><b>' + bi(p.title) + '</b><span>' + bi(p.hint) + '</span></div>' : '';
+        h += '<div class="day-cards">'; open = true; curP = p;
+      }
+      var d = parse(c.date), im = dayImage(c), isToday = c.date === todayStr;
+      var stops = flat(c.items || []).filter(function (it) { return it.place; }).map(function (it) { return T.places[it.place]; });
+      var seen = {}, uniq = stops.filter(function (p) { var k = p.en; if (seen[k]) return false; seen[k] = 1; return true; });
+      h += '<a class="card dcard' + (isToday ? ' is-today' : '') + '" href="#/day/' + c.date + '">' +
+        '<span class="dd"><b>' + d.getDate() + '</b><small><span class="zh">週' + WEEK_ZH[d.getDay()] + '</span><span class="en">' + WEEK_EN[d.getDay()] + '</span></small>' +
+        (isToday ? '<span class="today-tag"><span class="zh">今日</span><span class="en">Today</span></span>' : '') + '</span>' +
+        '<span class="w"><b>' + bi(c.title) + '</b>' +
+        (uniq.length ? '<small><span class="zh">' + uniq.map(function (p) { return esc(p.zh); }).join(' · ') + '</span><span class="en">' + uniq.map(function (p) { return esc(p.en); }).join(' · ') + '</span></small>' : '') +
+        (c.who && c.who !== 'all' ? whoTag(c) : '') + '</span>' +
+        (im ? '<img class="th" src="' + esc(im.src) + '" alt="" loading="lazy">' : '<span></span>') + '</a>';
     });
+    if (open) h += '</div>';
+    return { title: { zh: '每日行程', en: 'Daily plan' }, html: h, after: function () {
+      if (inTrip) { var el = document.querySelector('.dcard.is-today'); if (el) el.scrollIntoView({ block: 'center' }); }
+    } };
+  };
+
+  screens.day = function (date) {
+    var i = dayIndex(date), c = T.calendar[i];
+    if (!c) return screens.notfound();
+    var im = dayImage(c);
+    var h = (im ? '<div class="hero"><img src="' + esc(im.src) + '" alt=""></div>' + credit(im) : '') +
+      '<div class="title-block"><div class="ja">' + bi(dateLabel(c)) + '</div><h1>' + bi(c.title) + '</h1>' +
+      '<div class="facts-row">' + whoTag(c) + '</div></div>';
+    if (c.notes && c.notes.length) h += '<div class="sec stack">' + c.notes.map(function (n) { return '<div class="flag note"><span class="k"><span class="zh">留意</span><span class="en">Note</span></span><span>' + bi(n) + '</span></div>'; }).join('') + '</div>';
+    if (c.items && c.items.length) h += '<div class="sec">' + renderItems(c.items) + '</div>';
+    var x = c.plan ? ideaByCode[c.plan] : null;
+    if (x) {
+      var eats = foodRows.filter(function (f) { return f.plan === x.code; });
+      if (eats.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">附近食咩</span><span class="en">Food nearby</span></h2><div class="card rows">' + eats.map(function (f) { return foodRow(f.r); }).join('') + '</div></div>';
+    }
+    var prev = T.calendar[i - 1], next = T.calendar[i + 1];
+    h += '<div class="sec daynav">' +
+      (prev ? '<a class="btn" href="#/day/' + prev.date + '">' + svg('back') + '<span>' + md(parse(prev.date)) + ' · <span class="zh">前一日</span><span class="en">Previous</span></span></a>' : '<span></span>') +
+      (next ? '<a class="btn" href="#/day/' + next.date + '"><span>' + md(parse(next.date)) + ' · <span class="zh">下一日</span><span class="en">Next</span></span>' + svg('chev') + '</a>' : '<span></span>') + '</div>';
+    return { title: { zh: md(parse(c.date)) + ' ' + c.title.zh, en: md(parse(c.date)) + ' ' + c.title.en }, html: h };
+  };
+
+  screens.plans = function () {
+    var used = {};
+    T.calendar.forEach(function (c) { if (c.plan) (used[c.plan] = used[c.plan] || []).push(c); });
+    var h = '<h1><span class="zh">其他選擇</span><span class="en">Other options</span></h1>' +
+      '<p class="lede"><span class="zh">每日行程以外嘅想法。有啲已經排咗入去；其他可以用喺 28–29 日，或者代替某一日。想加想換，講個英文字母就得。</span><span class="en">Ideas beyond the daily plan. Some are already scheduled; others could fill 28–29 Dec or swap with a day. Mention the letter to add or swap one.</span></p>';
+    function card(x) {
+      var im = planImage(x), days = used[x.code] || [];
+      return '<a class="card pcard" href="#/plan/' + x.code + '"><div class="img">' + (im ? '<img src="' + esc(im.src) + '" alt="" loading="lazy">' : '') +
+        '<span class="code">' + esc(x.code) + '</span></div><div class="body"><h3>' + bi(x.title) + '</h3>' +
+        '<div class="facts-row">' + (days.length
+          ? '<span class="pick suggested"><span class="zh">已排：' + days.map(function (c) { return md(parse(c.date)); }).join('、') + '</span><span class="en">On ' + days.map(function (c) { return md(parse(c.date)); }).join(', ') + '</span></span>'
+          : '<span class="pick ' + x.pick + '">' + bi(PICK[x.pick]) + '</span>') + hoursOf(x) + walkBar(x.walk) + '</div>' +
+        '<div class="stops"><span class="zh">' + stopLine(x.items, 'zh') + '</span><span class="en">' + stopLine(x.items, 'en') + '</span></div>' +
+        '</div></a>';
+    }
+    var inSched = T.ideas.filter(function (x) { return used[x.code]; }), rest = T.ideas.filter(function (x) { return !used[x.code]; });
+    if (inSched.length) h += '<div class="group-lbl"><span class="zh">部分已排入每日行程</span><span class="en">Partly in the daily plan</span></div><div class="plan-cards">' + inSched.map(card).join('') + '</div>';
+    if (rest.length) h += '<div class="group-lbl"><span class="zh">未排</span><span class="en">Not scheduled</span></div><div class="plan-cards">' + rest.map(card).join('') + '</div>';
     if (T.extras && T.extras.items.length) {
       h += '<div class="group-lbl">' + bi(T.extras.title) + '</div>' + (T.extras.intro ? '<p class="lede">' + bi(T.extras.intro) + '</p>' : '') +
         '<div class="card rows">' + T.extras.items.map(placeRow).join('') + '</div>';
     }
-    return { title: { zh: '行程選擇', en: 'Day plans' }, html: h };
+    return { title: { zh: '其他選擇', en: 'Other options' }, html: h };
   };
 
   screens.plan = function (code) {
@@ -611,7 +715,7 @@ footer a { color: var(--bronze); }
     var dates = T.calendar.filter(function (c) { return c.plan === code; });
     if (dates.length) {
       h += '<div class="sec"><h2 class="sec-title"><span class="zh">排咗喺</span><span class="en">Scheduled on</span></h2><div class="chips">' +
-        dates.map(function (c) { return '<a class="chip" href="#/calendar">' + md(parse(c.date)) + '</a>'; }).join('') + '</div></div>';
+        dates.map(dayChip).join('') + '</div></div>';
     }
     return { title: { zh: x.code + ' · ' + x.title.zh, en: x.code + ' · ' + x.title.en }, html: h };
   };
@@ -657,54 +761,26 @@ footer a { color: var(--bronze); }
       h += '<div class="sec"><h2 class="sec-title"><span class="zh">小貼士</span><span class="en">Tips</span></h2><ul class="card blist tips">' +
         info.tips.map(function (t) { return '<li><span>' + bi(t) + '</span></li>'; }).join('') + '</ul></div>';
     }
+    var onDays = daysWith(id);
+    if (onDays.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">排咗喺</span><span class="en">Scheduled on</span></h2><div class="chips">' + onDays.map(dayChip).join('') + '</div></div>';
     var plans = plansWith(id);
     var fplan = food && food.plan && ideaByCode[food.plan] && plans.indexOf(ideaByCode[food.plan]) < 0 ? [ideaByCode[food.plan]] : [];
     plans = plans.concat(fplan);
     if (plans.length) {
-      h += '<div class="sec"><h2 class="sec-title"><span class="zh">喺邊個行程</span><span class="en">In day plans</span></h2><div class="chips">' +
+      h += '<div class="sec"><h2 class="sec-title"><span class="zh">相關選擇</span><span class="en">Related options</span></h2><div class="chips">' +
         plans.map(function (x) { return '<a class="chip" href="#/plan/' + x.code + '"><b>' + esc(x.code) + '</b>' + bi(x.title) + '</a>'; }).join('') + '</div></div>';
     }
     return { title: p, html: h };
   };
 
-  screens.calendar = function () {
-    function periodOf(date) {
-      for (var i = 0; i < (T.periods || []).length; i++) { var p = T.periods[i]; if (date >= p.from && date <= p.to) return p; }
-      return null;
-    }
-    var h = '<h1><span class="zh">日曆</span><span class="en">Calendar</span></h1>' +
-      '<p class="lede"><span class="zh">揀好行程之後會排入日子。</span><span class="en">Day plans get placed on dates once chosen.</span></p>';
-    var curP, open = false;
-    T.calendar.forEach(function (c) {
-      var p = periodOf(c.date);
-      if (!open || p !== curP) {
-        if (open) h += '</ul>';
-        if (p) h += '<div class="period"><b>' + bi(p.title) + '</b><span>' + bi(p.hint) + '</span></div>';
-        else if (open) h += '<div class="period"></div>';
-        h += '<ul class="card cal">'; open = true; curP = p;
-      }
-      var d = parse(c.date), idea = c.plan ? ideaByCode[c.plan] : null;
-      var what = c.fixed ? '<b>' + bi(c.fixed) + '</b>'
-        : idea ? '<a href="#/plan/' + idea.code + '"><b>' + esc(idea.code) + ' · ' + bi(idea.title) + '</b></a>'
-        : '<span class="open"><span class="zh">待排</span><span class="en">Not yet planned</span></span>';
-      var nts = (c.notes || []).map(function (n) { return '<span>' + bi(n) + '</span>'; }).join('');
-      var isToday = c.date === todayStr;
-      h += '<li' + (isToday ? ' class="today"' : '') + ' id="date-' + c.date + '">' +
-        '<span class="dt"><b>' + d.getDate() + '</b><small><span class="zh">週' + WEEK_ZH[d.getDay()] + '</span><span class="en">' + WEEK_EN[d.getDay()] + '</span></small>' + (isToday ? '<span class="today-tag"><span class="zh">今日</span><span class="en">Today</span></span>' : '') + '</span>' +
-        '<span class="what">' + what + (nts ? '<span class="nts">' + nts + '</span>' : '') + '</span></li>';
-    });
-    if (open) h += '</ul>';
-    return { title: { zh: '日曆', en: 'Calendar' }, html: h, after: function () {
-      if (inTrip) { var el = document.getElementById('date-' + todayStr); if (el) el.scrollIntoView({ block: 'center' }); }
-    } };
-  };
+  screens.calendar = function () { return screens.days(); };
 
   screens.hotels = function () {
     var h = '<h1><span class="zh">酒店</span><span class="en">Hotels</span></h1>' +
-      '<p class="lede"><span class="zh">Vanjai 揀嘅候選，未訂。要兩間房，等航班同箱根決定咗先比價。</span><span class="en">Vanjai\'s candidates, not booked. We need two rooms; we\'ll compare prices once flights and Hakone are decided.</span></p><div class="stack">';
+      '<p class="lede"><span class="zh">富士吉田別墅然然有兩張訂房確認；東京暫定住 THE BLOSSOM HIBIYA，未正式訂。其他酒店保留作比較。訂房號碼只放喺私人文件夾。</span><span class="en">We have two Bessho Sasa confirmations. THE BLOSSOM HIBIYA is the likely Tokyo base but is not booked yet; the other hotels remain comparisons. Booking numbers stay in the private folder.</span></p><div class="stack">';
     (T.hotels || []).forEach(function (ho) {
       var p = T.places[ho.place];
-      h += '<a class="card hcard" href="#/place/' + esc(ho.place) + '"><div class="body"><b>' + bi(p) + '</b>' +
+      h += '<a class="card hcard" href="#/place/' + esc(ho.place) + '"><div class="body"><b>' + bi(p) + badge(ho.status) + '</b>' +
         '<small>' + bi(ho.area) + '</small>' + (ho.note ? '<p>' + bi(ho.note) + '</p>' : '') +
         '<span class="more-row"><span><span class="zh">睇詳情</span><span class="en">Details</span></span>' + svg('chev', 'chev') + '</span></div></a>';
     });
@@ -745,8 +821,8 @@ footer a { color: var(--bronze); }
   // ---------- Tabs ----------
   var TABS = [
     { id: 'home', href: '#/', l: { zh: '首頁', en: 'Home' } },
-    { id: 'plans', href: '#/plans', l: { zh: '行程', en: 'Plans' } },
-    { id: 'calendar', href: '#/calendar', l: { zh: '日曆', en: 'Calendar' } },
+    { id: 'days', href: '#/days', l: { zh: '每日', en: 'Daily' } },
+    { id: 'plans', href: '#/plans', l: { zh: '選擇', en: 'Options' } },
     { id: 'hotels', href: '#/hotels', l: { zh: '酒店', en: 'Hotels' } },
     { id: 'food', href: '#/food', l: { zh: '餐廳', en: 'Food' } }
   ];
@@ -764,16 +840,18 @@ footer a { color: var(--bronze); }
   function isTabRoot(r) { return TABS.some(function (t) { return t.id === r.name; }); }
   function tabFor(r) {
     if (r.name === 'plan') return 'plans';
+    if (r.name === 'day' || r.name === 'calendar') return 'days';
     if (r.name === 'place') {
-      if (hotelById[r.arg]) return 'hotels';
-      if (foodById[r.arg]) return lastTab === 'plans' ? 'plans' : 'food';
-      return 'plans';
+      if (hotelById[r.arg] && lastTab !== 'days') return 'hotels';
+      if (foodById[r.arg]) return lastTab === 'plans' || lastTab === 'days' ? lastTab : 'food';
+      return lastTab === 'plans' ? 'plans' : 'days';
     }
     if (r.name === 'credits') return 'home';
     return isTabRoot(r) ? r.name : 'home';
   }
   function parentHash(r) {
     if (r.name === 'plan') return '#/plans';
+    if (r.name === 'day') return '#/days';
     if (r.name === 'place') return (TABS.filter(function (t) { return t.id === tabFor(r); })[0] || TABS[0]).href;
     return '#/';
   }

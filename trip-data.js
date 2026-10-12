@@ -4,7 +4,7 @@
 //
 // Shapes
 //   places[id]: { zh, en, ja (taxi card), q (Google Maps search), url (official site, optional) }
-//   calendar[]: { date, plan: idea code or null, fixed: text (arrival/departure), notes: [text] }
+//   calendar[]: { date, who: "all" | "split" | "jv", title, plan?: related idea code, items: [...same as ideas], notes?: [text] }
 //   ideas[]:    { code, pick: "suggested" | "either" | "alt", hours, walk 1-3, title, why, items: [...] }
 //   items[]:    place row { time?, place | name, sub?, status?, optional? } | { type: "leg", from, to, via, dur } | { type: "tbd" | "note", text }
 //               | { type: "branches", mode: "or" (pick one) | "split" (people go separate ways), options: [{ label, items }] }
@@ -16,13 +16,13 @@
 //   leg dur:    "80 min", "~40 min" (~ = approx, shown as 約), "2.5h"
 
 window.TRIP = {
-  version: 8,
-  updated: "2026-10-09",
+  version: 11,
+  updated: "2026-10-12",
   changes: {
-    zh: "行程改咗：A、B、E 而家係「揀一條路線」；C 精簡做築地同銀座；K 變成分頭行，John 去秋葉原中野，其他人逛新宿，夜晚新宿會合；新增 L（澀谷、代官山、惠比壽）。仲有「其他可以加嘅地方」。",
-    en: "Revised day plans: A, B and E now offer a choice of route; C is trimmed to Tsukiji and Ginza; K is a split day (John in Akihabara and Nakano, the others in Shinjuku, dinner together); new L (Shibuya, Daikanyama, Ebisu); plus other places we could fit in."
+    zh: "有每日行程喇！20–26 日四個人一齊，每日去邊、做咩都排好咗（全部仲係計劃，未訂）。23–24 日住富士吉田溫泉旅館。東京暫定住 THE BLOSSOM HIBIYA。Ben 同 Christine 27 日返；John 同 Vanjai 30 日返。",
+    en: "We now have a day-by-day plan! 20–26 Dec for all four of us, with where we go each day (still plans, nothing booked). 23–24 Dec at the Fujiyoshida ryokan. Tokyo base likely THE BLOSSOM HIBIYA. Ben and Christine fly home on the 27th; John and Vanjai on the 30th."
   },
-  status: { zh: "計劃中 · 全部未訂", en: "Still planning · nothing booked" },
+  status: { zh: "計劃中 · 富士住宿已訂，東京酒店暫定", en: "Still planning · Fuji stay booked, Tokyo hotel likely" },
   start: "2026-12-20",
   end: "2026-12-30",
   datesConfirmed: false,
@@ -114,7 +114,24 @@ window.TRIP = {
     landemaine:{ zh: "Maison Landemaine 麻布台", en: "Maison Landemaine Azabudai", q: "Maison Landemaine Azabudai", url: "https://www.maisonlandemainejapon.com/access" },
     anpuku:    { zh: "Anpuku 池袋", en: "Anpuku Ikebukuro", q: "Anpuku Ikebukuro", url: "https://anpuku.net/reservation/" },
 
+    // Scheduled stops (Oct 12 plan)
+    shinbashi: { zh: "新橋", en: "Shinbashi", ja: "新橋駅 SL広場", q: "Shimbashi Station SL Square" },
+    hibiya:    { zh: "東京中城日比谷", en: "Tokyo Midtown Hibiya", ja: "東京ミッドタウン日比谷", q: "Tokyo Midtown Hibiya", url: "https://www.hibiya.tokyo-midtown.com/" },
+    yoyogi:    { zh: "代代木公園", en: "Yoyogi Park", ja: "代々木公園", q: "Yoyogi Park" },
+    dogheart:  { zh: "DOG HEART（富谷）", en: "DOG HEART (Tomigaya)", q: "DOG HEART Aquamarine Tomigaya", url: "https://dog-heart.ico.bz/" },
+    sumoclub:  { zh: "淺草相撲表演", en: "Asakusa Sumo Club show", q: "Asakusa Sumo Club", url: "https://asakusa-sumo.com/reserve/" },
+    sakecenter:{ zh: "日本酒資訊中心", en: "Japan Sake and Shochu Information Center", ja: "日本の酒情報館", q: "Japan Sake and Shochu Information Center", url: "https://japansake.or.jp/sake/en/jss/information-center/" },
+    oshino:    { zh: "忍野八海", en: "Oshino Hakkai", ja: "忍野八海", q: "Oshino Hakkai" },
+    kawaguchiko:{ zh: "河口湖", en: "Lake Kawaguchi", ja: "河口湖", q: "Lake Kawaguchi" },
+    senkyaku:  { zh: "豐洲千客萬來", en: "Toyosu Senkyaku Banrai", ja: "豊洲 千客万来", q: "Toyosu Senkyaku Banrai", url: "https://www.toyosu-senkyakubanrai.jp/" },
+    uogashi:   { zh: "築地魚河岸", en: "Tsukiji Uogashi", ja: "築地魚河岸", q: "Tsukiji Uogashi" },
+    chazen:    { zh: "銀座茶禪 茶道體驗", en: "Ginza Chazen tea ceremony", q: "Ginza Chazen tea ceremony", url: "https://www.chazen-co.jp/ginza/" },
+    artaquarium:{ zh: "Art Aquarium 金魚美術館 GINZA", en: "Art Aquarium Museum GINZA", ja: "銀座三越 アートアクアリウム美術館", q: "Art Aquarium Museum GINZA", url: "https://artaquarium.jp/" },
+    dawn:      { zh: "機械人咖啡店 DAWN（日本橋）", en: "Avatar Robot Café DAWN (Nihonbashi)", q: "Avatar Robot Cafe DAWN Nihonbashi", url: "https://dawn2021.orylab.com/en/" },
+
     // Hotels
+    besshosasa:{ zh: "富士山溫泉 別墅然然", en: "Bessho Sasa Hotel", ja: "富士山温泉 別墅然然", q: "Bessho Sasa Fujiyoshida", url: "https://bessho-sasa.com/" },
+    blossom:   { zh: "THE BLOSSOM HIBIYA", en: "THE BLOSSOM HIBIYA", ja: "THE BLOSSOM HIBIYA（ザ ブラッサム 日比谷）", q: "THE BLOSSOM HIBIYA Tokyo", url: "https://www.jrk-hotels.co.jp/en/Hibiya/" },
     sequence:  { zh: "sequence MIYASHITA PARK", en: "sequence MIYASHITA PARK", ja: "sequence MIYASHITA PARK（渋谷 ミヤシタパーク）", q: "sequence MIYASHITA PARK", url: "https://www.sequencehotels.com/miyashita-park/eng/" },
     tokyustay: { zh: "東急 Stay 新宿 Eastside", en: "Tokyu Stay Shinjuku Eastside", ja: "東急ステイ新宿イーストサイド", q: "Tokyu Stay Shinjuku Eastside", url: "https://www.tokyustay.co.jp/chn_tc/hotel/SE/" },
     stream:    { zh: "澀谷 Stream Excel 東急酒店", en: "Shibuya Stream Excel Hotel Tokyu", ja: "渋谷ストリームエクセルホテル東急", q: "Shibuya Stream Excel Hotel Tokyu", url: "https://www.tokyuhotels.co.jp/en/shibuyastream/index.html" },
@@ -123,22 +140,81 @@ window.TRIP = {
   },
 
   calendar: [
-    { date: "2026-12-20", fixed: { zh: "抵達東京，夜晚輕鬆啲", en: "Arrive in Tokyo, easy evening" }, notes: [{ zh: "航班、酒店待定", en: "Flights and hotel TBC" }] },
-    { date: "2026-12-21", plan: null },
-    { date: "2026-12-22", plan: null, notes: [{ zh: "迪士尼門票比 24、25 日平", en: "Disney tickets cheaper than on 24–25 Dec" }] },
-    { date: "2026-12-23", plan: null, notes: [{ zh: "豐洲市場休市", en: "Toyosu Market closed" }] },
-    { date: "2026-12-24", plan: null, notes: [{ zh: "平安夜", en: "Christmas Eve" }] },
-    { date: "2026-12-25", plan: null, notes: [{ zh: "迪士尼聖誕活動、聖誕市集最後一日", en: "Last day of Disney Christmas and the Christmas markets" }] },
-    { date: "2026-12-26", plan: null, notes: [{ zh: "teamLab Borderless 26–30 日開到夜晚", en: "teamLab Borderless open late 26–30 Dec" }] },
-    { date: "2026-12-27", plan: null, notes: [{ zh: "豐洲市場特別星期日開放", en: "Toyosu Market has a special Sunday opening" }] },
-    { date: "2026-12-28", plan: null },
-    { date: "2026-12-29", plan: null },
-    { date: "2026-12-30", fixed: { zh: "回程，唔去遠", en: "Fly home, nothing far" }, notes: [{ zh: "航班時間待定", en: "Flight time TBC" }] }
+    { date: "2026-12-20", who: "all", title: { zh: "抵達東京", en: "Arrive in Tokyo" },
+      items: [
+        { type: "leg", from: { zh: "香港", en: "Hong Kong" }, to: { zh: "東京", en: "Tokyo" }, via: { zh: "航班待定", en: "Flight TBC" }, dur: "~4h" },
+        { time: { zh: "入住", en: "Check in" }, place: "blossom", sub: { zh: "暫定，未訂", en: "Likely, not booked" } },
+        { time: { zh: "晚餐", en: "Dinner" }, place: "shinbashi", sub: { zh: "酒店附近食居酒屋", en: "Izakaya near the hotel" } },
+        { time: { zh: "夜晚", en: "Evening" }, place: "hibiya", sub: { zh: "睇聖誕燈飾；早到可以行吓商場", en: "Christmas lights; browse the shops if we arrive early" }, optional: true },
+        { type: "tbd", text: { zh: "航班幾點到未知，夜晚安排要跟航班調整。", en: "Arrival time unknown; the evening depends on the flight." } }
+      ] },
+    { date: "2026-12-21", who: "all", plan: "B", title: { zh: "明治神宮、代代木公園拖狗、新宿", en: "Meiji Jingu, a dog walk in Yoyogi Park, Shinjuku" },
+      items: [
+        { time: { zh: "朝早", en: "Morning" }, place: "meiji", sub: { zh: "喺神社入面大約一個鐘", en: "About an hour at the shrine" } },
+        { time: { zh: "11:00", en: "11:00" }, place: "dogheart", sub: { zh: "租狗仔一個鐘", en: "Borrow a dog for an hour" }, status: "tobook" },
+        { time: { zh: "", en: "" }, place: "yoyogi", sub: { zh: "拖狗仔喺公園散步", en: "Walk the dog in the park" } },
+        { time: { zh: "下晝", en: "Afternoon" }, place: "shinjuku", sub: { zh: "行街，夜晚睇歌舞伎町燈光、夾公仔、食晚餐", en: "Shopping, then Kabukicho lights, crane games and dinner" } },
+        { type: "note", text: { zh: "朝早行路比較多：由神社行去公園另一邊嘅狗仔舖大約 25–35 分鐘。", en: "A fairly active morning: about 25–35 minutes on foot from the shrine to the dog shop." } },
+        { type: "tbd", text: { zh: "狗仔要打電話預約，12 月有冇位仲要確認。", en: "The dog walk is booked by phone; December availability still to check." } }
+      ] },
+    { date: "2026-12-22", who: "all", plan: "A", title: { zh: "淺草（彈性日）", en: "Asakusa (flexible day)" },
+      items: [
+        { time: { zh: "上晝", en: "Morning" }, place: "sensoji", sub: { zh: "淺草寺同附近老街", en: "The temple and old streets" } },
+        { time: { zh: "下晝", en: "Afternoon" }, place: "sumoclub", sub: { zh: "坐低睇兩個鐘相撲表演，食相撲火鍋", en: "Two-hour seated sumo show with chanko hotpot" }, optional: true },
+        { time: { zh: "傍晚", en: "Early evening" }, place: "sakecenter", sub: { zh: "酒店附近試清酒，6 點前", en: "Sake tasting near the hotel, before 18:00" }, optional: true },
+        { type: "tbd", text: { zh: "呢日主要節目未定：想唔想睇相撲表演？", en: "The main event is open: would you like the sumo show?" } }
+      ] },
+    { date: "2026-12-23", who: "all", title: { zh: "去富士吉田，住溫泉旅館", en: "To Fujiyoshida for a night at the ryokan" },
+      items: [
+        { type: "leg", from: { zh: "東京", en: "Tokyo" }, to: { zh: "富士吉田", en: "Fujiyoshida" }, via: { zh: "交通方式待定", en: "Transport to be decided" }, dur: "~2h" },
+        { time: { zh: "下晝", en: "Afternoon" }, place: "besshosasa", sub: { zh: "浸溫泉、飲少少酒、食晚餐", en: "Hot spring, a little wine, dinner" }, status: "booked" },
+        { type: "tbd", text: { zh: "訂房截圖睇唔到日期，要等完整憑證確認係咪 23–24 號。", en: "The booking screenshots cut off the dates; confirm 23–24 Dec from the full vouchers." } }
+      ] },
+    { date: "2026-12-24", who: "all", title: { zh: "富士山，然後返東京", en: "Mt Fuji, then back to Tokyo" },
+      items: [
+        { time: { zh: "朝早", en: "Morning" }, place: "besshosasa", sub: { zh: "旅館早餐，退房", en: "Ryokan breakfast, check out" } },
+        { type: "branches", mode: "or", options: [
+          { label: { zh: "忍野八海", en: "Oshino Hakkai" }, items: [ { place: "oshino", sub: { zh: "離酒店最近", en: "Closest to the hotel" } } ] },
+          { label: { zh: "河口湖", en: "Lake Kawaguchi" }, items: [ { place: "kawaguchiko", sub: { zh: "湖景望富士山", en: "Fuji across the lake" } } ] }
+        ] },
+        { type: "leg", from: { zh: "富士", en: "Fuji" }, to: { zh: "東京", en: "Tokyo" }, via: { zh: "交通方式待定", en: "Transport to be decided" }, dur: "~2h" },
+        { time: { zh: "夜晚", en: "Evening" }, place: "hibiya", sub: { zh: "平安夜晚餐，睇聖誕燈飾", en: "Christmas Eve dinner and lights" } },
+        { type: "note", text: { zh: "富士山淨係去一個地方。要安排行李同交通，預留塞車時間。", en: "Just one Fuji stop. Sort out luggage and transport, and allow for delays." } }
+      ] },
+    { date: "2026-12-25", who: "all", plan: "D", title: { zh: "豐洲：市場、足湯、teamLab、聖誕市集", en: "Toyosu: market, footbath, teamLab, Christmas market" },
+      items: [
+        { time: { zh: "朝早", en: "Morning" }, place: "toyosu", sub: { zh: "短短睇吓市場，可以食海鮮早餐", en: "A short look at the market, with an optional seafood breakfast" }, optional: true },
+        { time: { zh: "上晝", en: "Late morning" }, place: "senkyaku", sub: { zh: "江戶風格美食街，8 樓免費足湯", en: "Edo-style food street and the free 8th-floor footbath" } },
+        { time: { zh: "下晝", en: "Afternoon" }, place: "planets", sub: { zh: "大約兩個至兩個半鐘", en: "About 2–2½ hours inside" }, status: "tobook" },
+        { time: { zh: "夜晚", en: "Evening" }, place: "shintoyosu", sub: { zh: "聖誕日係最後一晚", en: "Christmas Day is the last night" }, status: "tobook" },
+        { type: "note", text: { zh: "攰嘅話，第一個唔去嘅係市場參觀。", en: "If tired, the market visit is the first thing to skip." } }
+      ] },
+    { date: "2026-12-26", who: "all", plan: "C", title: { zh: "築地、銀座茶道、金魚美術館", en: "Tsukiji, a Ginza tea ceremony, goldfish art" },
+      items: [
+        { time: { zh: "09:00", en: "09:00" }, place: "tsukiji", sub: { zh: "大約 9 點至 10 點半，熱鬧嘅美食街", en: "Roughly 9:00–10:30, the lively food lanes" } },
+        { time: { zh: "", en: "" }, place: "uogashi", sub: { zh: "專業海鮮批發樓", en: "The professional seafood building" } },
+        { time: { zh: "中午", en: "Midday" }, place: "chazen", sub: { zh: "45 分鐘茶道體驗", en: "45-minute tea ceremony" }, status: "tobook" },
+        { time: { zh: "下晝", en: "Afternoon" }, place: "artaquarium", sub: { zh: "午餐之後去", en: "After lunch" } },
+        { time: { zh: "夜晚", en: "Evening" }, place: "ginza", sub: { zh: "慢慢行街，食晚餐", en: "An unhurried browse and dinner" } },
+        { type: "note", text: { zh: "應該係四個人一齊嘅最後一個完整日。", en: "Likely the last full day for all four of us." } },
+        { type: "tbd", text: { zh: "茶道時段同美術館年尾開放時間要確認。", en: "Tea ceremony slot and the museum's holiday hours to confirm." } }
+      ] },
+    { date: "2026-12-27", who: "split", title: { zh: "Ben 同 Christine 回程", en: "Ben and Christine fly home" },
+      items: [
+        { type: "note", text: { zh: "Ben 同 Christine 返香港；John 同 Vanjai 留喺東京。航班時間待定。", en: "Ben and Christine fly back to Hong Kong; John and Vanjai stay in Tokyo. Flight times TBC." } }
+      ],
+      notes: [{ zh: "豐洲市場特別星期日開放", en: "Toyosu Market has a special Sunday opening" }] },
+    { date: "2026-12-28", who: "jv", title: { zh: "John 同 Vanjai 自由行", en: "John and Vanjai's own day" },
+      items: [ { type: "note", text: { zh: "Vanjai 揀；John 嘅秋葉原・中野日都係其中一個選擇。睇「其他選擇」。", en: "Vanjai's pick; John's Akihabara and Nakano day is one option. See Other options." } } ] },
+    { date: "2026-12-29", who: "jv", title: { zh: "John 同 Vanjai 自由行", en: "John and Vanjai's own day" },
+      items: [ { type: "note", text: { zh: "自由安排。", en: "Free to plan." } } ] },
+    { date: "2026-12-30", who: "jv", title: { zh: "John 同 Vanjai 回程", en: "John and Vanjai fly home" },
+      items: [ { type: "note", text: { zh: "航班時間待定，唔去遠。", en: "Flight time TBC; nothing far." } } ] }
   ],
 
   periods: [
-    { from: "2026-12-21", to: "2026-12-25", title: { zh: "聖誕期間", en: "Christmas days" }, hint: { zh: "迪士尼同聖誕市集要喺呢幾日", en: "Disney and the Christmas markets must fit in here" } },
-    { from: "2026-12-26", to: "2026-12-29", title: { zh: "聖誕之後", en: "After Christmas" }, hint: { zh: "箱根、近郊一日遊、行街或者休息", en: "Hakone, a day trip, shopping or rest" } }
+    { from: "2026-12-20", to: "2026-12-26", title: { zh: "四個人一齊", en: "All four of us" }, hint: { zh: "Ben、Christine、John、Vanjai", en: "Ben, Christine, John, Vanjai" } },
+    { from: "2026-12-27", to: "2026-12-30", title: { zh: "John 同 Vanjai", en: "John and Vanjai" }, hint: { zh: "Ben 同 Christine 27 日返香港", en: "Ben and Christine fly home on the 27th" } }
   ],
 
   ideas: [
@@ -221,9 +297,9 @@ window.TRIP = {
       ]
     },
     {
-      code: "F", pick: "suggested", hours: { zh: "全日", en: "Full day" }, walk: 3,
+      code: "F", pick: "alt", hours: { zh: "全日", en: "Full day" }, walk: 3,
       title: { zh: "迪士尼", en: "Disney" },
-      why: { zh: "聖誕活動做到 12 月 25 日。", en: "Christmas events run until 25 Dec." },
+      why: { zh: "而家冇排入日程。想去嘅話可以代替 22 日。聖誕活動做到 12 月 25 日。", en: "Not in the current schedule; it could replace 22 Dec if wanted. Christmas events run until 25 Dec." },
       items: [
         { time: { zh: "全日", en: "All day" }, place: "disney" },
         { type: "tbd", text: { zh: "去迪士尼海洋定迪士尼樂園？", en: "DisneySea or Disneyland?" } },
@@ -231,9 +307,9 @@ window.TRIP = {
       ]
     },
     {
-      code: "G", pick: "suggested", hours: { zh: "兩日一夜", en: "2 days, 1 night" }, walk: 2,
+      code: "G", pick: "alt", hours: { zh: "兩日一夜", en: "2 days, 1 night" }, walk: 2,
       title: { zh: "箱根溫泉一晚", en: "Hakone onsen overnight" },
-      why: { zh: "浸溫泉、睇湖景。要用兩日，同搬一次酒店。", en: "Hot springs and lake views. Uses two days and one hotel change." },
+      why: { zh: "已經訂咗富士吉田溫泉（23–24 日），箱根暫時唔需要。保留做參考。", en: "We've booked the Fujiyoshida ryokan (23–24 Dec), so Hakone isn't needed for now. Kept for reference." },
       items: [
         { type: "leg", from: { zh: "新宿", en: "Shinjuku" }, to: { zh: "箱根湯本", en: "Hakone-Yumoto" }, via: { zh: "小田急浪漫特快", en: "Odakyu Romancecar" }, dur: "80 min" },
         { type: "leg", from: { zh: "箱根湯本", en: "Hakone-Yumoto" }, to: { zh: "強羅", en: "Gora" }, via: { zh: "登山電車，再轉酒店接駁車", en: "Mountain railway, then hotel shuttle" }, dur: "~40 min" },
@@ -313,16 +389,38 @@ window.TRIP = {
       { place: "shinjuku", sub: { zh: "K 日分頭行時去，或者住新宿嘅夜晚", en: "During split day K, or an evening if staying in Shinjuku" } },
       { place: "roppongi", sub: { zh: "E 嘅其中一個結尾", en: "One of E's finishes" } },
       { place: "ueno", sub: { zh: "A 嘅其中一條路線，或者配谷中", en: "One of A's routes, or with Yanaka" } },
-      { place: "odaiba", sub: { zh: "聖誕之後代替 D 嘅聖誕市集", en: "Instead of D's Christmas market after Christmas" } }
+      { place: "odaiba", sub: { zh: "聖誕之後代替 D 嘅聖誕市集", en: "Instead of D's Christmas market after Christmas" } },
+      { place: "dawn", sub: { zh: "可以放喺銀座或者東京站附近嘅一日，一至兩個鐘", en: "Fits a Ginza or Tokyo Station day, one to two hours" } }
     ]
   },
 
   hotels: [
     {
+      place: "besshosasa", status: "booked",
+      area: { zh: "富士吉田 · 富士山附近", en: "Fujiyoshida · near Mt Fuji" },
+      facts: [
+    { title: { zh: "邊幾日一齊", en: "Who's there when" }, text: { zh: "20–26 日四個人一齊；27 日 Ben 同 Christine 返香港；28–29 日 John 同 Vanjai 自由行，30 日返。", en: "All four together 20–26 Dec; Ben and Christine fly home on the 27th; John and Vanjai have 28–29 Dec to themselves and leave on the 30th." } },
+        { zh: "已有兩張 Agoda 訂房確認", en: "Two Agoda booking confirmations received" },
+        { zh: "完整憑證要核對入住日期、房型同房號", en: "Check the full vouchers for stay dates, room types and numbers" },
+        { zh: "呢間喺富士吉田，唔係箱根", en: "This hotel is in Fujiyoshida, not Hakone" }
+      ],
+      note: { zh: "打算留返下晝、夜晚同第二朝喺酒店浸溫泉、望富士山；交通同房間景觀要等完整憑證再定。", en: "Keep the afternoon, evening and next morning for the ryokan, bath and Fuji view; transport and the exact room view need the full vouchers." }
+    },
+    {
+      place: "blossom", status: "first",
+      area: { zh: "東京・新橋／日比谷", en: "Tokyo · Shinbashi / Hibiya" },
+      facts: [
+        { zh: "東京住宿暫定選呢間；未有訂房確認", en: "Likely Tokyo base; no booking confirmation yet" },
+        { zh: "JR 新橋站日比谷口步行約 5 分鐘；內幸町站約 2 分鐘", en: "About 5 min from JR Shinbashi Hibiya Exit; 2 min from Uchisaiwaicho" },
+        { zh: "入住 15:00；退房 11:00", en: "Check-in 15:00; check-out 11:00" },
+        { zh: "東京住宿暫定：至 26 號晚要兩間房（富士山嗰晚另計）；27–29 號晚 John 同 Vanjai 要一間房", en: "Tokyo stay plan: two rooms for nights through 26 Dec (Fuji night to decide separately); one room for John and Vanjai on 27–29 Dec" }
+      ],
+      note: { zh: "富士山酒店嗰晚係保留東京房定退房寄存行李，要等日期同房價確認。", en: "Whether to keep the Tokyo rooms during the Fuji night or check out and store luggage depends on the voucher dates and price." }
+    },
+    {
       place: "sequence", status: "idea",
       area: { zh: "澀谷・原宿之間", en: "Between Shibuya and Harajuku" },
       facts: [
-    { title: { zh: "大約有幾多日", en: "How many days we have" }, text: { zh: "20 同 30 日主要係搭飛機，21–29 日有 9 個全日。箱根用 2 日、迪士尼 1 日，東京大約 6 日。", en: "20 and 30 Dec are mostly flying, leaving 9 full days (21–29). Hakone takes 2 and Disney 1, so about 6 days for Tokyo." } },
         { zh: "澀谷站行 3–7 分鐘，明治神宮前行 8 分鐘", en: "3–7 min walk to Shibuya Station, 8 min to Meiji-jingumae" },
         { zh: "下晝 5 點先入住，2 點退房", en: "Check-in 17:00, check-out 14:00" },
         { zh: "房間兩日先清潔一次", en: "Rooms cleaned every two days" }
@@ -476,6 +574,6 @@ window.TRIP = {
     { title: { zh: "豐洲市場", en: "Toyosu Market" }, text: { zh: "23 日休市；27 日（星期日）特別開放。", en: "Closed 23 Dec; special Sunday opening on 27 Dec." } },
     { title: { zh: "東京國立博物館", en: "Tokyo National Museum" }, text: { zh: "呢段時間唔適合：22–25 日只開少部分，26–31 日休館。", en: "Not a good fit: only partly open 22–25 Dec, closed 26–31 Dec." } },
     { title: { zh: "每日兩個區", en: "Two areas a day" }, text: { zh: "每日大約去兩個區，中間食飯同搭車，唔會太攰。", en: "About two areas a day, with a meal and travel between, keeps the pace comfortable." } },
-    { title: { zh: "時間係估計", en: "Times are estimates" }, text: { zh: "上面寫嘅時數係大概，未計門口到門口。訂咗酒店再計準。", en: "Durations are rough, not door to door. We'll firm them up once the hotel is booked." } }
+    { title: { zh: "時間係估計", en: "Times are estimates" }, text: { zh: "上面寫嘅時數係大概，未計門口到門口。揀好東京酒店、核對富士住宿日期之後再計準。", en: "Durations are rough, not door to door. We'll firm them up after choosing the Tokyo hotel and verifying the Fuji stay dates." } }
   ]
 };

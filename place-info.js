@@ -379,5 +379,163 @@ window.PLACE_INFO = {
     tips: [
       { zh: "由豐洲搭百合海鷗號過去好方便", en: "Easy on the Yurikamome line from Toyosu" }
     ]
+  },
+  shinbashi: {
+    about: { zh: "酒店附近嘅上班族區，街頭巷尾都係居酒屋、燒鳥同拉麵小店，夜晚好熱鬧，價錢親民。", en: "The office-worker district by the hotel, packed with izakaya, yakitori and ramen spots. Lively at night and good value." },
+    todo: [
+      { zh: "喺高架橋底嘅居酒屋食晚餐", en: "Dinner at an izakaya under the railway arches" },
+      { zh: "SL 廣場睇舊蒸汽火車頭", en: "See the old steam locomotive in SL Square" }
+    ],
+    tips: [
+      { zh: "由酒店行過去幾分鐘", en: "A few minutes' walk from the hotel" }
+    ]
+  },
+  hibiya: {
+    about: { zh: "東京中城日比谷係酒店附近嘅商場，冬天外面有聖誕燈飾，對面係日比谷公園同皇居。", en: "Tokyo Midtown Hibiya is the mall near the hotel, with Christmas lights outside in winter; Hibiya Park and the Imperial Palace are opposite." },
+    todo: [
+      { zh: "睇聖誕燈飾（大約 16:00–23:00）", en: "See the Christmas lights (around 16:00–23:00)" },
+      { zh: "上 6 樓空中花園望皇居", en: "Sixth-floor sky garden with views over the Imperial Palace" },
+      { zh: "行商場、食晚餐", en: "Shops and dinner" }
+    ],
+    tips: [
+      { zh: "商店大約晚上 8 點關，餐廳開到 11 點", en: "Shops close around 20:00, restaurants around 23:00" }
+    ]
+  },
+  yoyogi: {
+    about: { zh: "明治神宮旁邊嘅大公園，好多東京人嚟散步、跑步同拖狗。", en: "The big park beside Meiji Jingu, where Tokyo locals walk, jog and walk their dogs." },
+    todo: [
+      { zh: "租隻狗仔一齊喺公園散步", en: "Walk a rented dog around the park" },
+      { zh: "睇湖同大草地", en: "Enjoy the pond and the big lawns" }
+    ],
+    tips: [
+      { zh: "由明治神宮本殿行去公園另一邊嘅 DOG HEART 大約 25–35 分鐘", en: "About 25–35 minutes on foot from the shrine's main hall to DOG HEART on the far side" }
+    ]
+  },
+  dogheart: {
+    about: { zh: "代代木公園附近（富谷）嘅狗仔舖，可以租狗仔一個鐘，拖佢去公園散步。", en: "A dog shop near Yoyogi Park (Tomigaya) where you can borrow a dog for an hour's walk in the park." },
+    todo: [
+      { zh: "揀隻狗仔，拖去代代木公園散步一個鐘", en: "Pick a dog and walk it in Yoyogi Park for an hour" },
+      { zh: "落雨可以留喺舖頭入面同狗仔玩", en: "If it rains, play with the dogs inside the shop instead" }
+    ],
+    tips: [
+      { zh: "每日 11:00–19:00；要打電話預約", en: "Open 11:00–19:00 daily; book by phone" },
+      { zh: "細隻狗一個鐘大約 ¥4,000", en: "About ¥4,000 for an hour with a small dog" }
+    ]
+  },
+  sumoclub: {
+    about: { zh: "淺草嘅相撲表演：坐低睇真相撲手示範，有講解，仲可以食相撲火鍋 (chanko)。12 月冇正式相撲比賽，呢個係表演。", en: "A seated sumo show in Asakusa with real wrestlers demonstrating and explaining, plus chanko hotpot. There are no official tournaments in December; this is a show." },
+    todo: [
+      { zh: "睇相撲示範同講解", en: "Watch the demonstration and explanation" },
+      { zh: "食相撲火鍋", en: "Eat chanko hotpot" },
+      { zh: "同相撲手影相", en: "Photos with the wrestlers" }
+    ],
+    tips: [
+      { zh: "大約兩個鐘；要預約", en: "About two hours; booking required" }
+    ]
+  },
+  sakecenter: {
+    about: { zh: "西新橋嘅日本酒資訊中心，有展覽同試飲吧枱，可以試唔同地方嘅清酒同燒酎。就喺酒店附近。", en: "The Japan Sake and Shochu Information Center in Nishi-Shimbashi, with displays and a tasting counter for sake and shochu from around Japan. Close to the hotel." },
+    todo: [
+      { zh: "試幾款清酒（每杯大約 ¥100 起）", en: "Try a few sakes (tastings from about ¥100)" }
+    ],
+    tips: [
+      { zh: "平日 10:00–18:00；星期六日同年尾休息", en: "Weekdays 10:00–18:00; closed weekends and over New Year" },
+      { zh: "免費入場", en: "Free entry" }
+    ]
+  },
+  oshino: {
+    about: { zh: "富士山腳嘅小村，有八個由富士山雪水滲出嚟嘅清澈泉水池，背景就係富士山，有茅草屋同小食檔。", en: "A village at the foot of Mt Fuji with eight crystal-clear spring ponds fed by Fuji snowmelt, thatched houses, snack stalls, and the mountain behind." },
+    todo: [
+      { zh: "睇清澈見底嘅泉水池", en: "See the ponds, clear to the bottom" },
+      { zh: "影富士山同茅草屋", en: "Photograph Fuji with the thatched houses" },
+      { zh: "試草餅、烤糰子等小食", en: "Try kusamochi and grilled dango" }
+    ],
+    tips: [
+      { zh: "離富士吉田酒店最近；朝早人少啲", en: "Closest to the Fujiyoshida hotel; quieter in the morning" },
+      { zh: "觀光巴士班次唔多，要預先睇時間", en: "Sightseeing buses are infrequent; check times ahead" }
+    ]
+  },
+  kawaguchiko: {
+    about: { zh: "富士五湖之一，湖邊望富士山係最經典嘅明信片景色。", en: "One of the Fuji Five Lakes; Fuji across the water is the classic postcard view." },
+    todo: [
+      { zh: "湖邊散步望富士山", en: "Lakeside walk with Fuji views" },
+      { zh: "坐纜車上天上山公園", en: "Ropeway up to Tenjo-yama Park" },
+      { zh: "坐遊覽船", en: "Take a lake cruise" }
+    ],
+    tips: [
+      { zh: "冬天朝早最易見到富士山", en: "Winter mornings give the clearest Fuji views" }
+    ]
+  },
+  senkyaku: {
+    about: { zh: "豐洲市場隔籬新開嘅江戶風格美食街同溫泉，專為遊客而設。8 樓有免費足湯，可以一路浸腳一路望海。", en: "The new Edo-style food street and hot-spring complex beside Toyosu Market, built for visitors. The free 8th-floor footbath has bay views." },
+    todo: [
+      { zh: "8 樓免費足湯", en: "Free footbath on the 8th floor" },
+      { zh: "行江戶風格美食街，見啱就食", en: "Stroll the Edo-style food street and snack on whatever appeals" }
+    ],
+    tips: [
+      { zh: "大溫泉要另外收費；足湯免費", en: "The main spa charges admission; the footbath is free" },
+      { zh: "市場休市日都照開", en: "Open even when the market is closed" }
+    ]
+  },
+  uogashi: {
+    about: { zh: "築地場外市場入面嘅一棟兩層樓，係專業買手嘅海鮮同乾貨批發地方，遊客都可以入去睇。", en: "A two-storey building inside Tsukiji Outer Market where professional buyers shop for seafood and dry goods; visitors can browse too." },
+    todo: [
+      { zh: "睇專業海鮮檔", en: "Browse the professional seafood stalls" },
+      { zh: "樓上有食堂", en: "There's a canteen upstairs" }
+    ],
+    tips: [
+      { zh: "朝早 9 點前係專業買手優先", en: "Professional buyers have priority before 9:00" }
+    ]
+  },
+  chazen: {
+    about: { zh: "歌舞伎座旁邊嘅茶道體驗，大約 45 分鐘：食和菓子、睇茶道示範，再自己打一碗抹茶。有英文同日文。", en: "A 45-minute tea ceremony beside Kabukiza: Japanese sweets, a demonstration, then whisking your own matcha. In English or Japanese." },
+    todo: [
+      { zh: "食和菓子", en: "Eat traditional sweets" },
+      { zh: "睇茶道示範", en: "Watch the ceremony" },
+      { zh: "自己打抹茶", en: "Whisk your own matcha" }
+    ],
+    tips: [
+      { zh: "要預約時段；要跪坐一陣，膝頭唔好可以問有冇凳", en: "Book a time slot; there's some kneeling, so ask about chairs if knees are a concern" }
+    ]
+  },
+  artaquarium: {
+    about: { zh: "喺銀座三越入面嘅金魚美術館：幾千條真金魚，配埋燈光同藝術裝置，好靚好適合影相。", en: "A goldfish art museum inside Ginza Mitsukoshi: thousands of live goldfish in lit art installations. Beautiful and very photogenic." },
+    todo: [
+      { zh: "慢慢行睇金魚燈光裝置", en: "Wander through the lit goldfish installations" },
+      { zh: "影相", en: "Take photos" }
+    ],
+    tips: [
+      { zh: "10:00–19:00（18:00 最後入場）；網上買飛大約 ¥2,500", en: "10:00–19:00 (last entry 18:00); about ¥2,500 online" },
+      { zh: "年尾假期時間要再確認", en: "Check holiday hours near the date" }
+    ]
+  },
+  dawn: {
+    about: { zh: "日本橋嘅機械人咖啡店：店員係 OriHime 機械人，由因為身體原因唔方便出門嘅人喺屋企遙控，同你傾偈。唔係 AI。", en: "A robot café in Nihonbashi whose OriHime robot staff are remotely piloted by people who find it hard to leave home. Real people, not AI." },
+    todo: [
+      { zh: "飲杯嘢，同機械人店員傾偈", en: "Have a drink and chat with the robot staff" },
+      { zh: "預約 OriHime Diner 可以邊食邊同專屬遙控員傾偈", en: "Book the OriHime Diner for a meal with your own pilot" }
+    ],
+    tips: [
+      { zh: "直接入大約 ¥2,200（包一杯飲品）；Diner 大約 ¥5,500", en: "Walk-in about ¥2,200 with a drink; the Diner about ¥5,500" },
+      { zh: "大約一至兩個鐘", en: "Allow one to two hours" }
+    ]
+  },
+  besshosasa: {
+    about: { zh: "富士吉田嘅溫泉旅館，望到富士山。我哋喺度住一晚：下晝浸溫泉、飲少少酒、食晚餐，第二朝食完早餐先走。", en: "An onsen ryokan in Fujiyoshida with Mt Fuji views. One night: an afternoon soak, a little wine and dinner, then breakfast before checking out." },
+    todo: [
+      { zh: "浸溫泉", en: "Soak in the hot spring" },
+      { zh: "望富士山", en: "Take in the Fuji view" },
+      { zh: "酒店晚餐同早餐", en: "Dinner and breakfast at the ryokan" }
+    ],
+    tips: [
+      { zh: "要同酒店確認房間係咪真係望到富士山", en: "We still need to confirm with the hotel that the rooms face Mt Fuji" }
+    ]
+  },
+  blossom: {
+    about: { zh: "新橋同日比谷之間嘅酒店，近 JR 新橋站同內幸町站，去銀座、築地、豐洲都方便。暫定住呢度，未正式訂。", en: "Hotel between Shinbashi and Hibiya, near JR Shinbashi and Uchisaiwaicho stations, handy for Ginza, Tsukiji and Toyosu. Our likely Tokyo base, not booked yet." },
+    todo: [],
+    tips: [
+      { zh: "入住 15:00；退房 11:00", en: "Check-in 15:00; check-out 11:00" }
+    ]
   }
 };

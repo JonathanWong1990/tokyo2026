@@ -2,7 +2,7 @@
 
 A phone-first, read-only page for the family (Traditional Chinese by default, with an English toggle). It will be hosted on GitHub Pages.
 
-- `trip-data.js` holds **all the content**. Update this file when the plan changes. The format is described at the top of the file.
+- `trip-data.js` holds **all the content**. `calendar` is the day-by-day plan (shown in the 每日 tab, one page per date at `#/day/YYYY-MM-DD`); `ideas` A–L are the other options (選擇 tab). Update this file when the plan changes. The format is described at the top of the file.
 - `place-info.js` holds each place's description: `about`, `todo` (what to do) and `tips`, keyed by the place id from `trip-data.js`.
 - `place-img.js` plus `img/` hold the photos. Use free-licensed Wikimedia Commons images only, resized to about 960px, and fill in the credit fields (the page is public).
 - `index.html` holds the layout and design: a small app with a bottom tab bar and a page per place (`#/place/<id>`). It shouldn't need changes when the content changes.
