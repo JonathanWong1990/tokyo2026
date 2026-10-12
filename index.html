@@ -90,7 +90,7 @@ img { max-width: 100%; display: block; }
 .back svg { width: 20px; height: 20px; }
 .top-title { opacity: 0; transition: opacity .2s; font-family: var(--f-display); font-size: 1.0625rem; letter-spacing: .06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); padding: 2px; }
-.lang button { border: 0; background: transparent; padding: 5px 13px; border-radius: 999px; font-size: var(--s-sm); font-weight: 500; color: var(--muted); cursor: pointer; min-height: 44px; }
+.lang button { border: 0; background: transparent; padding: 5px 13px; border-radius: 999px; font-size: var(--s-sm); font-weight: 500; color: var(--muted); cursor: pointer; min-height: 44px; min-width: 44px; }
 .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 
 /* Bottom tabs */
@@ -184,8 +184,8 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .pass .st { min-width: 0; }
 .pass .st b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 1.125rem; letter-spacing: .04em; line-height: 1.35; overflow-wrap: anywhere; }
 .pass .st:last-child { text-align: right; }
-.pass .mid { text-align: center; font-size: 0.8125rem; color: var(--pass-muted); line-height: 1.4; max-width: 8em; }
-.pass .mid b { display: block; font-family: var(--f-latin); font-size: 1.375rem; font-weight: 500; color: var(--pass-fg); }
+.pass .mid { text-align: center; font-size: 0.8125rem; color: var(--pass-muted); line-height: 1.4; max-width: 10em; }
+.pass .mid b { display: block; font-family: var(--f-latin); font-size: 1.25rem; font-weight: 500; color: var(--pass-fg); white-space: nowrap; }
 .pass .lab { font-size: 0.8125rem; letter-spacing: .1em; color: var(--pass-muted); }
 .stack { display: grid; gap: 10px; }
 
@@ -264,7 +264,7 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
   font-family: var(--f-latin); font-size: 2.3rem; line-height: 1;
 }
 .credit { font-size: 0.75rem; color: var(--muted); padding: 6px 0 0; text-align: right; }
-.credit a { color: inherit; }
+.credit a { color: inherit; display: inline-block; padding-block: 12px; margin-block: -12px; }
 .hero + .credit { padding-right: 0; }
 .title-block { margin-top: 18px; display: grid; gap: 6px; }
 .title-block h1 { font-size: 1.625rem; font-weight: 400; margin: 0; }
@@ -344,7 +344,7 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .credits b { color: var(--ink); font-weight: 500; }
 
 footer { padding-block: 28px 8px; color: var(--muted); font-size: var(--s-xs); text-align: center; line-height: 1.8; }
-footer a { color: var(--bronze); }
+footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 
 /* Taxi card */
 .sheet-bg { position: fixed; inset: 0; z-index: 50; background: rgba(20,18,15,.5); display: grid; align-items: end; }
@@ -392,11 +392,11 @@ footer a { color: var(--bronze); }
 
 <div class="sheet-bg" id="taxi" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="taxi-ja">
-    <div class="hint"><span class="zh">俾司機睇 · 出示此畫面</span><span class="en">Show this to the driver</span></div>
+    <div class="hint"><span class="zh">請向司機出示此畫面</span><span class="en">Show this to the driver</span></div>
     <div class="ja" id="taxi-ja" lang="ja"></div>
-    <div class="please"><span lang="ja">ここまでお願いします。</span><small lang="zh-Hant"><span class="zh">（請帶我哋去呢度）</span><span class="en">(Please take us here.)</span></small></div>
+    <div class="please"><span lang="ja">ここまでお願いします。</span><small lang="zh-Hant"><span class="zh">（請帶我們到這裡）</span><span class="en">(Please take us here.)</span></small></div>
     <div class="row">
-      <a class="sbtn" id="taxi-map" href="#" target="_blank" rel="noopener"><span class="zh">開地圖</span><span class="en">Open map</span></a>
+      <a class="sbtn" id="taxi-map" href="#" target="_blank" rel="noopener"><span class="zh">開啟地圖</span><span class="en">Open map</span></a>
       <button class="sbtn primary" type="button" id="taxi-close"><span class="zh">關閉</span><span class="en">Close</span></button>
     </div>
   </div>
@@ -410,7 +410,7 @@ footer a { color: var(--bronze); }
   var T = window.TRIP, INFO = window.PLACE_INFO || {}, IMG = window.PLACE_IMG || {};
   var root = document.documentElement, view = document.getElementById('view');
   var WEEK_ZH = ['日','一','二','三','四','五','六'], WEEK_EN = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  var PICK = { suggested: { zh: '建議', en: 'Suggested' }, either: { zh: '二揀一', en: 'Pick one' }, alt: { zh: '後備', en: 'Backup' } };
+  var PICK = { suggested: { zh: '建議', en: 'Suggested' }, either: { zh: '二選一', en: 'Pick one' }, alt: { zh: '後備', en: 'Backup' } };
   var STATUS = {
     booked: { zh: '已訂', en: 'Booked' }, first: { zh: '優先考慮', en: 'Top pick' }, idea: { zh: '候選', en: 'Option' },
     review: { zh: '保留？', en: 'Keep?' }, tobook: { zh: '未訂', en: 'Not booked' }
@@ -440,13 +440,13 @@ footer a { color: var(--bronze); }
   function parse(s) { return new Date(s + 'T00:00:00'); }
   function md(d) { return (d.getMonth() + 1) + '/' + d.getDate(); }
   function dur(d) {
-    var m = /^(~?)([\d.]+)\s*(min|h)$/.exec(String(d).trim());
+    var m = /^(~?)([\d.]+(?:[–-][\d.]+)?)\s*(min|h)$/.exec(String(d).trim());
     if (!m) return { zh: d, en: d };
     return { zh: (m[1] ? '約 ' : '') + m[2] + (m[3] === 'h' ? ' 小時' : ' 分鐘'), en: m[1] + m[2] + (m[3] === 'h' ? ' h' : ' min') };
   }
   function badge(st) { return st && STATUS[st] ? '<span class="badge b-' + st + '">' + bi(STATUS[st]) + '</span>' : ''; }
   function walkBar(n) {
-    return '<span><span class="zh">行路</span><span class="en">Walking</span> <span class="walk" role="img" aria-label="' + n + '/3">' +
+    return '<span><span class="zh">步行量</span><span class="en">Walking</span> <span class="walk" role="img" aria-label="' + n + '/3">' +
       [1, 2, 3].map(function (k) { return '<i class="' + (k <= n ? 'on' : '') + '"></i>'; }).join('') + '</span></span>';
   }
   function hoursOf(x) {
@@ -527,10 +527,10 @@ footer a { color: var(--bronze); }
         flush();
         var split = it.mode === 'split';
         out += '<div class="fork"><div class="fork-head">' + (split
-            ? '<span class="zh">分頭行</span><span class="en">Split up</span>'
-            : '<span class="zh">揀一條路線</span><span class="en">Pick one route</span>') + '</div>' +
+            ? '<span class="zh">分頭行動</span><span class="en">Split up</span>'
+            : '<span class="zh">選擇一條路線</span><span class="en">Pick one route</span>') + '</div>' +
           it.options.map(function (o, k) {
-            return (k && !split ? '<div class="fork-or"><span class="zh">或者</span><span class="en">or</span></div>' : '') +
+            return (k && !split ? '<div class="fork-or"><span class="zh">或</span><span class="en">or</span></div>' : '') +
               '<div class="fork-opt"><div class="fork-lbl">' + (split ? '' : '<span class="fork-n">' + (k + 1) + '</span>') + bi(o.label) + '</div>' + renderItems(o.items) + '</div>';
           }).join('') + '</div>';
       } else if (it.type === 'tbd' || it.type === 'note') {
@@ -588,7 +588,7 @@ footer a { color: var(--bronze); }
       '<span class="en">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : ' (draft)') + ' · ' + esc(T.people.en) + '</span></div>';
     if (today) h += '<div class="sec" style="margin-top:16px">' + today + '</div>';
     else h += (T.status ? '<div class="wip">' + bi(T.status) + '</div>' : '') +
-      '<div class="changes"><span class="lbl"><span class="zh">今次更新 · 第 ' + T.version + ' 版 · ' + esc(T.updated) + '</span><span class="en">What\'s new · v' + T.version + ' · ' + esc(T.updated) + '</span></span>' + bi(T.changes) + '</div>';
+      '<div class="changes"><span class="lbl"><span class="zh">本次更新 · 第 ' + T.version + ' 版 · ' + esc(T.updated) + '</span><span class="en">What\'s new · v' + T.version + ' · ' + esc(T.updated) + '</span></span>' + bi(T.changes) + '</div>';
 
     // Day list at a glance
     h += '<div class="sec"><h2 class="sec-title"><span class="zh">每日一覽</span><span class="en">Day by day</span></h2><div class="card daylist">' +
@@ -609,7 +609,7 @@ footer a { color: var(--bronze); }
     var open = [];
     T.calendar.forEach(function (c) { (c.items || []).forEach(function (it) { if (it.type === 'tbd') open.push({ c: c, text: it.text }); }); });
     if (open.length) {
-      h += '<div class="sec"><h2 class="sec-title"><span class="zh">仲未決定</span><span class="en">Still to decide</span></h2>' +
+      h += '<div class="sec"><h2 class="sec-title"><span class="zh">尚待決定</span><span class="en">Still to decide</span></h2>' +
         '<div class="card todo-list">' + open.map(function (o) {
           return '<a href="#/day/' + o.c.date + '"><span class="code">' + parse(o.c.date).getDate() + '</span><span class="tx">' + bi(o.text) + '</span>' + svg('chev', 'chev') + '</a>';
         }).join('') + '</div></div>';
@@ -626,7 +626,7 @@ footer a { color: var(--bronze); }
       return null;
     }
     var h = '<h1><span class="zh">每日行程</span><span class="en">Daily plan</span></h1>' +
-      '<p class="lede"><span class="zh">全部仲係計劃，未訂。撳入去睇每日去邊、做咩。對邊日有意見，講日子就得，例如「21 號太多路行」。</span><span class="en">All still plans, nothing booked. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
+      '<p class="lede"><span class="zh">以下仍是計劃；除富士吉田旅館外，其他均未預訂。點擊可查看每日的去處與活動。對某天有意見，只需說出日期，例如「21 日步行太多」。</span><span class="en">Still plans; only the Fuji ryokan is booked. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
     var curP, open = false;
     T.calendar.forEach(function (c) {
       var p = periodOf(c.date);
@@ -664,12 +664,12 @@ footer a { color: var(--bronze); }
     var x = c.plan ? ideaByCode[c.plan] : null;
     if (x) {
       var eats = foodRows.filter(function (f) { return f.plan === x.code; });
-      if (eats.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">附近食咩</span><span class="en">Food nearby</span></h2><div class="card rows">' + eats.map(function (f) { return foodRow(f.r); }).join('') + '</div></div>';
+      if (eats.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">附近美食</span><span class="en">Food nearby</span></h2><div class="card rows">' + eats.map(function (f) { return foodRow(f.r); }).join('') + '</div></div>';
     }
     var prev = T.calendar[i - 1], next = T.calendar[i + 1];
     h += '<div class="sec daynav">' +
-      (prev ? '<a class="btn" href="#/day/' + prev.date + '">' + svg('back') + '<span>' + md(parse(prev.date)) + ' · <span class="zh">前一日</span><span class="en">Previous</span></span></a>' : '<span></span>') +
-      (next ? '<a class="btn" href="#/day/' + next.date + '"><span>' + md(parse(next.date)) + ' · <span class="zh">下一日</span><span class="en">Next</span></span>' + svg('chev') + '</a>' : '<span></span>') + '</div>';
+      (prev ? '<a class="btn" data-replace href="#/day/' + prev.date + '">' + svg('back') + '<span>' + md(parse(prev.date)) + ' · <span class="zh">前一日</span><span class="en">Previous</span></span></a>' : '<span></span>') +
+      (next ? '<a class="btn" data-replace href="#/day/' + next.date + '"><span>' + md(parse(next.date)) + ' · <span class="zh">下一日</span><span class="en">Next</span></span>' + svg('chev') + '</a>' : '<span></span>') + '</div>';
     return { title: { zh: md(parse(c.date)) + ' ' + c.title.zh, en: md(parse(c.date)) + ' ' + c.title.en }, html: h };
   };
 
@@ -677,20 +677,20 @@ footer a { color: var(--bronze); }
     var used = {};
     T.calendar.forEach(function (c) { if (c.plan) (used[c.plan] = used[c.plan] || []).push(c); });
     var h = '<h1><span class="zh">其他選擇</span><span class="en">Other options</span></h1>' +
-      '<p class="lede"><span class="zh">每日行程以外嘅想法。有啲已經排咗入去；其他可以用喺 28–29 日，或者代替某一日。想加想換，講個英文字母就得。</span><span class="en">Ideas beyond the daily plan. Some are already scheduled; others could fill 28–29 Dec or swap with a day. Mention the letter to add or swap one.</span></p>';
+      '<p class="lede"><span class="zh">每日行程以外的構想。部分已安排在行程中；其他可用於 28–29 日，或替換某一天。想加入或替換，只需說出英文字母。</span><span class="en">Ideas beyond the daily plan. Some are already scheduled; others could fill 28–29 Dec or swap with a day. Mention the letter to add or swap one.</span></p>';
     function card(x) {
       var im = planImage(x), days = used[x.code] || [];
       return '<a class="card pcard" href="#/plan/' + x.code + '"><div class="img">' + (im ? '<img src="' + esc(im.src) + '" alt="" loading="lazy">' : '') +
         '<span class="code">' + esc(x.code) + '</span></div><div class="body"><h3>' + bi(x.title) + '</h3>' +
         '<div class="facts-row">' + (days.length
-          ? '<span class="pick suggested"><span class="zh">已排：' + days.map(function (c) { return md(parse(c.date)); }).join('、') + '</span><span class="en">On ' + days.map(function (c) { return md(parse(c.date)); }).join(', ') + '</span></span>'
+          ? '<span class="pick suggested"><span class="zh">已安排：' + days.map(function (c) { return md(parse(c.date)); }).join('、') + '</span><span class="en">On ' + days.map(function (c) { return md(parse(c.date)); }).join(', ') + '</span></span>'
           : '<span class="pick ' + x.pick + '">' + bi(PICK[x.pick]) + '</span>') + hoursOf(x) + walkBar(x.walk) + '</div>' +
         '<div class="stops"><span class="zh">' + stopLine(x.items, 'zh') + '</span><span class="en">' + stopLine(x.items, 'en') + '</span></div>' +
         '</div></a>';
     }
     var inSched = T.ideas.filter(function (x) { return used[x.code]; }), rest = T.ideas.filter(function (x) { return !used[x.code]; });
     if (inSched.length) h += '<div class="group-lbl"><span class="zh">部分已排入每日行程</span><span class="en">Partly in the daily plan</span></div><div class="plan-cards">' + inSched.map(card).join('') + '</div>';
-    if (rest.length) h += '<div class="group-lbl"><span class="zh">未排</span><span class="en">Not scheduled</span></div><div class="plan-cards">' + rest.map(card).join('') + '</div>';
+    if (rest.length) h += '<div class="group-lbl"><span class="zh">未安排</span><span class="en">Not scheduled</span></div><div class="plan-cards">' + rest.map(card).join('') + '</div>';
     if (T.extras && T.extras.items.length) {
       h += '<div class="group-lbl">' + bi(T.extras.title) + '</div>' + (T.extras.intro ? '<p class="lede">' + bi(T.extras.intro) + '</p>' : '') +
         '<div class="card rows">' + T.extras.items.map(placeRow).join('') + '</div>';
@@ -709,12 +709,12 @@ footer a { color: var(--bronze); }
     h += '<div class="sec"><h2 class="sec-title"><span class="zh">當日路線</span><span class="en">The day</span></h2>' + renderItems(x.items) + '</div>';
     var eats = foodRows.filter(function (f) { return f.plan === code; });
     if (eats.length) {
-      h += '<div class="sec"><h2 class="sec-title"><span class="zh">附近食咩</span><span class="en">Food nearby</span></h2><div class="card rows">' +
+      h += '<div class="sec"><h2 class="sec-title"><span class="zh">附近美食</span><span class="en">Food nearby</span></h2><div class="card rows">' +
         eats.map(function (f) { return foodRow(f.r); }).join('') + '</div></div>';
     }
     var dates = T.calendar.filter(function (c) { return c.plan === code; });
     if (dates.length) {
-      h += '<div class="sec"><h2 class="sec-title"><span class="zh">排咗喺</span><span class="en">Scheduled on</span></h2><div class="chips">' +
+      h += '<div class="sec"><h2 class="sec-title"><span class="zh">已安排於</span><span class="en">Scheduled on</span></h2><div class="chips">' +
         dates.map(dayChip).join('') + '</div></div>';
     }
     return { title: { zh: x.code + ' · ' + x.title.zh, en: x.code + ' · ' + x.title.en }, html: h };
@@ -737,7 +737,7 @@ footer a { color: var(--bronze); }
     var acts = '';
     if (p.ja) acts += '<button class="btn primary" type="button" data-taxi="' + esc(id) + '">' + svg('taxi') + '<span><span class="zh">的士卡</span><span class="en">Taxi card</span></span></button>';
     acts += '<a class="btn" href="' + esc(mapUrl(p)) + '" target="_blank" rel="noopener">' + svg(im ? 'map' : 'photo') +
-      (im ? '<span><span class="zh">地圖</span><span class="en">Map</span></span>' : '<span><span class="zh">地圖・睇相</span><span class="en">Map & photos</span></span>') + '</a>';
+      (im ? '<span><span class="zh">地圖</span><span class="en">Map</span></span>' : '<span><span class="zh">地圖・相片</span><span class="en">Map & photos</span></span>') + '</a>';
     if (p.url) acts += '<a class="btn" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + svg('web') + '<span><span class="zh">網站</span><span class="en">Website</span></span></a>';
     h += '<div class="actions">' + acts + '</div>';
 
@@ -754,7 +754,7 @@ footer a { color: var(--bronze); }
         (hotel.note ? '<p class="prose">' + bi(hotel.note) + '</p>' : '') + '</div>';
     }
     if (info && info.todo && info.todo.length) {
-      h += '<div class="sec"><h2 class="sec-title"><span class="zh">做咩好</span><span class="en">What to do</span></h2><ul class="card blist">' +
+      h += '<div class="sec"><h2 class="sec-title"><span class="zh">可以做甚麼</span><span class="en">What to do</span></h2><ul class="card blist">' +
         info.todo.map(function (t) { return '<li><span>' + bi(t) + '</span></li>'; }).join('') + '</ul></div>';
     }
     if (info && info.tips && info.tips.length) {
@@ -762,7 +762,7 @@ footer a { color: var(--bronze); }
         info.tips.map(function (t) { return '<li><span>' + bi(t) + '</span></li>'; }).join('') + '</ul></div>';
     }
     var onDays = daysWith(id);
-    if (onDays.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">排咗喺</span><span class="en">Scheduled on</span></h2><div class="chips">' + onDays.map(dayChip).join('') + '</div></div>';
+    if (onDays.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">已安排於</span><span class="en">Scheduled on</span></h2><div class="chips">' + onDays.map(dayChip).join('') + '</div></div>';
     var plans = plansWith(id);
     var fplan = food && food.plan && ideaByCode[food.plan] && plans.indexOf(ideaByCode[food.plan]) < 0 ? [ideaByCode[food.plan]] : [];
     plans = plans.concat(fplan);
@@ -777,19 +777,19 @@ footer a { color: var(--bronze); }
 
   screens.hotels = function () {
     var h = '<h1><span class="zh">酒店</span><span class="en">Hotels</span></h1>' +
-      '<p class="lede"><span class="zh">富士吉田別墅然然有兩張訂房確認；東京暫定住 THE BLOSSOM HIBIYA，未正式訂。其他酒店保留作比較。訂房號碼只放喺私人文件夾。</span><span class="en">We have two Bessho Sasa confirmations. THE BLOSSOM HIBIYA is the likely Tokyo base but is not booked yet; the other hotels remain comparisons. Booking numbers stay in the private folder.</span></p><div class="stack">';
+      '<p class="lede"><span class="zh">富士吉田的別墅然然已有兩張訂房確認；東京暫定入住 THE BLOSSOM HIBIYA，尚未正式預訂。其他酒店保留作比較。訂房號碼只存放於私人文件夾。</span><span class="en">We have two Bessho Sasa confirmations. THE BLOSSOM HIBIYA is the likely Tokyo base but is not booked yet; the other hotels remain comparisons. Booking numbers stay in the private folder.</span></p><div class="stack">';
     (T.hotels || []).forEach(function (ho) {
       var p = T.places[ho.place];
       h += '<a class="card hcard" href="#/place/' + esc(ho.place) + '"><div class="body"><b>' + bi(p) + badge(ho.status) + '</b>' +
         '<small>' + bi(ho.area) + '</small>' + (ho.note ? '<p>' + bi(ho.note) + '</p>' : '') +
-        '<span class="more-row"><span><span class="zh">睇詳情</span><span class="en">Details</span></span>' + svg('chev', 'chev') + '</span></div></a>';
+        '<span class="more-row"><span><span class="zh">查看詳情</span><span class="en">Details</span></span>' + svg('chev', 'chev') + '</span></div></a>';
     });
     return { title: { zh: '酒店', en: 'Hotels' }, html: h + '</div>' };
   };
 
   screens.food = function () {
     var h = '<h1><span class="zh">餐廳</span><span class="en">Restaurants</span></h1>' +
-      '<p class="lede"><span class="zh">全部未訂。價錢係每位，未計飲品，可能會變。撳入去睇詳情，撳「地圖・睇相」睇相片。</span><span class="en">None booked. Prices per person before drinks, and may change. Tap for details; use Map & photos to see pictures.</span></p>';
+      '<p class="lede"><span class="zh">全部尚未預訂。價錢以每位計，不含飲品，或有變動。點擊可查看詳情，點「地圖・相片」可看照片。</span><span class="en">None booked. Prices per person before drinks, and may change. Tap for details; use Map & photos to see pictures.</span></p>';
     T.food.forEach(function (g) {
       h += '<div class="food-group"><h3>' + bi(g.title) + '</h3>' + (g.intro ? '<p class="intro">' + bi(g.intro) + '</p>' : '');
       if (g.empty && !(g.items && g.items.length)) h += '<div class="empty-slot">' + bi(g.empty) + '</div>';
@@ -806,7 +806,7 @@ footer a { color: var(--bronze); }
 
   screens.credits = function () {
     var h = '<h1><span class="zh">相片來源</span><span class="en">Photo credits</span></h1>' +
-      '<p class="lede"><span class="zh">全部相片嚟自 Wikimedia Commons，按各自授權使用。</span><span class="en">All photos are from Wikimedia Commons, used under their licences.</span></p><ul class="card credits">';
+      '<p class="lede"><span class="zh">所有相片均來自 Wikimedia Commons，按各自授權使用。</span><span class="en">All photos are from Wikimedia Commons, used under their licences.</span></p><ul class="card credits">';
     Object.keys(IMG).forEach(function (id) {
       var im = IMG[id], p = T.places[id];
       h += '<li><b>' + (p ? bi(p) : esc(id)) + '</b> · <a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + esc(im.lic) + '</li>';
@@ -815,7 +815,7 @@ footer a { color: var(--bronze); }
   };
 
   screens.notfound = function () {
-    return { title: null, html: '<p class="lede" style="margin-top:24px"><span class="zh">搵唔到呢頁。</span><span class="en">Page not found.</span> <a href="#/"><span class="zh">返首頁</span><span class="en">Home</span></a></p>' };
+    return { title: null, html: '<p class="lede" style="margin-top:24px"><span class="zh">找不到此頁。</span><span class="en">Page not found.</span> <a href="#/"><span class="zh">返回首頁</span><span class="en">Home</span></a></p>' };
   };
 
   // ---------- Tabs ----------
@@ -832,7 +832,12 @@ footer a { color: var(--bronze); }
 
   // ---------- Router ----------
   // navStack mirrors in-app history so Back never leaves the guide.
-  var scrollMem = {}, lastTab = 'home', current = null, curTitle = null, navStack = [];
+  var scrollMem = {}, lastTab = 'home', current = null, curTitle = null, navStack = [], replacing = false;
+  // Prev/next day swaps the page in place, so Back returns to where you came from
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[data-replace]'); if (!a) return;
+    ev.preventDefault(); replacing = true; location.replace(a.getAttribute('href'));
+  });
   function routeOf(hash) {
     var parts = (hash || '').replace(/^#\/?/, '').split('/').filter(Boolean);
     return { name: parts[0] || 'home', arg: parts[1] ? decodeURIComponent(parts[1]) : null };
@@ -894,7 +899,8 @@ footer a { color: var(--bronze); }
   }
   window.addEventListener('hashchange', function () {
     var hash = location.hash || '#/', r = routeOf(hash), isBack = false;
-    if (isTabRoot(r)) navStack = [hash];
+    if (replacing) { replacing = false; navStack[navStack.length - 1] = hash; }
+    else if (isTabRoot(r)) navStack = [hash];
     else if (navStack.length > 1 && navStack[navStack.length - 2] === hash) { navStack.pop(); isBack = true; }
     else navStack.push(hash);
     render(isBack);

@@ -11,5 +11,5 @@ A phone-first, read-only page for the family (Traditional Chinese by default, wi
 Planning research lives in the markdown files in the parent folder. That's the source of truth, and `trip-data.js` is the family-friendly version of it. Each round:
 
 1. Increase `version`, set `updated`, and rewrite `changes` (what's new since the last version, in plain words).
-2. Use first names: John, Vanjai, Ben, Christine ("我哋" for the planners is fine). Don't put booking references, passport details or phone numbers in it while the page is public.
+2. Use first names: John, Vanjai, Ben, Christine ("我們" for the planners is fine). All Chinese must be formal written Chinese (書面語) with Hong Kong vocabulary, not Cantonese. Don't put booking references, passport details or phone numbers in it while the page is public.
 3. Keep `status` as 計劃中 until the trip is final.
