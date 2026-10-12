@@ -16,11 +16,11 @@
 //   leg dur:    "80 min", "~40 min" (~ = approx, shown as 約), "2.5h"
 
 window.TRIP = {
-  version: 13,
+  version: 15,
   updated: "2026-10-12",
   changes: {
-    zh: "21、22、26 日加入晚餐選擇（全部尚未訂位）。晚飯後可分頭活動：John 與 Vanjai 看夜景、玩夾公仔機；Ben 與 Christine 可到酒吧喝一杯，酒吧清單見「餐廳」。",
-    en: "Dinner choices added for the 21st, 22nd and 26th (none booked). Optional split after dinner: John and Vanjai for night views and crane games; Ben and Christine for a drink, with the bar list under Food."
+    zh: "如 20 日較早抵達，可先到澀谷購物；否則 21 日仍會安排澀谷及新宿。晚飯後分頭活動可選，餐廳及酒吧尚未訂位。",
+    en: "If arrival on the 20th is early, Shibuya shopping can happen that evening; otherwise it stays on the 21st with Shinjuku. The later split is optional; restaurants and bars remain unbooked."
   },
   status: { zh: "計劃中 · 富士住宿已訂，東京酒店暫定", en: "Still planning · Fuji stay booked, Tokyo hotel likely" },
   start: "2026-12-20",
@@ -154,16 +154,32 @@ window.TRIP = {
       items: [
         { type: "leg", from: { zh: "香港", en: "Hong Kong" }, to: { zh: "東京", en: "Tokyo" }, via: { zh: "航班待定", en: "Flight TBC" }, dur: "~4h" },
         { time: { zh: "入住", en: "Check in" }, place: "blossom", sub: { zh: "暫定，尚未預訂", en: "Likely, not booked" } },
-        { time: { zh: "晚餐", en: "Dinner" }, place: "shinbashi", sub: { zh: "在酒店附近的居酒屋用餐", en: "Izakaya near the hotel" } },
-        { time: { zh: "晚上", en: "Evening" }, place: "hibiya", sub: { zh: "欣賞聖誕燈飾；若早到可先逛商場", en: "Christmas lights; browse the shops if we arrive early" }, optional: true },
-        { type: "tbd", text: { zh: "航班抵達時間未定，晚上的安排須依航班調整。", en: "Arrival time unknown; the evening depends on the flight." } }
+        { type: "branches", mode: "or", head: { zh: "抵達當晚視乎時間選擇", en: "Choose by arrival time" }, options: [
+          { label: { zh: "約 16:30 前放下行李，仍有精神", en: "Bags dropped by about 16:30 and still energetic" }, items: [
+            { time: { zh: "17:00–20:00", en: "17:00–20:00" }, place: "shibuya", sub: { zh: "看十字路口、逛商場及晚餐；由新橋乘銀座線直達", en: "Crossing, shopping and dinner; direct Ginza Line from Shinbashi" }, optional: true }
+          ] },
+          { label: { zh: "抵達較晚或想休息", en: "Later arrival or prefer an easy night" }, items: [
+            { time: { zh: "晚餐", en: "Dinner" }, place: "shinbashi", sub: { zh: "在酒店附近用餐", en: "Dinner near the hotel" } },
+            { time: { zh: "晚上", en: "Evening" }, place: "hibiya", sub: { zh: "若有精神，短逛日比谷燈飾", en: "Short Hibiya lights walk if energy remains" }, optional: true }
+          ] }
+        ] },
+        { type: "note", text: { zh: "航班時間未定，不預約當晚固定晚餐。若 20 日已逛澀谷，21 日便直接前往新宿購物；若未逛，21 日仍有澀谷時段。", en: "Flight time unknown; no fixed arrival-night dinner. If Shibuya happens on the 20th, go straight to Shinjuku shopping on the 21st. Otherwise Shibuya stays on the 21st." } }
       ] },
-    { date: "2026-12-21", who: "all", title: { zh: "明治神宮、代代木公園遛狗、新宿", en: "Meiji Jingu, a dog walk in Yoyogi Park, Shinjuku" },
+    { date: "2026-12-21", who: "all", title: { zh: "明治神宮、代代木公園、澀谷（如有需要）及新宿", en: "Meiji Jingu, Yoyogi Park, Shibuya if needed, Shinjuku" },
       items: [
-        { time: { zh: "早上", en: "Morning" }, place: "meiji", sub: { zh: "在神社內參觀約一小時", en: "About an hour at the shrine" } },
+        { time: { zh: "09:00", en: "09:00" }, place: "meiji", sub: { zh: "在神社內參觀約一小時", en: "About an hour at the shrine" } },
         { time: { zh: "11:00", en: "11:00" }, place: "dogheart", sub: { zh: "租借小狗一小時", en: "Borrow a dog for an hour" }, status: "tobook" },
         { time: { zh: "", en: "" }, place: "yoyogi", sub: { zh: "帶小狗在公園散步", en: "Walk the dog in the park" } },
-        { time: { zh: "下午", en: "Afternoon" }, place: "shinjuku", sub: { zh: "四人一起購物，預留充足時間", en: "Shopping together, with plenty of time" } },
+        { type: "branches", mode: "or", head: { zh: "20 日有否逛澀谷？", en: "Did Shibuya happen on the 20th?" }, options: [
+          { label: { zh: "已逛：新宿悠閒購物", en: "Yes: more time in Shinjuku" }, items: [
+            { time: { zh: "13:30–19:00", en: "13:30–19:00" }, place: "shinjuku", sub: { zh: "四人可慢慢逛百貨公司及商店；晚飯後夜遊可選", en: "Unhurried shops and department stores together; nightlife after dinner is optional" } }
+          ] },
+          { label: { zh: "未逛：澀谷及新宿", en: "No: Shibuya and Shinjuku" }, items: [
+            { time: { zh: "13:30–16:00", en: "13:30–16:00" }, place: "shibuya", sub: { zh: "十字路口及一兩處商場", en: "Crossing and one or two shopping stops" } },
+            { type: "leg", from: { zh: "澀谷", en: "Shibuya" }, to: { zh: "新宿", en: "Shinjuku" }, via: { zh: "JR 車程約 7 分鐘；連進出車站另預留時間", en: "JR ride about 7 minutes; allow more for station walking" }, dur: "~20–30 min" },
+            { time: { zh: "16:30–19:00", en: "16:30–19:00" }, place: "shinjuku", sub: { zh: "四人一起購物，晚飯後夜遊可選", en: "Shop together; nightlife after dinner is optional" } }
+          ] }
+        ] },
         { type: "branches", mode: "or", head: { zh: "晚餐二選一", en: "Dinner: pick one" }, options: [
           { label: { zh: "留在新宿", en: "Stay in Shinjuku" }, items: [
             { time: { zh: "晚餐", en: "Dinner" }, place: "ushigoroshinjuku", sub: { zh: "Vanjai 所選銀座燒肉店的新宿分店", en: "Shinjuku branch of Vanjai's Ginza yakiniku pick" }, status: "tobook" }
@@ -180,7 +196,7 @@ window.TRIP = {
             { time: { zh: "晚上", en: "Evening" }, place: "benfiddich", sub: { zh: "西新宿 15 席雞尾酒吧；21 日營業及座位待確認", en: "15-seat west Shinjuku cocktail bar; 21 Dec opening and seats to check" }, optional: true }
           ] }
         ] },
-        { type: "note", text: { zh: "若選 Sincère 晚餐（20:00 開始、約兩個半小時），當晚便不安排酒吧和夾公仔機。", en: "If dinner is at Sincère (20:00, about 2½ hours), skip the bar and crane games that night." } },
+        { type: "note", text: { zh: "若 20 日已逛澀谷，21 日新宿可多逛約兩小時；若未逛，21 日兩個商區皆會安排，時間較緊。若感疲累，省略晚間酒吧或夾公仔機。小狗散步仍未預約，可於訂位前再決定是否保留。若選 20:00 的 Sincère 套餐，不安排晚間分頭活動。", en: "If Shibuya is done on the 20th, Shinjuku gains about two hours on the 21st. Otherwise both shopping areas remain, making the day fuller. If tired, skip the late bar or arcade. The dog walk is unbooked and can be reconsidered before reserving. A 20:00 Sincère dinner leaves no time for the evening split." } },
         { type: "note", text: { zh: "上午步行較多：從神社步行至公園另一側的小狗店約 25–35 分鐘，如感疲累，可改乘的士。", en: "A fairly active morning: about 25–35 minutes on foot from the shrine to the dog shop; take a taxi if tired." } },
         { type: "tbd", text: { zh: "遛狗須電話預約；12 月是否有空位、四位成人可否共用一隻小狗，均待確認。晚餐尚未訂位。", en: "The dog walk is booked by phone; still to check December availability and whether four adults can share one dog. Dinner not booked." } }
       ] },
