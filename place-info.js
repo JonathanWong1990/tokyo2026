@@ -440,7 +440,7 @@ window.PLACE_INFO = {
     ],
     tips: [
       { zh: "平日 10:00–18:00；週末及年底休息", en: "Weekdays 10:00–18:00; closed weekends and over New Year" },
-      { zh: "免費入場", en: "Free entry" }
+      { zh: "免費入場；試飲及品酒套裝另付", en: "Free entry; tastings and flights are paid" }
     ]
   },
   oshino: {
@@ -495,7 +495,8 @@ window.PLACE_INFO = {
       { zh: "親手打抹茶", en: "Whisk your own matcha" }
     ],
     tips: [
-      { zh: "須預約時段；需跪坐一段時間，膝蓋不適可詢問是否提供椅子", en: "Book a time slot; there's some kneeling, so ask about chairs if knees are a concern" }
+      { zh: "須預約時段；需跪坐一段時間，膝蓋不適可詢問是否提供椅子", en: "Book a time slot; there's some kneeling, so ask about chairs if knees are a concern" },
+      { zh: "共用席每位 ¥3,500；包場每位 ¥5,000（兩位起）", en: "Shared seating ¥3,500 pp; private ¥5,000 pp (2+)" }
     ]
   },
   artaquarium: {
