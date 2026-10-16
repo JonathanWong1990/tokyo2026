@@ -588,7 +588,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
       '<span class="en">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : ' (draft)') + ' · ' + esc(T.people.en) + '</span></div>';
     if (today) h += '<div class="sec" style="margin-top:16px">' + today + '</div>';
     else h += (T.status ? '<div class="wip">' + bi(T.status) + '</div>' : '') +
-      '<div class="changes"><span class="lbl"><span class="zh">本次更新 · 第 ' + T.version + ' 版 · ' + esc(T.updated) + '</span><span class="en">What\'s new · v' + T.version + ' · ' + esc(T.updated) + '</span></span>' + bi(T.changes) + '</div>';
+      (T.changes ? '<div class="changes"><span class="lbl"><span class="zh">本次更新 · 第 ' + T.version + ' 版 · ' + esc(T.updated) + '</span><span class="en">What\'s new · v' + T.version + ' · ' + esc(T.updated) + '</span></span>' + bi(T.changes) + '</div>' : '');
 
     // Day list at a glance
     h += '<div class="sec"><h2 class="sec-title"><span class="zh">每日一覽</span><span class="en">Day by day</span></h2><div class="card daylist">' +
