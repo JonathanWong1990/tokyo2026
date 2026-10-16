@@ -404,22 +404,22 @@ window.PLACE_INFO = {
   yoyogi: {
     about: { zh: "明治神宮旁的大型公園，許多東京人在此散步、跑步和遛狗。", en: "The big park beside Meiji Jingu, where Tokyo locals walk, jog and walk their dogs." },
     todo: [
-      { zh: "租借小狗一起在公園散步", en: "Walk a rented dog around the park" },
       { zh: "欣賞湖景與大草地", en: "Enjoy the pond and the big lawns" }
     ],
     tips: [
-      { zh: "由明治神宮本殿步行至公園另一側的 DOG HEART 約需 25–35 分鐘", en: "About 25–35 minutes on foot from the shrine's main hall to DOG HEART on the far side" }
+      { zh: "與明治神宮相連，可在參拜後順道散步", en: "Joined to Meiji Jingu, so an easy walk after the shrine" }
     ]
   },
-  dogheart: {
-    about: { zh: "代代木公園附近（富谷）的小狗店，可租借小狗一小時，帶牠到公園散步。", en: "A dog shop near Yoyogi Park (Tomigaya) where you can borrow a dog for an hour's walk in the park." },
+  kappabashi: {
+    about: { zh: "位於淺草與上野之間、約 800 米長的廚具街，有逾百間店舖售賣日本刀具、陶瓷餐具、漆器及餐廳用的仿真食物模型。", en: "An 800-metre street of kitchenware shops between Asakusa and Ueno: Japanese knives, ceramics, lacquerware and the plastic food models restaurants display." },
     todo: [
-      { zh: "挑選一隻小狗，帶到代代木公園散步一小時", en: "Pick a dog and walk it in Yoyogi Park for an hour" },
-      { zh: "下雨時可留在店內與小狗玩耍", en: "If it rains, play with the dogs inside the shop instead" }
+      { zh: "選購日本廚刀，部分店舖可代刻名字", en: "Shop for Japanese kitchen knives; some shops engrave names" },
+      { zh: "看看仿真食物模型，可買小型擺設作手信", en: "Browse the plastic food models; small ones make good gifts" },
+      { zh: "陶瓷碗碟及筷子", en: "Ceramic bowls, plates and chopsticks" }
     ],
     tips: [
-      { zh: "每日 11:00–19:00；須電話預約", en: "Open 11:00–19:00 daily; book by phone" },
-      { zh: "小型犬一小時約 ¥4,000", en: "About ¥4,000 for an hour with a small dog" }
+      { zh: "多數店舖約 10:00–17:00 營業，部分星期日休息", en: "Most shops open about 10:00–17:00; some close on Sundays" },
+      { zh: "由淺草寺步行約 15 分鐘", en: "About 15 minutes on foot from Senso-ji" }
     ]
   },
   sumoclub: {
