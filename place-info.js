@@ -455,6 +455,16 @@ window.PLACE_INFO = {
       { zh: "觀光巴士班次不多，須預先查看時間", en: "Sightseeing buses are infrequent; check times ahead" }
     ]
   },
+  yamanaka: {
+    about: { zh: "富士五湖中最大的湖，湖面開闊，晴天可看到完整富士山倒影；平野、長池一帶較適合短暫下車拍照。", en: "The largest of the Fuji Five Lakes, with open water and full Fuji reflections on a clear day. Hirano and Nagaike are good for a short photo stop." },
+    todo: [
+      { zh: "在湖邊拍攝富士山倒影", en: "Photograph Fuji reflected in the lake" },
+      { zh: "沿湖邊短步行，喝熱飲取暖", en: "Take a short lakeside walk and warm up with a hot drink" }
+    ],
+    tips: [
+      { zh: "由 Bessho Sasa 出發比河口湖更順；冬天風大，停留 45–60 分鐘已足夠", en: "A more natural drive from Bessho Sasa than Kawaguchiko; winter wind can be strong, so 45–60 minutes is enough" }
+    ]
+  },
   kawaguchiko: {
     about: { zh: "富士五湖之一，在湖邊遠眺富士山是最經典的明信片景色。", en: "One of the Fuji Five Lakes; Fuji across the water is the classic postcard view." },
     todo: [
@@ -545,5 +555,138 @@ window.PLACE_INFO = {
     tips: [
       { zh: "尚未訂位；新宿分店的地址及套餐請以官網為準", en: "Not booked; check the official site for the Shinjuku branch's address and courses" }
     ]
+  },
+
+  // Restaurant cards: short, decision-friendly descriptions for the itinerary.
+  ushigoro: {
+    about: { zh: "銀座的高級和牛燒肉，店員在私人房間內代客燒肉；氣氛安靜，適合四人慶祝晚餐。", en: "Premium wagyu yakiniku in Ginza. A grill master cooks the meat for you in a private room, making it a polished choice for a four-person celebration." },
+    todo: [
+      { zh: "品嚐店員代烤的稀有和牛部位", en: "Try rare wagyu cuts grilled by the staff" },
+      { zh: "配搭清酒或葡萄酒", en: "Pair the tasting course with sake or wine" }
+    ],
+    tips: [
+      { zh: "約 ¥20,000–30,000／位；實際套餐及服務費以訂位頁為準", en: "Roughly ¥20,000–30,000 per person; confirm the course and service charge when booking" },
+      { zh: "全店預約制；20 日四人仍未訂位", en: "Reservation required; four seats for 20 Dec are not booked yet" }
+    ]
+  },
+  icho: {
+    about: { zh: "台場 Grand Nikko Tokyo 的 30 樓鐵板燒，可一邊看東京灣一邊由廚師即席煎煮。", en: "A 30th-floor teppanyaki restaurant at Grand Nikko Tokyo Daiba, with Tokyo Bay views and a chef cooking in front of you." },
+    todo: [
+      { zh: "觀看廚師在鐵板前即席烹調", en: "Watch the chef cook at the hot plate" },
+      { zh: "享用和牛及海鮮套餐，欣賞灣景", en: "Enjoy wagyu and seafood with the bay view" }
+    ],
+    tips: [
+      { zh: "晚餐約 ¥28,000–35,000／位，含稅及服務費；通常 17:30–21:30", en: "Dinner is roughly ¥28,000–35,000 per person including tax and service; usually 17:30–21:30" },
+      { zh: "26 日四人晚餐；尚未訂位", en: "Four-person dinner on 26 Dec; not booked yet" }
+    ]
+  },
+  largent: {
+    about: { zh: "霞關的現代法國菜餐廳，菜式以法國技法配合日本季節食材；聖誕期間有特別套餐。", en: "Modern French cooking in Kasumigaseki, using French technique with Japanese seasonal ingredients. A dedicated Christmas menu runs in December." },
+    todo: [
+      { zh: "聖誕限定品嚐套餐", en: "Try the Christmas tasting menu" },
+      { zh: "餐後步行到日比谷／丸之內看燈飾", en: "Walk toward Hibiya or Marunouchi lights afterwards" }
+    ],
+    tips: [
+      { zh: "聖誕套餐約 ¥28,600／位（未計服務費）；25 日四人仍未訂位", en: "Christmas course is about ¥28,600 per person before service; four seats on 25 Dec are not booked" }
+    ]
+  },
+  sezanne: {
+    about: { zh: "東京站四季酒店內的高級法國菜，以日本季節食材、精準醬汁和精緻甜點見長；屬於非常正式的慶祝餐。", en: "A very high-end French restaurant at the Four Seasons Marunouchi, known for seasonal Japanese ingredients, precise sauces and polished desserts. Best treated as a formal celebration meal." },
+    todo: [
+      { zh: "主廚品嚐套餐", en: "Take the chef's tasting menu" },
+      { zh: "順道看東京站及丸之內燈飾", en: "Pair it with Tokyo Station and Marunouchi lights" }
+    ],
+    tips: [
+      { zh: "約 ¥60,000–80,000／位；星期一、二休息，男士須穿外套", en: "Roughly ¥60,000–80,000 per person; closed Mondays and Tuesdays, jacket required for men" },
+      { zh: "日期待定；尚未訂位", en: "Date to be set; not booked" }
+    ]
+  },
+  unis: {
+    about: { zh: "虎之門 Hills 的 8 席吧枱創意法國菜；每位客人近距離看廚房，菜式偏實驗性和季節感。", en: "An eight-seat counter in Toranomon Hills serving inventive French cuisine. Everyone sits close to the kitchen, so it feels intimate and experimental." },
+    todo: [
+      { zh: "近距離觀看廚師完成每道菜", en: "Watch the team finish the tasting menu at close range" },
+      { zh: "可選配葡萄酒", en: "Add a wine pairing if desired" }
+    ],
+    tips: [
+      { zh: "約 ¥50,000–60,000／位；完全預約制，只有 8 席", en: "Roughly ¥50,000–60,000 per person; reservation only, just eight seats" },
+      { zh: "通常星期日、一休息；22 日安排前須先確認開門日", en: "Usually closed Sunday and Monday; confirm the holiday opening before using it on the 22nd" }
+    ]
+  },
+  leffervescence: {
+    about: { zh: "南青山的法國菜，以日本食材和發酵、季節變化為主題；環境像一座安靜的住宅，適合把表參道日延伸成晚餐。", en: "A calm Minami-Aoyama French restaurant built around Japanese ingredients, fermentation and the seasons. Its quiet residential setting pairs naturally with an Omotesando day." },
+    todo: [
+      { zh: "預留時間享用完整品嚐套餐", en: "Set aside time for the full tasting menu" },
+      { zh: "由表參道步行前往（約 12 分鐘）", en: "Walk from Omotesando (about 12 minutes)" }
+    ],
+    tips: [
+      { zh: "約 ¥60,000–80,000／位，另收 15% 服務費；星期日、一休息", en: "Roughly ¥60,000–80,000 per person plus 15% service; closed Sunday and Monday" },
+      { zh: "22 日（星期二）晚上營業時間待確認；尚未訂位", en: "Confirm holiday opening before considering 22 Dec; not booked" }
+    ]
+  },
+  azur: {
+    about: { zh: "西麻布的法國菜，適合在六本木／麻布台一帶活動後用餐；聖誕週會換成節日套餐。", en: "A French restaurant in Nishiazabu, convenient after Roppongi or Azabudai. It switches to a special festive menu over Christmas week." },
+    todo: [
+      { zh: "季節品嚐套餐", en: "Choose the seasonal tasting menu" },
+      { zh: "由六本木乘的士約 5 分鐘", en: "Take a short taxi from Roppongi to Nishiazabu" }
+    ],
+    tips: [
+      { zh: "聖誕套餐約 ¥41,800，另加 10% 服務費及稅；星期一通常休息", en: "Festive course about ¥41,800 before 10% service and tax; normally closed Mondays" },
+      { zh: "22 日由淺草或清酒中心乘的士前往，須預留轉車時間", en: "On the 22nd, take a taxi from Asakusa or the sake centre; allow transfer time" }
+    ]
+  },
+  maz: {
+    about: { zh: "紀尾井町的秘魯創意菜，以秘魯不同地區的食材和生態設計品嚐套餐；是 John 與 Vanjai 兩人的特別晚餐。", en: "Creative Peruvian tasting in Kioicho, tracing ingredients and ecosystems from across Peru. A strong special-occasion dinner for John and Vanjai." },
+    todo: [
+      { zh: "完整的秘魯主題品嚐套餐", en: "Take the full Peru-inspired tasting menu" },
+      { zh: "可配葡萄酒或無酒精飲品", en: "Add the wine or non-alcoholic pairing" }
+    ],
+    tips: [
+      { zh: "約 ¥33,000／位，另加 10% 服務費；12 月訂位已開放", en: "About ¥33,000 per person plus 10% service; December bookings are open" },
+      { zh: "目標安排 28 或 29 日其中一晚；尚未訂位", en: "Target one of 28 or 29 Dec; not booked" }
+    ]
+  },
+  maerge: {
+    about: { zh: "南青山的現代法國菜，規模較小、氣氛適合約會；可和明治神宮、原宿、表參道排在同一天。", en: "A small modern-French restaurant in Minami-Aoyama with a date-night atmosphere. It fits naturally after Meiji Jingu, Harajuku and Omotesando." },
+    todo: [
+      { zh: "季節品嚐套餐", en: "Take the seasonal tasting menu" },
+      { zh: "餐前在表參道散步購物", en: "Walk and shop around Omotesando first" }
+    ],
+    tips: [
+      { zh: "價格以訂位頁當日套餐為準；12 月訂位預計 11 月 1 日開放", en: "Use the booking page for the current menu price; December reservations are expected to open 1 Nov" },
+      { zh: "星期日及不定期休息；取消政策較嚴格", en: "Closed Sundays and occasional irregular dates; cancellation policy is strict" }
+    ]
+  },
+  yamashina: {
+    about: { zh: "銀座的近江牛及海鮮鐵板燒，菜式比頂級法國菜輕鬆，適合想吃牛肉但不想走太遠的一晚。", en: "Ginza teppanyaki centred on Omi beef and seafood. A more relaxed beef-focused alternative when you want to stay close to Hibiya and Ginza." },
+    todo: [
+      { zh: "看廚師在鐵板上煎近江牛", en: "Watch Omi beef cooked on the hot plate" },
+      { zh: "與銀座購物或夜間散步配搭", en: "Pair it with Ginza shopping or an evening walk" }
+    ],
+    tips: [
+      { zh: "套餐約 ¥22,000／位（含稅）；尚未安排日期", en: "Course about ¥22,000 per person including tax; no date assigned" }
+    ]
+  },
+  hachigo: {
+    about: { zh: "銀座八五是六席吧枱的鹽味中華麵，以鴨、雞、貝、昆布等熬成清湯；前法國廚師主理。", en: "Ginza Hachigo is a six-seat counter serving clear shio chuka-soba broth built from duck, chicken, shellfish, kombu and more, led by a former French chef." },
+    todo: [
+      { zh: "品嚐招牌清湯拉麵及餃子", en: "Try the signature clear-broth ramen and gyoza" }
+    ],
+    tips: [
+      { zh: "約 ¥2,000–3,000；名額少，星期六上午開放下一週訂位", en: "Roughly ¥2,000–3,000; very few seats, with the following week's booking released Saturday morning" }
+    ]
+  },
+  honda: {
+    about: { zh: "Mendokoro Honda 的醬油沾麵，麵條有嚼勁，湯汁濃而帶魚介香；適合 John 在秋葉原／中野日獨自品嚐。", en: "Mendokoro Honda is known for chewy shoyu tsukemen with a rich, seafood-scented dipping broth, ideal for John's solo ramen stop on the Akihabara/Nakano day." },
+    todo: [
+      { zh: "點招牌醬油沾麵", en: "Order the signature shoyu tsukemen" }
+    ],
+    tips: [
+      { zh: "約 ¥1,500–2,000；星期三休息，繁忙時段要排隊", en: "Roughly ¥1,500–2,000; closed Wednesdays and queues are likely at busy times" }
+    ]
+  },
+  seishin: {
+    about: { zh: "落合一間只有八個座位的新拉麵店，主打新派湯頭；屬於值得試但不能保證吃到的候選。", en: "A tiny eight-seat newcomer near Ochiai with a modern ramen style. Interesting as a bonus, but not reliable enough to anchor the day." },
+    todo: [ { zh: "視乎隊伍長度再決定是否排隊", en: "Decide whether to queue after checking the line" } ],
+    tips: [ { zh: "約 ¥1,500–2,000；不接受訂位，可能要長時間等候", en: "Roughly ¥1,500–2,000; no reservations and the wait can be long" } ]
   }
 };

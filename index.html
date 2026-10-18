@@ -510,7 +510,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   }
   function foodRow(r) {
     var p = T.places[r.place];
-    return '<a class="lrow slim" href="#/place/' + esc(r.place) + '"><span class="w"><b>' + bi(p) + '</b>' + badge(r.status) +
+    return '<a class="lrow slim" href="#/place/' + esc(r.place) + '">' + thumb(r.place) + '<span class="w"><b>' + bi(p) + '</b>' + badge(r.status) +
       '<small>' + bi(r.kind) + '</small>' + (r.price ? '<span class="price">' + bi(r.price) + '</span>' : '') +
       '</span>' + svg('chev', 'chev') + '</a>';
   }
@@ -754,7 +754,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
         (hotel.note ? '<p class="prose">' + bi(hotel.note) + '</p>' : '') + '</div>';
     }
     if (info && info.todo && info.todo.length) {
-      h += '<div class="sec"><h2 class="sec-title"><span class="zh">可以做甚麼</span><span class="en">What to do</span></h2><ul class="card blist">' +
+      h += '<div class="sec"><h2 class="sec-title">' + (food ? '<span class="zh">招牌／值得點甚麼</span><span class="en">Signature / what to try</span>' : '<span class="zh">可以做甚麼</span><span class="en">What to do</span>') + '</h2><ul class="card blist">' +
         info.todo.map(function (t) { return '<li><span>' + bi(t) + '</span></li>'; }).join('') + '</ul></div>';
     }
     if (info && info.tips && info.tips.length) {
