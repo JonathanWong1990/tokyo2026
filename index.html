@@ -402,9 +402,9 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   </div>
 </div>
 
-<script src="trip-data.js?v=26"></script>
-<script src="place-info.js?v=26"></script>
-<script src="place-img.js?v=26"></script>
+<script src="trip-data.js?v=27"></script>
+<script src="place-info.js?v=27"></script>
+<script src="place-img.js?v=27"></script>
 <script>
 (function () {
   var T = window.TRIP, INFO = window.PLACE_INFO || {}, IMG = window.PLACE_IMG || {};
@@ -545,7 +545,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     return '<div class="stack">' + out + '</div>';
   }
   function credit(im) {
-    return im ? '<div class="credit"><span class="zh">相片</span><span class="en">Photo</span>: <a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + esc(im.lic) + '</div>' : '';
+    return im ? '<div class="credit"><span class="zh">相片</span><span class="en">Photo</span>: ' + (im.note ? bi(im.note) + ' · ' : '') + '<a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + esc(im.lic) + '</div>' : '';
   }
 
   // ---------- Day helpers ----------

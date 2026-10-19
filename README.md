@@ -17,4 +17,4 @@ Planning research lives in the markdown files in the parent folder. That's the s
 
 ## Photos
 
-The page is public. Use only free-licensed photos (Wikimedia Commons), downloaded into `img/` with author, licence and source in `place-img.js`. Never hotlink or copy restaurant, Tabelog, magazine or venue photos: they are copyrighted. Restaurants without a free photo use the 地圖・相片 button, which opens Google Maps photos.
+The page is public. Use only free-licensed photos (Wikimedia Commons), downloaded into `img/` with author, licence and source in `place-img.js`. Never hotlink or copy restaurant, Tabelog, magazine or venue photos: they are copyrighted. Restaurants without a free photo use the 地圖・相片 button, which opens Google Maps photos. If a photo shows a building's outside or a similar dish rather than the venue itself, add a `note: {zh, en}` caption to its `place-img.js` entry.

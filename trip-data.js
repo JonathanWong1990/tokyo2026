@@ -16,8 +16,8 @@
 //   leg dur:    "80 min", "~40 min" (~ = approx, shown as 約), "2.5h"
 
 window.TRIP = {
-  version: 26,
-  updated: "2026-10-19",
+  version: 27,
+  updated: "2026-10-20",
   status: { zh: "計劃中 · 富士住宿已訂，東京酒店暫定", en: "Still planning · Fuji stay booked, Tokyo hotel likely" },
   start: "2026-12-20",
   end: "2026-12-30",
@@ -32,6 +32,7 @@ window.TRIP = {
     ueno:      { zh: "上野・阿美橫丁", en: "Ueno · Ameyoko", ja: "アメ横商店街", q: "Ameyoko Shopping Street" },
     // New areas from the revised plans
     shinjuku:  { zh: "新宿", en: "Shinjuku", ja: "新宿駅", q: "Shinjuku Station" },
+    shogunburger: { zh: "SHOGUN BURGER 新宿", en: "SHOGUN BURGER Shinjuku", ja: "ショーグンバーガー 新宿", q: "SHOGUN BURGER Shinjuku", url: "https://shogun-burger.com/store" },
     roppongi:  { zh: "六本木・東京中城", en: "Roppongi · Tokyo Midtown", ja: "東京ミッドタウン", q: "Tokyo Midtown Roppongi" },
     daikanyama:{ zh: "代官山", en: "Daikanyama", ja: "代官山駅", q: "Daikanyama T-Site" },
     ebisu:     { zh: "惠比壽", en: "Ebisu", ja: "恵比寿ガーデンプレイス", q: "Yebisu Garden Place" },
@@ -222,27 +223,22 @@ window.TRIP = {
         { time: { zh: "11:15–12:30", en: "11:15–12:30" }, place: "oshino", sub: { zh: "忍野八海只走中央泉池及湧水一帶", en: "Oshino Hakkai: focus on the central ponds and springs" } },
         { time: { zh: "13:00–14:00", en: "13:00–14:00" }, name: { zh: "餺飥午餐", en: "Hōtō lunch" }, sub: { zh: "山梨名物：南瓜味噌湯煮粗麵；在河口湖站附近，不預約", en: "Yamanashi's specialty: thick noodles in pumpkin-miso broth; near Kawaguchiko Station, no booking" } },
         { time: { zh: "14:00–15:00", en: "14:00–15:00" }, place: "fujicharter", sub: { zh: "包車送到河口湖站；處理行李，預留時間上車", en: "Car drops us at Kawaguchiko Station; sort luggage and leave time before the train" }, status: "tobook" },
-        { type: "leg", from: { zh: "河口湖站", en: "Kawaguchiko Station" }, to: { zh: "新宿", en: "Shinjuku" }, via: { zh: "富士回遊直達列車 15:39 → 17:45；如午餐或交通延誤，改乘 16:48 → 18:46", en: "Fuji Excursion direct train 15:39 → 17:45; if lunch or traffic runs late, the 16:48 → 18:46" }, dur: "~2h" },
-        { time: { zh: "抵達後", en: "On arrival" }, name: { zh: "返回日比谷酒店休息", en: "Back to the hotel in Hibiya to rest" }, sub: { zh: "由新宿乘 JR 返回酒店", en: "JR from Shinjuku back to the hotel" } },
-        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "爐端燒晚餐", en: "Robatayaki dinner" }, sub: { zh: "如列車準時及仍有精神；炭火燒烤海鮮及蔬菜，餐廳待定。否則在酒店附近簡單用餐", en: "If the train is on time and energy remains; charcoal-grilled seafood and vegetables, restaurant TBC. Otherwise a simple meal near the hotel" }, optional: true },
+        { type: "leg", from: { zh: "河口湖站", en: "Kawaguchiko Station" }, to: { zh: "新宿", en: "Shinjuku" }, via: { zh: "富士回遊直達列車 16:48 → 18:46；如提早完成，可乘 15:39 → 17:45", en: "Fuji Excursion direct train 16:48 → 18:46; or the 15:39 → 17:45 if the day finishes early" }, dur: "~2h" },
+        { time: { zh: "18:55–20:00", en: "18:55–20:00" }, place: "shogunburger", sub: { zh: "抵達新宿後的簡單晚餐；和牛漢堡快餐店，或須排隊", en: "A simple dinner on arrival in Shinjuku; a wagyu burger counter, may have a queue" }, optional: true },
+        { time: { zh: "20:00–21:00", en: "20:00–21:00" }, place: "shinjuku", sub: { zh: "歌舞伎町霓虹及 Don Quijote 短途散步；累了便提早離開", en: "Short walk through Kabukicho neon and Don Quijote; leave earlier if tired" }, optional: true },
+        { time: { zh: "晚上", en: "Evening" }, name: { zh: "返回日比谷酒店休息", en: "Back to the hotel in Hibiya to rest" }, sub: { zh: "由新宿返回日比谷，門到門約 25–35 分鐘", en: "Shinjuku back to Hibiya, about 25–35 minutes door to door" } },
         { type: "note", text: { zh: "連停留時間，包車全程約 5 小時。如天氣或體力欠佳，只去忍野八海便到車站；如想走平坦湖畔，可以河口湖大石公園代替山中湖。旅館不代運行李。", en: "The car day is about 5 hours including stops. If the weather or energy is poor, do Oshino Hakkai only and go to the station; for a flat lakeside walk, Oishi Park at Lake Kawaguchi can take Lake Yamanaka's place. The ryokan won't transport luggage." } },
         { type: "note", text: { zh: "富士回遊直達列車（河口湖 → 新宿）：14:08 → 16:06、14:58 → 16:58、15:39 → 17:45、16:48 → 18:46，另有約 17:41 一班。全車指定座，須預先買票。", en: "Fuji Excursion direct trains (Kawaguchiko → Shinjuku): 14:08 → 16:06, 14:58 → 16:58, 15:39 → 17:45, 16:48 → 18:46, plus one around 17:41. All seats reserved; buy tickets ahead." } },
         { type: "tbd", text: { zh: "包車須報價及確認 12 月 24 日有車（四位成人連行李，約 15:00 前送到河口湖站）；直達列車車票待購買。", en: "Private car needs a quote and 24 Dec availability (four adults with luggage, at Kawaguchiko Station by about 15:00); train tickets not yet bought." } }
       ] },
-    { date: "2026-12-25", who: "all", plan: "D", title: { zh: "豐洲、teamLab 及聖誕夜", en: "Toyosu, teamLab and Christmas night" },
+    { date: "2026-12-25", who: "all", title: { zh: "築地、teamLab Planets 及新宿購物", en: "Tsukiji, teamLab Planets and Shinjuku shopping" },
       items: [
-        { time: { zh: "早上", en: "Morning" }, place: "toyosu", sub: { zh: "簡短參觀市場，可品嚐海鮮早餐", en: "A short look at the market, with an optional seafood breakfast" }, optional: true },
-        { time: { zh: "上午", en: "Late morning" }, place: "senkyaku", sub: { zh: "江戶風美食街，8 樓免費足湯", en: "Edo-style food street and the free 8th-floor footbath" } },
-        { time: { zh: "14:00", en: "14:00" }, place: "planets", sub: { zh: "本日重點；建議 14:00–15:00 入場，館內約兩至兩個半小時", en: "The main event; suggested entry 14:00–15:00, about 2–2½ hours inside" }, status: "tobook" },
-        { type: "branches", mode: "or", head: { zh: "聖誕晚上二選一", en: "Christmas evening: choose one" }, options: [
-          { label: { zh: "聖誕晚餐：霞關 L'ARGENT", en: "Christmas dinner: L'ARGENT, Kasumigaseki" }, items: [
-            { time: { zh: "18:30", en: "18:30" }, place: "largent", sub: { zh: "法國菜聖誕套餐，每位 ¥28,600；四人 18:30", en: "French Christmas course, ¥28,600 pp; four at 18:30" }, status: "tobook" }
-          ] },
-          { label: { zh: "新豐洲聖誕市集及簡單晚餐", en: "Shin-Toyosu Christmas market and a simple dinner" }, items: [
-            { time: { zh: "晚上", en: "Evening" }, place: "shintoyosu", sub: { zh: "市集最後一晚，21:30 關門（20:30 最後入場），每位成人 ¥2,000；在市集內簡單用餐", en: "The market's last night, closes 21:30 (last entry 20:30), ¥2,000 per adult; eat simply at the market" } }
-          ] }
-        ] },
-        { type: "tbd", text: { zh: "L'ARGENT 尚未訂位；teamLab 門票尚未購買。聖誕節當天足湯的開放時間未公布，臨近出發再查是否臨時休息。", en: "L'ARGENT not booked; teamLab tickets not bought. Footbath hours for Christmas Day aren't published; check for closures closer to the date." } }
+        { time: { zh: "10:00–12:30", en: "10:00–12:30" }, place: "tsukiji", sub: { zh: "築地場外市場：海鮮早餐、小食、調味料及刀具店；部分店舖或會提早售罄", en: "Tsukiji Outer Market: seafood breakfast, snacks, seasoning and knife shops; some stalls sell out early" } },
+        { time: { zh: "12:30–14:00", en: "12:30–14:00" }, name: { zh: "前往豐洲及午餐", en: "Transfer to Toyosu and lunch" }, sub: { zh: "由築地前往豐洲，在附近簡單午餐", en: "From Tsukiji to Toyosu, with a light lunch nearby" } },
+        { time: { zh: "14:00–16:30", en: "14:00–16:30" }, place: "planets", sub: { zh: "本日重點；14:00 入場，館內約兩至兩個半小時，須赤腳涉水", en: "The day's highlight; enter at 14:00, about 2–2½ hours inside, barefoot through water" }, status: "tobook" },
+        { time: { zh: "17:15 起", en: "From 17:15" }, place: "shinjuku", sub: { zh: "伊勢丹等百貨公司、Don Quijote 或歌舞伎町", en: "Isetan and other department stores, Don Quijote or Kabukicho" } },
+        { time: { zh: "聖誕晚餐", en: "Christmas dinner" }, place: "largent", sub: { zh: "霞關法國菜聖誕套餐，每位 ¥28,600；如能訂位，18:30 由新宿乘車前往。否則在新宿用餐", en: "French Christmas course in Kasumigaseki, ¥28,600 pp; if a table can be booked, travel from Shinjuku for 18:30. Otherwise dinner in Shinjuku" }, status: "tobook", optional: true },
+        { type: "tbd", text: { zh: "teamLab 門票尚未購買；L'ARGENT 尚未訂位。", en: "teamLab tickets not bought; L'ARGENT not booked." } }
       ] },
     { date: "2026-12-26", who: "all", title: { zh: "橫濱：拉麵博物館、杯麵博物館及中華街", en: "Yokohama: Ramen Museum, Cup Noodles Museum and Chinatown" },
       items: [
@@ -250,8 +246,8 @@ window.TRIP = {
         { time: { zh: "10:30–12:30", en: "10:30–12:30" }, place: "ramenmuseum", sub: { zh: "昭和懷舊街景中的拉麵店，各自點小碗拉麵作午餐；預留排隊時間", en: "Ramen shops in a retro Showa-era street; everyone picks small bowls for lunch; allow time for queues" } },
         { time: { zh: "13:15–15:15", en: "13:15–15:15" }, place: "cupnoodles", sub: { zh: "港未來的杯麵博物館；預約 My CUPNOODLES Factory 時段，自己設計杯麵，約 45–60 分鐘", en: "CUPNOODLES MUSEUM; reserve a My CUPNOODLES Factory slot, which takes about 45–60 minutes" }, status: "tobook" },
         { time: { zh: "15:30–18:00", en: "15:30–18:00" }, place: "chinatown", sub: { zh: "散步及小食", en: "A stroll and snacks" } },
-        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "晚餐待定", en: "Dinner TBC" }, sub: { zh: "在橫濱中華街用餐，或視乎體力返回銀座／日比谷", en: "Eat in Yokohama Chinatown, or head back to Ginza / Hibiya depending on energy" } },
-        { type: "tbd", text: { zh: "這是完整一日行程。杯麵體驗須預約；兩間博物館的年末休館日及 26 日營業時間待確認。", en: "The three Yokohama stops fit in one full day. The Cup Noodles activity needs a reservation; confirm year-end closures and 26 Dec opening hours closer to travel." } }
+        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "爐端燒（餐廳待定）", en: "Robatayaki (restaurant TBC)" }, sub: { zh: "四人同行的最後一晚；炭火燒烤海鮮及蔬菜。在橫濱用餐，或視乎體力返回銀座／日比谷", en: "The last night all four are together; charcoal-grilled seafood and vegetables. Eat in Yokohama, or head back to Ginza / Hibiya depending on energy" } },
+        { type: "tbd", text: { zh: "這是完整一日行程。杯麵體驗須預約；兩間博物館的年末休館日及 26 日營業時間待確認。爐端燒餐廳待定。", en: "This is a full day. The Cup Noodles activity needs a booking; both museums' year-end closures and 26 Dec hours to check. Robatayaki restaurant TBC." } }
       ] },
     { date: "2026-12-27", who: "split", title: { zh: "Ben 與 Christine 回程", en: "Ben and Christine fly home" },
       items: [
@@ -514,7 +510,7 @@ window.TRIP = {
       items: [
         { place: "ushigoro", kind: { zh: "燒肉 · 銀座 · 20 日", en: "Yakiniku · Ginza · 20 Dec" }, price: { zh: "Q 套餐 ¥22,500／位，已預付", en: "Q course ¥22,500 pp, prepaid" }, status: "booked", note: { zh: "20 日 18:30，四人。已訂位。", en: "18:30 on 20 Dec, four people. Booked." } },
         { place: "kitafuku", kind: { zh: "螃蟹料理 · 銀座 · 22 日", en: "Crab · Ginza · 22 Dec" }, price: { zh: "活松葉蟹套餐 ¥55,000／位，另加 10% 服務費；在店內付款，或按當日蟹價調整", en: "Live Matsuba crab course ¥55,000 pp plus 10% service; paid at the restaurant, may rise with the day's crab price" }, status: "booked", note: { zh: "22 日 20:30，四人。已訂位。", en: "20:30 on 22 Dec, four people. Booked." } },
-        { place: "largent", kind: { zh: "法國菜 · 霞關 · 25 日", en: "French · Kasumigaseki · 25 Dec" }, price: { zh: "聖誕套餐每位 ¥28,600（最終金額以付款頁為準）", en: "Christmas course ¥28,600 pp (check final total at checkout)" }, status: "first", note: { zh: "25 日 18:30 四人聖誕晚餐，與新豐洲聖誕市集二選一。尚未訂位。", en: "Christmas dinner for four at 18:30 on 25 Dec, instead of the Shin-Toyosu market. Not booked." } },
+        { place: "largent", kind: { zh: "法國菜 · 霞關 · 25 日", en: "French · Kasumigaseki · 25 Dec" }, price: { zh: "聖誕套餐每位 ¥28,600（最終金額以付款頁為準）", en: "Christmas course ¥28,600 pp (check final total at checkout)" }, status: "first", note: { zh: "25 日聖誕晚餐，如能訂位；四人 18:30。尚未訂位。", en: "Christmas dinner on 25 Dec if a table can be booked; four at 18:30. Not booked." } },
       ]
     },
     {
