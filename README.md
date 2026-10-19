@@ -11,6 +11,7 @@ A phone-first, read-only page for the family (Traditional Chinese by default, wi
 Planning research lives in the markdown files in the parent folder. That's the source of truth, and `trip-data.js` is the family-friendly version of it. Each round:
 
 1. Increase `version` and set `updated`. Do NOT add a `changes` note: the page presents the current itinerary only. Never write what was removed, moved or changed (no 已移除 / 改為 / 原先 / "previously" / "now"); just describe the plan as it stands.
+   Also bump the `?v=` number on the three `<script src>` tags in `index.html` to the same version, so browsers fetch the new data instead of a cached copy.
 2. Use first names: John, Vanjai, Ben, Christine ("我們" for the planners is fine). All Chinese must be formal written Chinese (書面語) with Hong Kong vocabulary, not Cantonese. Don't put booking references, passport details or phone numbers in it while the page is public.
 3. Keep `status` as 計劃中 until the trip is final.
 
