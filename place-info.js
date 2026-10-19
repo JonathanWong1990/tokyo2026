@@ -588,6 +588,55 @@ window.PLACE_INFO = {
   },
 
   // Restaurant cards: short, decision-friendly descriptions for the itinerary.
+  shibuyaSky: {
+    about: { zh: "澀谷 Scramble Square 頂層的露天觀景台，可俯瞰澀谷十字路口及整個東京，天晴時可見富士山。", en: "The open-air rooftop on top of Shibuya Scramble Square, looking down on the Shibuya crossing and across Tokyo, with Mt Fuji on clear days." },
+    todo: [
+      { zh: "黃昏看日落，再看東京夜景", en: "Catch the sunset, then the city lights" },
+      { zh: "從高處看十字路口的人潮", en: "Watch the crossing crowds from above" }
+    ],
+    tips: [
+      { zh: "門票按時段發售，日落時段最快售罄，宜早買", en: "Tickets are sold by time slot; sunset slots sell out first, so buy early" },
+      { zh: "天台風大；手袋等物品須先放儲物櫃", en: "It's windy up top; bags have to go in lockers first" }
+    ]
+  },
+  asakusaObservation: {
+    about: { zh: "雷門對面由隈研吾設計的遊客中心，8 樓設免費展望台。", en: "The Kengo Kuma-designed tourist centre opposite Kaminarimon, with a free 8th-floor viewing terrace." },
+    todo: [
+      { zh: "俯瞰仲見世通及淺草寺，遠望晴空塔", en: "Look down on Nakamise and Senso-ji, with the Skytree beyond" }
+    ],
+    tips: [
+      { zh: "免費入場；早上人較少", en: "Free; quieter in the morning" }
+    ]
+  },
+  asakusaUnderground: {
+    about: { zh: "1955 年開業、日本最古老的地下商店街之一，懷舊的小食店及小店。", en: "Opened in 1955 and one of Japan's oldest underground shopping streets, with retro food counters and small shops." },
+    todo: [
+      { zh: "短逛懷舊通道，感受昭和氣氛", en: "A short walk through the retro arcade's Showa-era feel" }
+    ],
+    tips: [
+      { zh: "地方細小，約 15–20 分鐘已足夠", en: "It's small; 15–20 minutes is plenty" }
+    ]
+  },
+  ramenmuseum: {
+    about: { zh: "以昭和時代街景佈置的拉麵主題館，集合日本各地的名店。", en: "A ramen theme hall styled as a Showa-era street, gathering famous shops from around Japan." },
+    todo: [
+      { zh: "點幾間店的小碗拉麵比較口味", en: "Order small bowls from a few shops to compare styles" },
+      { zh: "逛懷舊街景及小賣店", en: "Wander the retro streetscape and shops" }
+    ],
+    tips: [
+      { zh: "入場另付門票；假日排隊較長", en: "Separate entry ticket; queues are longer on holidays" }
+    ]
+  },
+  cupnoodles: {
+    about: { zh: "介紹即食麵發明人安藤百福的博物館，可親手設計自己的杯麵。", en: "A museum about Momofuku Ando, inventor of instant noodles, where you can design your own cup noodles." },
+    todo: [
+      { zh: "My CUPNOODLES Factory：畫杯、揀湯底及配料", en: "My CUPNOODLES Factory: decorate a cup and pick the soup and toppings" },
+      { zh: "參觀即食麵歷史展區", en: "See the instant noodle history displays" }
+    ],
+    tips: [
+      { zh: "My CUPNOODLES Factory 須預約時段", en: "My CUPNOODLES Factory needs a timed booking" }
+    ]
+  },
   kitafuku: {
     about: { zh: "銀座的螃蟹專門店，以活蟹即場處理，冬季供應松葉蟹全蟹套餐。", en: "A crab specialist in Ginza that prepares live crab to order; in winter it serves a whole Matsuba snow crab course." },
     todo: [

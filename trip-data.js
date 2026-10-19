@@ -16,7 +16,7 @@
 //   leg dur:    "80 min", "~40 min" (~ = approx, shown as 約), "2.5h"
 
 window.TRIP = {
-  version: 25,
+  version: 26,
   updated: "2026-10-19",
   status: { zh: "計劃中 · 富士住宿已訂，東京酒店暫定", en: "Still planning · Fuji stay booked, Tokyo hotel likely" },
   start: "2026-12-20",
@@ -40,9 +40,12 @@ window.TRIP = {
     meiji:     { zh: "明治神宮", en: "Meiji Jingu", ja: "明治神宮", q: "Meiji Jingu" },
     omotesando:{ zh: "表參道", en: "Omotesando", ja: "表参道駅", q: "Omotesando" },
     shibuya:   { zh: "澀谷", en: "Shibuya", ja: "渋谷駅", q: "Shibuya Scramble Crossing" },
+    shibuyaSky:{ zh: "SHIBUYA SKY", en: "SHIBUYA SKY observation deck", ja: "渋谷スカイ", q: "SHIBUYA SKY" , url: "https://www.shibuya-scramble-square.com/sky/" },
     // C · Central
     tsukiji:   { zh: "築地場外市場", en: "Tsukiji Outer Market", ja: "築地場外市場", q: "Tsukiji Outer Market" },
     kappabashi:{ zh: "合羽橋道具街", en: "Kappabashi Kitchenware Town", ja: "かっぱ橋道具街", q: "Kappabashi Kitchenware Town", url: "https://www.kappabashi.or.jp/" },
+    asakusaUnderground:{ zh: "淺草地下街", en: "Asakusa Underground Street", ja: "浅草地下街", q: "Asakusa Underground Shopping Street" },
+    asakusaObservation:{ zh: "淺草文化觀光中心展望台", en: "Asakusa Culture Tourist Information Center observation deck", ja: "浅草文化観光センター 展望テラス", q: "Asakusa Culture Tourist Information Center observation deck", url: "https://www.city.taito.lg.jp/bunka_kanko/kankoinfo/info/oyakudachi/kankocenter/a-tic-gaiyo.html" },
     ginza:     { zh: "銀座", en: "Ginza", ja: "銀座四丁目交差点", q: "Ginza 4-chome" },
     marunouchi:{ zh: "東京站・丸之內", en: "Tokyo Station, Marunouchi", ja: "東京駅 丸の内駅舎", q: "Tokyo Station Marunouchi" },
     // D · Toyosu
@@ -63,6 +66,8 @@ window.TRIP = {
     daibutsu:  { zh: "鎌倉大佛", en: "Great Buddha of Kamakura", ja: "鎌倉大仏 高徳院", q: "Kotoku-in Great Buddha" },
     // I · Yokohama
     minatomirai:{ zh: "港未來", en: "Minato Mirai", ja: "みなとみらい", q: "Minato Mirai Yokohama" },
+    ramenmuseum:{ zh: "新橫濱拉麵博物館", en: "Shin-Yokohama Ramen Museum", ja: "新横浜ラーメン博物館", q: "Shin-Yokohama Ramen Museum", url: "https://www.raumen.co.jp/english/" },
+    cupnoodles:{ zh: "杯麵博物館橫濱", en: "CUPNOODLES MUSEUM YOKOHAMA", ja: "カップヌードルミュージアム 横浜", q: "CUPNOODLES MUSEUM YOKOHAMA", url: "https://www.cupnoodles-museum.jp/en/yokohama/" },
     chinatown: { zh: "橫濱中華街", en: "Yokohama Chinatown", ja: "横浜中華街", q: "Yokohama Chinatown" },
     // J · Slow day
     kichijoji: { zh: "吉祥寺・井之頭公園", en: "Kichijoji, Inokashira Park", ja: "井の頭恩賜公園", q: "Inokashira Park" },
@@ -166,9 +171,9 @@ window.TRIP = {
     { date: "2026-12-21", who: "all", title: { zh: "明治神宮、表參道及澀谷購物", en: "Meiji Jingu, Omotesando and main Shibuya shopping" },
       items: [
         { time: { zh: "09:00", en: "09:00" }, place: "meiji", sub: { zh: "在神社內參觀約一小時", en: "About an hour at the shrine" } },
-        { time: { zh: "中午", en: "Midday" }, place: "omotesando", sub: { zh: "原宿／表參道午餐及短逛", en: "Lunch and a short browse in Harajuku / Omotesando" } },
-        { time: { zh: "下午", en: "Afternoon" }, place: "shibuya", sub: { zh: "本日主要購物：十字路口、PARCO、Scramble Square 等", en: "The day's main shopping: the crossing, PARCO, Scramble Square and more" } },
-        { time: { zh: "晚餐", en: "Dinner" }, place: "shibuya", sub: { zh: "購物後在澀谷或表參道就近用餐", en: "Dinner near wherever the shopping ends, in Shibuya or Omotesando" } },
+        { time: { zh: "中午至下午", en: "Midday to afternoon" }, place: "omotesando", sub: { zh: "原宿／表參道午餐及短逛，再沿表參道向南步行往澀谷", en: "Lunch and a short browse in Harajuku / Omotesando, then walk south along Omotesando to Shibuya" } },
+        { time: { zh: "黃昏", en: "Late afternoon / sunset" }, place: "shibuyaSky", sub: { zh: "預約時段入場，黃昏時看日落及夜景；229 米高的露天觀景台，天氣惡劣時或會關閉", en: "Timed entry around sunset for the view into the night; a 229-metre open-air rooftop, which may close in bad weather" }, status: "tobook" },
+        { time: { zh: "傍晚", en: "Evening" }, place: "shibuya", sub: { zh: "澀谷購物：十字路口、PARCO、Scramble Square 等；購物後就近晚餐", en: "Shibuya shopping: the crossing, PARCO, Scramble Square and more; dinner nearby afterwards" } },
         { type: "branches", mode: "split", head: { zh: "晚飯後可分頭活動（可選）", en: "Optional split after dinner" }, options: [
           { label: { zh: "John 與 Vanjai", en: "John and Vanjai" }, items: [
             { time: { zh: "晚上", en: "Evening" }, place: "namcotokyo", sub: { zh: "歌舞伎町夜景與夾公仔機", en: "Kabukicho lights and crane games" }, optional: true }
@@ -178,22 +183,12 @@ window.TRIP = {
           ] }
         ] }
       ] },
-    { date: "2026-12-22", who: "all", title: { zh: "淺草、清酒品酒", en: "Asakusa and a sake tasting" },
+    { date: "2026-12-22", who: "all", title: { zh: "淺草寺、地下街、合羽橋及觀景台", en: "Senso-ji, underground street, Kappabashi and observation deck" },
       items: [
-        { time: { zh: "上午", en: "Morning" }, place: "sensoji", sub: { zh: "淺草寺與周邊老街", en: "Senso-ji and the nearby old streets" } },
-        { type: "branches", mode: "or", head: { zh: "淺草之後的路線", en: "After Asakusa" }, options: [
-          { label: { zh: "合羽橋＋相撲", en: "Kappabashi + sumo" }, items: [
-            { time: { zh: "上午較後", en: "Late morning" }, place: "kappabashi", sub: { zh: "合羽橋道具街；約一小時短逛", en: "Kappabashi Kitchenware Town; about one hour" } },
-            { time: { zh: "12:00", en: "12:00" }, place: "sumoclub", sub: { zh: "坐著觀賞兩小時相撲表演，並享用相撲火鍋", en: "Two-hour seated sumo show with chanko hotpot" }, status: "tobook" }
-          ] },
-          { label: { zh: "合羽橋＋晴空塔", en: "Kappabashi + Skytree" }, items: [
-            { time: { zh: "中午前後", en: "Late morning" }, place: "kappabashi", sub: { zh: "合羽橋道具街；約 1.5–2 小時慢慢逛", en: "Kappabashi Kitchenware Town; about 1.5–2 hours" } },
-            { time: { zh: "下午", en: "Afternoon" }, place: "skytree", sub: { zh: "從淺草方向前往；可按體力縮短", en: "Continue from Asakusa; shorten based on energy" } }
-          ] },
-          { label: { zh: "晴空塔", en: "Skytree" }, items: [
-            { time: { zh: "下午", en: "Afternoon" }, place: "skytree", sub: { zh: "由淺草直接前往，步行較少", en: "Straight from Asakusa, with less walking" } }
-          ] }
-        ] },
+        { time: { zh: "上午", en: "Morning" }, place: "asakusaObservation", sub: { zh: "雷門對面的 8 樓免費展望台，可俯瞰仲見世通、淺草寺及晴空塔", en: "Free 8F observation terrace opposite Kaminarimon, overlooking Senso-ji and Skytree" } },
+        { time: { zh: "上午較後", en: "Late morning" }, place: "sensoji", sub: { zh: "淺草寺、雷門及仲見世通", en: "Senso-ji, Kaminarimon and Nakamise" } },
+        { time: { zh: "中午前後", en: "Late morning / midday" }, place: "asakusaUnderground", sub: { zh: "短暫參觀淺草地下街，再步行往合羽橋", en: "Short visit to Asakusa Underground Street, then walk toward Kappabashi" } },
+        { time: { zh: "下午", en: "Afternoon" }, place: "kappabashi", sub: { zh: "廚具及食品模型街；約 1.5–2 小時", en: "Kitchenware and food-model street; about 1.5–2 hours" } },
         { time: { zh: "16:00", en: "16:00" }, place: "sakecenter", sub: { zh: "酒店附近的清酒品酒，約 16:00–17:00；免費入場，試飲另付。若下午行程較趕，可略過並直接回酒店休息", en: "Sake tasting near the hotel, about 16:00–17:00; free entry, tastings paid. Skip it and rest at the hotel if the afternoon runs late" }, optional: true },
         { time: { zh: "17:00–20:00", en: "17:00–20:00" }, place: "blossom", sub: { zh: "回酒店休息", en: "Rest at the hotel" } },
         { time: { zh: "20:30", en: "20:30" }, place: "kitafuku", sub: { zh: "銀座螃蟹料理，冬季活松葉蟹套餐；四人。由酒店步行或乘的士約 10 分鐘", en: "Crab in Ginza: the winter live Matsuba crab course; four people. About 10 minutes from the hotel on foot or by taxi" }, status: "booked" },
@@ -228,7 +223,8 @@ window.TRIP = {
         { time: { zh: "13:00–14:00", en: "13:00–14:00" }, name: { zh: "餺飥午餐", en: "Hōtō lunch" }, sub: { zh: "山梨名物：南瓜味噌湯煮粗麵；在河口湖站附近，不預約", en: "Yamanashi's specialty: thick noodles in pumpkin-miso broth; near Kawaguchiko Station, no booking" } },
         { time: { zh: "14:00–15:00", en: "14:00–15:00" }, place: "fujicharter", sub: { zh: "包車送到河口湖站；處理行李，預留時間上車", en: "Car drops us at Kawaguchiko Station; sort luggage and leave time before the train" }, status: "tobook" },
         { type: "leg", from: { zh: "河口湖站", en: "Kawaguchiko Station" }, to: { zh: "新宿", en: "Shinjuku" }, via: { zh: "富士回遊直達列車 15:39 → 17:45；如午餐或交通延誤，改乘 16:48 → 18:46", en: "Fuji Excursion direct train 15:39 → 17:45; if lunch or traffic runs late, the 16:48 → 18:46" }, dur: "~2h" },
-        { time: { zh: "抵達後", en: "On arrival" }, name: { zh: "返回 Hibiya 休息", en: "Return to Hibiya and rest" }, sub: { zh: "這天不安排新宿購物、正式晚餐或酒吧；視乎抵達時間再決定是否在酒店附近簡單用餐", en: "No Shinjuku shopping, formal dinner or bar is scheduled today; decide on a simple meal near the hotel only after seeing the arrival time" } },
+        { time: { zh: "抵達後", en: "On arrival" }, name: { zh: "返回日比谷酒店休息", en: "Back to the hotel in Hibiya to rest" }, sub: { zh: "由新宿乘 JR 返回酒店", en: "JR from Shinjuku back to the hotel" } },
+        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "爐端燒晚餐", en: "Robatayaki dinner" }, sub: { zh: "如列車準時及仍有精神；炭火燒烤海鮮及蔬菜，餐廳待定。否則在酒店附近簡單用餐", en: "If the train is on time and energy remains; charcoal-grilled seafood and vegetables, restaurant TBC. Otherwise a simple meal near the hotel" }, optional: true },
         { type: "note", text: { zh: "連停留時間，包車全程約 5 小時。如天氣或體力欠佳，只去忍野八海便到車站；如想走平坦湖畔，可以河口湖大石公園代替山中湖。旅館不代運行李。", en: "The car day is about 5 hours including stops. If the weather or energy is poor, do Oshino Hakkai only and go to the station; for a flat lakeside walk, Oishi Park at Lake Kawaguchi can take Lake Yamanaka's place. The ryokan won't transport luggage." } },
         { type: "note", text: { zh: "富士回遊直達列車（河口湖 → 新宿）：14:08 → 16:06、14:58 → 16:58、15:39 → 17:45、16:48 → 18:46，另有約 17:41 一班。全車指定座，須預先買票。", en: "Fuji Excursion direct trains (Kawaguchiko → Shinjuku): 14:08 → 16:06, 14:58 → 16:58, 15:39 → 17:45, 16:48 → 18:46, plus one around 17:41. All seats reserved; buy tickets ahead." } },
         { type: "tbd", text: { zh: "包車須報價及確認 12 月 24 日有車（四位成人連行李，約 15:00 前送到河口湖站）；直達列車車票待購買。", en: "Private car needs a quote and 24 Dec availability (four adults with luggage, at Kawaguchiko Station by about 15:00); train tickets not yet bought." } }
@@ -248,19 +244,14 @@ window.TRIP = {
         ] },
         { type: "tbd", text: { zh: "L'ARGENT 尚未訂位；teamLab 門票尚未購買。聖誕節當天足湯的開放時間未公布，臨近出發再查是否臨時休息。", en: "L'ARGENT not booked; teamLab tickets not bought. Footbath hours for Christmas Day aren't published; check for closures closer to the date." } }
       ] },
-    { date: "2026-12-26", who: "all", title: { zh: "台場慢遊及鐵板燒銀杏", en: "Odaiba day and Teppanyaki ICHO" },
+    { date: "2026-12-26", who: "all", title: { zh: "橫濱：拉麵博物館、杯麵博物館及中華街", en: "Yokohama: Ramen Museum, Cup Noodles Museum and Chinatown" },
       items: [
-        { type: "branches", mode: "or", head: { zh: "白天路線選擇", en: "Choose the daytime route" }, options: [
-          { label: { zh: "台場海濱及商場", en: "Odaiba waterfront and malls" }, items: [
-            { time: { zh: "上午至下午", en: "Morning to afternoon" }, place: "odaiba", sub: { zh: "海濱公園、Decks／Aqua City／DiverCity；步行量可按體力調整", en: "Seaside Park, Decks / Aqua City / DiverCity; adjust walking to the group's energy" } }
-          ] },
-          { label: { zh: "築地／銀座後前往台場", en: "Tsukiji / Ginza, then Daiba" }, items: [
-            { time: { zh: "上午", en: "Morning" }, place: "tsukiji", sub: { zh: "築地場外市場短逛；築地魚河岸 09:00 起開放給一般遊客", en: "Short visit to Tsukiji Outer Market; Tsukiji Uogashi opens to visitors from 09:00" } },
-            { time: { zh: "下午", en: "Afternoon" }, place: "ginza", sub: { zh: "銀座慢逛及咖啡，之後前往台場", en: "Easy Ginza browse and coffee, then travel to Daiba" } }
-          ] }
-        ] },
-        { time: { zh: "晚餐時間待訂", en: "Dinner time TBC" }, place: "icho", sub: { zh: "東京台場格蘭日航酒店 30 樓鐵板燒，可看東京灣夜景；四人", en: "Teppanyaki on the 30th floor of Grand Nikko Tokyo Daiba, overlooking Tokyo Bay; four people" }, status: "tobook" },
-        { type: "tbd", text: { zh: "鐵板燒銀杏尚未訂位，四人座位及時間待確認。", en: "Teppanyaki ICHO is not booked; four-person availability and time to confirm." } }
+        { type: "leg", from: { zh: "日比谷", en: "Hibiya" }, to: { zh: "新橫濱", en: "Shin-Yokohama" }, via: { zh: "09:00 左右出發，乘鐵路前往", en: "Leave around 09:00 by train" }, dur: "~45–60m" },
+        { time: { zh: "10:30–12:30", en: "10:30–12:30" }, place: "ramenmuseum", sub: { zh: "昭和懷舊街景中的拉麵店，各自點小碗拉麵作午餐；預留排隊時間", en: "Ramen shops in a retro Showa-era street; everyone picks small bowls for lunch; allow time for queues" } },
+        { time: { zh: "13:15–15:15", en: "13:15–15:15" }, place: "cupnoodles", sub: { zh: "港未來的杯麵博物館；預約 My CUPNOODLES Factory 時段，自己設計杯麵，約 45–60 分鐘", en: "CUPNOODLES MUSEUM; reserve a My CUPNOODLES Factory slot, which takes about 45–60 minutes" }, status: "tobook" },
+        { time: { zh: "15:30–18:00", en: "15:30–18:00" }, place: "chinatown", sub: { zh: "散步及小食", en: "A stroll and snacks" } },
+        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "晚餐待定", en: "Dinner TBC" }, sub: { zh: "在橫濱中華街用餐，或視乎體力返回銀座／日比谷", en: "Eat in Yokohama Chinatown, or head back to Ginza / Hibiya depending on energy" } },
+        { type: "tbd", text: { zh: "這是完整一日行程。杯麵體驗須預約；兩間博物館的年末休館日及 26 日營業時間待確認。", en: "The three Yokohama stops fit in one full day. The Cup Noodles activity needs a reservation; confirm year-end closures and 26 Dec opening hours closer to travel." } }
       ] },
     { date: "2026-12-27", who: "split", title: { zh: "Ben 與 Christine 回程", en: "Ben and Christine fly home" },
       items: [
@@ -524,7 +515,6 @@ window.TRIP = {
         { place: "ushigoro", kind: { zh: "燒肉 · 銀座 · 20 日", en: "Yakiniku · Ginza · 20 Dec" }, price: { zh: "Q 套餐 ¥22,500／位，已預付", en: "Q course ¥22,500 pp, prepaid" }, status: "booked", note: { zh: "20 日 18:30，四人。已訂位。", en: "18:30 on 20 Dec, four people. Booked." } },
         { place: "kitafuku", kind: { zh: "螃蟹料理 · 銀座 · 22 日", en: "Crab · Ginza · 22 Dec" }, price: { zh: "活松葉蟹套餐 ¥55,000／位，另加 10% 服務費；在店內付款，或按當日蟹價調整", en: "Live Matsuba crab course ¥55,000 pp plus 10% service; paid at the restaurant, may rise with the day's crab price" }, status: "booked", note: { zh: "22 日 20:30，四人。已訂位。", en: "20:30 on 22 Dec, four people. Booked." } },
         { place: "largent", kind: { zh: "法國菜 · 霞關 · 25 日", en: "French · Kasumigaseki · 25 Dec" }, price: { zh: "聖誕套餐每位 ¥28,600（最終金額以付款頁為準）", en: "Christmas course ¥28,600 pp (check final total at checkout)" }, status: "first", note: { zh: "25 日 18:30 四人聖誕晚餐，與新豐洲聖誕市集二選一。尚未訂位。", en: "Christmas dinner for four at 18:30 on 25 Dec, instead of the Shin-Toyosu market. Not booked." } },
-        { place: "icho", kind: { zh: "鐵板燒 · 台場 · 26 日", en: "Teppanyaki · Daiba · 26 Dec" }, price: { zh: "晚餐約 ¥28,000–35,000（含稅及服務費）", en: "Dinner about ¥28,000–35,000 pp incl. tax and service" }, status: "first", note: { zh: "26 日四人晚餐，配合台場一天；時間及座位尚未確認。尚未訂位。", en: "Four-person dinner on 26 Dec, after a day in Odaiba; time and seats to confirm. Not booked." } },
       ]
     },
     {
