@@ -455,6 +455,34 @@ window.PLACE_INFO = {
       { zh: "觀光巴士班次不多，須預先查看時間", en: "Sightseeing buses are infrequent; check times ahead" }
     ]
   },
+  onda: {
+    about: { zh: "河口湖站附近的人氣薄餅店，適合抵達後先吃午餐。", en: "A popular pizzeria near Kawaguchiko Station, handy for lunch on arrival." },
+    todo: [
+      { zh: "即叫即烤的薄餅", en: "Freshly baked pizza" }
+    ],
+    tips: [
+      { zh: "星期三午餐約 11:30–14:30；逢星期四休息，年底營業時間待確認", en: "Wednesday lunch about 11:30–14:30; closed Thursdays, year-end hours to check" }
+    ]
+  },
+  honcho: {
+    about: { zh: "富士吉田的老街，筆直街道盡頭正對富士山，是常見的明信片景色。", en: "An old street in Fujiyoshida that runs straight towards Mt Fuji, a classic postcard view." },
+    todo: [
+      { zh: "在街上拍攝富士山與老店", en: "Photograph Mt Fuji above the old shopfronts" }
+    ],
+    tips: [
+      { zh: "車輛往來頻繁，拍照時留意交通；停留約 20–30 分鐘", en: "It's a working road, so watch for traffic when taking photos; about 20–30 minutes" }
+    ]
+  },
+  chureito: {
+    about: { zh: "新倉山淺間公園內的五重塔，可同時拍到塔與富士山，是富士山最著名的景色之一。", en: "The five-storey pagoda in Arakurayama Sengen Park, framed with Mt Fuji in one of the mountain's most famous views." },
+    todo: [
+      { zh: "在觀景台拍攝五重塔與富士山", en: "Photograph the pagoda with Mt Fuji from the viewing deck" }
+    ],
+    tips: [
+      { zh: "由山腳到塔約 400 級樓梯，另有較緩的斜路", en: "About 400 steps from the bottom to the pagoda, with a gentler sloping path as well" },
+      { zh: "如不想爬樓梯，可改去河口湖大石公園", en: "If the stairs are too much, the Oishi Park lakeside at Lake Kawaguchi is a flat choice" }
+    ]
+  },
   yamanaka: {
     about: { zh: "富士五湖中最大的湖，湖面開闊，晴天可看到完整富士山倒影；平野、長池一帶較適合短暫下車拍照。", en: "The largest of the Fuji Five Lakes, with open water and full Fuji reflections on a clear day. Hirano and Nagaike are good for a short photo stop." },
     todo: [
@@ -462,7 +490,8 @@ window.PLACE_INFO = {
       { zh: "沿湖邊短步行，喝熱飲取暖", en: "Take a short lakeside walk and warm up with a hot drink" }
     ],
     tips: [
-      { zh: "由 Bessho Sasa 出發比河口湖更順；冬天風大，停留 45–60 分鐘已足夠", en: "A more natural drive from Bessho Sasa than Kawaguchiko; winter wind can be strong, so 45–60 minutes is enough" }
+      { zh: "由 Bessho Sasa 出發比河口湖更順；冬天風大，停留 45–60 分鐘已足夠", en: "A more natural drive from Bessho Sasa than Kawaguchiko; winter wind can be strong, so 45–60 minutes is enough" },
+      { zh: "湖上約有 60 隻常駐的天鵝，在平野、長池一帶有機會看到；天鵝造型遊覽船 12 月至 2 月停航", en: "About 60 resident swans live on the lake and are often seen around Hirano and Nagaike; the swan-shaped sightseeing boat is suspended December to February" }
     ]
   },
   kawaguchiko: {
@@ -473,7 +502,8 @@ window.PLACE_INFO = {
       { zh: "乘坐遊覽船", en: "Take a lake cruise" }
     ],
     tips: [
-      { zh: "冬季早上最容易看見富士山", en: "Winter mornings give the clearest Fuji views" }
+      { zh: "冬季早上最容易看見富士山", en: "Winter mornings give the clearest Fuji views" },
+      { zh: "北岸的大石公園湖畔步道平坦，適合輕鬆散步", en: "The Oishi Park promenade on the north shore is flat and easy to walk" }
     ]
   },
   senkyaku: {

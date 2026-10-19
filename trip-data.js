@@ -16,7 +16,7 @@
 //   leg dur:    "80 min", "~40 min" (~ = approx, shown as 約), "2.5h"
 
 window.TRIP = {
-  version: 23,
+  version: 24,
   updated: "2026-10-19",
   status: { zh: "計劃中 · 富士住宿已訂，東京酒店暫定", en: "Still planning · Fuji stay booked, Tokyo hotel likely" },
   start: "2026-12-20",
@@ -133,6 +133,9 @@ window.TRIP = {
     sakecenter:{ zh: "日本酒資訊中心", en: "Japan Sake and Shochu Information Center", ja: "日本の酒情報館", q: "Japan Sake and Shochu Information Center", url: "https://japansake.or.jp/sake/en/jss/information-center/" },
     oshino:    { zh: "忍野八海", en: "Oshino Hakkai", ja: "忍野八海", q: "Oshino Hakkai" },
     yamanaka:  { zh: "山中湖", en: "Lake Yamanaka", ja: "山中湖", q: "Lake Yamanaka Hirano lakeside" },
+    onda:      { zh: "Pizzeria Onda", en: "Pizzeria Onda", ja: "ピッツェリア オンダ", q: "Pizzeria Onda Fujikawaguchiko", url: "https://tabelog.com/yamanashi/A1903/A190303/19011964/" },
+    honcho:    { zh: "富士吉田本町通", en: "Honcho Street, Fujiyoshida", ja: "本町通り 富士吉田", q: "Honcho Street Fujiyoshida" },
+    chureito:  { zh: "新倉山淺間公園・忠靈塔", en: "Chureito Pagoda, Arakurayama Sengen Park", ja: "新倉山浅間公園 忠霊塔", q: "Chureito Pagoda" },
     kawaguchiko:{ zh: "河口湖", en: "Lake Kawaguchi", ja: "河口湖", q: "Lake Kawaguchi" },
     fujicharter:{ zh: "富士五湖包車的士", en: "Fuji Five Lakes charter taxi", ja: "富士急山梨ハイヤー", q: "Fuji Q Yamanashi Hire private taxi", url: "https://www.fujiq-taxi.jp/en/plan/info.php?no=29" },
     senkyaku:  { zh: "豐洲千客萬來", en: "Toyosu Senkyaku Banrai", ja: "豊洲 千客万来", q: "Toyosu Senkyaku Banrai", url: "https://www.toyosu-senkyakubanrai.jp/" },
@@ -216,31 +219,48 @@ window.TRIP = {
       ] },
     { date: "2026-12-23", who: "all", title: { zh: "前往富士吉田，入住溫泉旅館", en: "To Fujiyoshida for a night at the ryokan" },
       items: [
-        { type: "leg", from: { zh: "東京", en: "Tokyo" }, to: { zh: "富士吉田", en: "Fujiyoshida" }, via: { zh: "富士回遊直達列車或高速巴士，約 2 小時；連轉車門到門約 3–4 小時", en: "Fuji Excursion direct train or highway bus, about 2 hours; about 3–4 hours door to door" }, dur: "~3–4h" },
-        { time: { zh: "下午", en: "Afternoon" }, place: "besshosasa", sub: { zh: "泡溫泉、晚餐，或許小酌一杯", en: "Hot spring and dinner, perhaps a little wine" }, status: "booked" },
-        { type: "note", text: { zh: "旅館提供免費車站接送（13:00–18:00），須抵達富士山站或河口湖站後致電旅館，無法事先以電郵預約。", en: "The ryokan's free station pickup runs 13:00–18:00; call after reaching Fujisan or Kawaguchiko Station. It can't be booked ahead by email." } },
-        { type: "tbd", text: { zh: "旅館已預訂，但截圖看不到日期；是否為 23–24 日須以完整憑證確認。", en: "Hotel booked, but the screenshots cut off the dates; confirm 23–24 Dec from the full vouchers." } }
-      ] },
-    { date: "2026-12-24", who: "all", title: { zh: "富士山，之後返回東京", en: "Mt Fuji, then back to Tokyo" },
-      items: [
-        { time: { zh: "早上", en: "Morning" }, place: "besshosasa", sub: { zh: "旅館早餐，退房", en: "Ryokan breakfast, check out" } },
-        { type: "branches", mode: "or", options: [
-          { label: { zh: "公共交通：忍野八海", en: "Public transport: Oshino Hakkai" }, items: [ { place: "oshino", sub: { zh: "從富士吉田出發最簡單", en: "Simplest from Fujiyoshida" } } ] },
-          { label: { zh: "公共交通：河口湖", en: "Public transport: Lake Kawaguchi" }, items: [ { place: "kawaguchiko", sub: { zh: "之後在河口湖站乘直達列車回新宿", en: "Then the direct train from Kawaguchiko Station to Shinjuku" } } ] },
-          { label: { zh: "包車：山中湖＋忍野八海，再到富士山站", en: "Private car: Lake Yamanaka + Oshino, then Mt Fuji Station" }, items: [
-            { time: { zh: "退房後", en: "After check-out" }, place: "fujicharter", sub: { zh: "富士急山梨包車的士；標準行程 3 小時 ¥24,000 起（中型車），此路線須另行報價，全程約 4–5 小時", en: "Fuji Q Yamanashi charter taxi; standard 3-hour course from ¥24,000 (medium car), this route needs its own quote; about 4–5 hours in all" }, status: "tobook" },
-            { time: { zh: "上午", en: "Morning" }, place: "yamanaka", sub: { zh: "平野／長池一帶湖畔，完整看富士山；約 45–60 分鐘", en: "Hirano or Nagaike lakeside for the full Fuji panorama; about 45–60 minutes" } },
-            { time: { zh: "中午", en: "Midday" }, place: "oshino", sub: { zh: "忍野八海八個湧水池及小吃；約 45–60 分鐘", en: "Oshino Hakkai's eight springs and food stalls; about 45–60 minutes" } },
-            { time: { zh: "下午", en: "Afternoon" }, place: "fujicharter", sub: { zh: "送到富士山站；再乘已預約的富士回遊／高速巴士回新宿", en: "Drop at Mt Fuji Station for a reserved Fuji Excursion or highway bus to Shinjuku" }, status: "tobook" }
+        { type: "leg", from: { zh: "東京", en: "Tokyo" }, to: { zh: "富士吉田", en: "Fujiyoshida" }, via: { zh: "富士回遊直達列車或高速巴士，約 2 小時；連轉車及行李，門到門約 3–4 小時", en: "Fuji Excursion direct train or highway bus, about 2 hours; about 3–4 hours door to door with transfers and luggage" }, dur: "~3–4h" },
+        { type: "branches", mode: "or", head: { zh: "視乎出發時間", en: "Depending on when we leave" }, options: [
+          { label: { zh: "直接到旅館休息", en: "Straight to the ryokan to rest" }, items: [
+            { type: "note", text: { zh: "抵達後直接入住，下午留給溫泉及休息。", en: "Check in on arrival and keep the afternoon for the baths and rest." } }
+          ] },
+          { label: { zh: "提早出發：約 12:00 到河口湖站", en: "Early start: Kawaguchiko Station by about 12:00" }, items: [
+            { time: { zh: "12:00–13:00", en: "12:00–13:00" }, place: "onda", sub: { zh: "河口湖站附近的薄餅午餐；行李先放車站儲物櫃或直接送往旅館", en: "Pizza lunch near Kawaguchiko Station; leave luggage in station lockers or send it straight to the ryokan" } },
+            { time: { zh: "13:10–13:35", en: "13:10–13:35" }, place: "honcho", sub: { zh: "以富士山為背景的老街，短暫停留拍照", en: "Old street with Mt Fuji behind it; a short photo stop" } },
+            { time: { zh: "13:50–15:20", en: "13:50–15:20" }, place: "chureito", sub: { zh: "五重塔與富士山同框；上山樓梯較多。想輕鬆些可改到河口湖大石公園湖畔散步", en: "The pagoda framed with Mt Fuji; lots of uphill stairs. For an easier walk, the Oishi Park lakeside at Lake Kawaguchi instead" } },
+            { type: "note", text: { zh: "15:20–16:00 乘的士或旅館接駁車到旅館。如列車延誤，先刪本町通；抵達遲過 12:30 便午餐後直接到旅館。", en: "15:20–16:00: taxi or the ryokan shuttle to the ryokan. If the train is late, drop Honcho Street first; if we arrive after 12:30, go straight to the ryokan after lunch." } }
           ] }
         ] },
-        { type: "leg", from: { zh: "富士", en: "Fuji" }, to: { zh: "東京", en: "Tokyo" }, via: { zh: "富士回遊直達列車或高速巴士，約 2 小時；連轉車門到門約 3–4 小時", en: "Fuji Excursion direct train or highway bus, about 2 hours; about 3–4 hours door to door" }, dur: "~3–4h" },
-        { time: { zh: "抵達後", en: "On arrival" }, place: "shinjuku", sub: { zh: "列車及高速巴士均抵達新宿；在新宿購物", en: "Both the train and highway bus arrive in Shinjuku; shopping there" } },
-        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "爐端燒晚餐", en: "Robatayaki dinner" }, sub: { zh: "炭火燒烤海鮮及蔬菜；餐廳待定，按回程時間決定", en: "Charcoal-grilled seafood and vegetables; restaurant TBC, depending on the return time" } },
+        { time: { zh: "下午至晚上", en: "Afternoon to evening" }, place: "besshosasa", sub: { zh: "入住、泡溫泉及私人風呂；旅館晚餐，欣賞富士山景色。山梨葡萄酒視乎房價計劃是否包括", en: "Check in, hot spring and private bath; ryokan dinner with the Fuji view. Yamanashi wine depends on whether the rate plan includes it" }, status: "booked" },
+        { type: "note", text: { zh: "旅館提供免費車站接送（13:00–18:00），須抵達富士山站或河口湖站後致電旅館，無法事先以電郵預約。", en: "The ryokan's free station pickup runs 13:00–18:00; call after reaching Fujisan or Kawaguchiko Station. It can't be booked ahead by email." } },
+        { type: "tbd", text: { zh: "旅館已預訂，但截圖看不到日期；是否為 23–24 日須以完整憑證確認。Pizzeria Onda 逢星期四休息，假期營業時間待確認。", en: "Hotel booked, but the screenshots cut off the dates; confirm 23–24 Dec from the full vouchers. Pizzeria Onda closes Thursdays; check its holiday hours." } }
+      ] },
+    { date: "2026-12-24", who: "all", title: { zh: "包車遊山中湖及忍野八海，之後返回東京", en: "Lake Yamanaka and Oshino by car, then back to Tokyo" },
+      items: [
+        { time: { zh: "08:00–09:00", en: "08:00–09:00" }, place: "besshosasa", sub: { zh: "旅館早餐、最後一次私人風呂、收拾行李及退房", en: "Ryokan breakfast, a last private bath, pack and check out" } },
+        { time: { zh: "09:30", en: "09:30" }, place: "fujicharter", sub: { zh: "包車在旅館接載四人及行李；富士急山梨包車的士，此路線須另行報價", en: "Private car picks up four people and luggage at the ryokan; Fuji Q Yamanashi charter taxi, this route needs its own quote" }, status: "tobook" },
+        { type: "branches", mode: "or", head: { zh: "包車路線", en: "Car route" }, options: [
+          { label: { zh: "山中湖＋忍野八海", en: "Lake Yamanaka + Oshino Hakkai" }, items: [
+            { time: { zh: "10:00–11:00", en: "10:00–11:00" }, place: "yamanaka", sub: { zh: "選長池親水公園或平野其中一處湖畔看富士山；湖上有野生天鵝。天鵝船冬季停航", en: "One lakeside viewpoint, Nagaike or Hirano, for the Fuji view; wild swans live on the lake. The swan boat doesn't run in winter" } },
+            { time: { zh: "11:15–12:30", en: "11:15–12:30" }, place: "oshino", sub: { zh: "以中央泉池及湧水一帶為主", en: "Mainly the central ponds and springs" } }
+          ] },
+          { label: { zh: "河口湖大石公園＋忍野八海", en: "Oishi Park + Oshino Hakkai" }, items: [
+            { place: "kawaguchiko", sub: { zh: "大石公園湖畔步道，平坦易行", en: "The Oishi Park lakeside promenade, flat and easy" } },
+            { place: "oshino", sub: { zh: "以中央泉池及湧水一帶為主", en: "Mainly the central ponds and springs" } }
+          ] },
+          { label: { zh: "天氣或體力欠佳：只去忍野八海", en: "Poor weather or tired: Oshino Hakkai only" }, items: [
+            { place: "oshino", sub: { zh: "距旅館最近，之後直接到河口湖站", en: "Closest to the ryokan, then straight to Kawaguchiko Station" } }
+          ] }
+        ] },
+        { time: { zh: "13:00–14:00", en: "13:00–14:00" }, name: { zh: "餺飥午餐", en: "Hōtō lunch" }, sub: { zh: "山梨名物：南瓜味噌湯煮粗麵；在河口湖站附近，不預約", en: "Yamanashi's specialty: thick noodles in pumpkin-miso broth; near Kawaguchiko Station, no booking" } },
+        { time: { zh: "14:00–15:00", en: "14:00–15:00" }, place: "fujicharter", sub: { zh: "包車送到河口湖站；處理行李，預留時間上車", en: "Car drops us at Kawaguchiko Station; sort luggage and leave time before the train" }, status: "tobook" },
+        { type: "leg", from: { zh: "河口湖站", en: "Kawaguchiko Station" }, to: { zh: "新宿", en: "Shinjuku" }, via: { zh: "富士回遊直達列車 15:39 → 17:45；如午餐或交通延誤，改乘 16:48 → 18:46", en: "Fuji Excursion direct train 15:39 → 17:45; if lunch or traffic runs late, the 16:48 → 18:46" }, dur: "~2h" },
+        { time: { zh: "抵達後", en: "On arrival" }, place: "shinjuku", sub: { zh: "在新宿購物", en: "Shopping in Shinjuku" } },
+        { time: { zh: "晚餐", en: "Dinner" }, name: { zh: "爐端燒晚餐", en: "Robatayaki dinner" }, sub: { zh: "炭火燒烤海鮮及蔬菜；餐廳待定，時間較晚及彈性", en: "Charcoal-grilled seafood and vegetables; restaurant TBC, late and flexible" } },
         { time: { zh: "晚餐後", en: "After dinner" }, place: "peterbar", sub: { zh: "Ben 與 Christine 若想喝一杯；視乎回程時間，不預約", en: "For Ben and Christine if they'd like a drink; depends on the return, no booking" }, optional: true },
-        { type: "note", text: { zh: "包車首選山中湖及忍野八海，兩處都在旅館附近，最後送到富士山站接富士回遊列車。若天氣或體力一般，改走較短的忍野八海及河口湖路線。旅館回程接駁車 08:30–12:00 每 30 分鐘一班，須在櫃台預約；旅館不代運行李。", en: "The private car favours Lake Yamanaka and Oshino Hakkai, both close to the ryokan, ending at Mt Fuji Station for the Fuji Excursion. If the weather or energy is poor, take the shorter Oshino and Kawaguchiko route. The ryokan shuttle runs 08:30–12:00 every 30 minutes, booked at the front desk; the ryokan won't transport luggage." } },
-        { type: "note", text: { zh: "富士回遊直達列車（河口湖 → 新宿）：14:08 → 16:06、14:58 → 16:58、15:39 → 17:45、16:48 → 18:46，另有約 17:41 一班。建議乘 14:08–15:39 的班次。全車指定座，須預先買票。", en: "Fuji Excursion direct trains (Kawaguchiko → Shinjuku): 14:08 → 16:06, 14:58 → 16:58, 15:39 → 17:45, 16:48 → 18:46, plus one around 17:41. Aim for the 14:08–15:39 trains. All seats reserved; buy tickets ahead." } },
-        { type: "tbd", text: { zh: "包車須報價及確認 12 月 24 日有車；直達列車車票待購買。回程抵達時間未定，當晚不預訂正式晚餐。", en: "Private car needs a quote and 24 Dec availability; train tickets not yet bought. Return time is uncertain, so no formal dinner booking that evening." } }
+        { type: "note", text: { zh: "連停留時間，包車全程約 5 小時。山中湖只選一個觀景點，不環湖。忠靈塔樓梯較多，不宜帶著行李再加入。旅館不代運行李。", en: "The car day is about 5 hours including stops. Only one viewpoint at Lake Yamanaka, no lap of the lake. Chureito has many stairs, so it isn't added with luggage in tow. The ryokan won't transport luggage." } },
+        { type: "note", text: { zh: "富士回遊直達列車（河口湖 → 新宿）：14:08 → 16:06、14:58 → 16:58、15:39 → 17:45、16:48 → 18:46，另有約 17:41 一班。全車指定座，須預先買票。", en: "Fuji Excursion direct trains (Kawaguchiko → Shinjuku): 14:08 → 16:06, 14:58 → 16:58, 15:39 → 17:45, 16:48 → 18:46, plus one around 17:41. All seats reserved; buy tickets ahead." } },
+        { type: "tbd", text: { zh: "包車須報價及確認 12 月 24 日有車（四位成人連行李，約 15:00 前送到河口湖站）；直達列車車票待購買。當晚不預訂正式晚餐。", en: "Private car needs a quote and 24 Dec availability (four adults with luggage, at Kawaguchiko Station by about 15:00); train tickets not yet bought. No formal dinner booking that evening." } }
       ] },
     { date: "2026-12-25", who: "all", plan: "D", title: { zh: "豐洲、teamLab 及聖誕夜", en: "Toyosu, teamLab and Christmas night" },
       items: [
