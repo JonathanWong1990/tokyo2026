@@ -558,6 +558,17 @@ window.PLACE_INFO = {
   },
 
   // Restaurant cards: short, decision-friendly descriptions for the itinerary.
+  kitafuku: {
+    about: { zh: "銀座的螃蟹專門店，以活蟹即場處理，冬季供應松葉蟹全蟹套餐。", en: "A crab specialist in Ginza that prepares live crab to order; in winter it serves a whole Matsuba snow crab course." },
+    todo: [
+      { zh: "冬季活松葉蟹多道菜套餐，一隻蟹以多種煮法上桌", en: "The winter live Matsuba crab course, one crab served several ways" }
+    ],
+    tips: [
+      { zh: "已訂 22 日 20:30 四人；冬季活松葉蟹套餐每位 ¥55,000，另加 10% 服務費", en: "Booked for four at 20:30 on 22 Dec; winter live Matsuba crab course ¥55,000 pp plus 10% service" },
+      { zh: "訂位時已登記信用卡，但在店內付款；最終價錢或按當日蟹價調整", en: "A card was registered to book, but payment is at the restaurant; the final price may rise with the day's crab price" },
+      { zh: "地址：銀座 7-4-5 745 大廈 3 樓", en: "Address: 745 Bldg 3F, 7-4-5 Ginza" }
+    ]
+  },
   ushigoro: {
     about: { zh: "銀座的高級和牛燒肉，店員在私人房間內代客燒肉；氣氛安靜，適合四人慶祝晚餐。", en: "Premium wagyu yakiniku in Ginza. A grill master cooks the meat for you in a private room, making it a polished choice for a four-person celebration." },
     todo: [
@@ -565,8 +576,8 @@ window.PLACE_INFO = {
       { zh: "配搭清酒或葡萄酒", en: "Pair the tasting course with sake or wine" }
     ],
     tips: [
-      { zh: "約 ¥20,000–30,000／位；實際套餐及服務費以訂位頁為準", en: "Roughly ¥20,000–30,000 per person; confirm the course and service charge when booking" },
-      { zh: "全店預約制；20 日四人仍未訂位", en: "Reservation required; four seats for 20 Dec are not booked yet" }
+      { zh: "已訂 20 日 18:30 四人，Q 套餐每位 ¥22,500，已預付", en: "Booked for four at 18:30 on 20 Dec; Q course ¥22,500 pp, prepaid" },
+      { zh: "地址：銀座 7-7-7 777 大廈 6 樓", en: "Address: 777 Bldg 6F, 7-7-7 Ginza" }
     ]
   },
   icho: {

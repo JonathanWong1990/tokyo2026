@@ -16,8 +16,8 @@
 //   leg dur:    "80 min", "~40 min" (~ = approx, shown as 約), "2.5h"
 
 window.TRIP = {
-  version: 22,
-  updated: "2026-10-16",
+  version: 23,
+  updated: "2026-10-19",
   status: { zh: "計劃中 · 富士住宿已訂，東京酒店暫定", en: "Still planning · Fuji stay booked, Tokyo hotel likely" },
   start: "2026-12-20",
   end: "2026-12-30",
@@ -104,7 +104,7 @@ window.TRIP = {
     unis:      { zh: "unis", en: "unis", ja: "unis 虎ノ門ヒルズ", q: "unis Toranomon Hills", url: "https://tabelog.com/tokyo/A1308/A130802/13253159/" },
     gomei:     { zh: "秋田牛鐵板燒 銀座 Gomei", en: "Akita Beef Teppanyaki Ginza Gomei", q: "Akita Beef Teppanyaki Ginza Gomei", url: "https://tabelog.com/tokyo/A1301/A130101/13187289/" },
     yamashina: { zh: "本店 山科", en: "Honten Yamashina", q: "Honten Yamashina Ginza Place", url: "https://res-reserve.com/en/restaurants/honten-yamashina" },
-    kitafuku:  { zh: "Kita Fuku", en: "Kita Fuku", q: "Kani Kita Fuku Ginza", url: "https://kanikitafuku.com/" },
+    kitafuku:  { zh: "銀座 北福", en: "Ginza Kitafuku", ja: "銀座 きた福", q: "Ginza Kitafuku crab", url: "https://kanikitafuku.com/" },
     nakamura:  { zh: "麻布台 Nakamura", en: "Azabudai Nakamura", q: "Azabudai Nakamura teppanyaki", url: "https://naka-mura.net/" },
     sugalabo:  { zh: "SUGALABO", en: "SUGALABO", q: "SUGALABO Kamiyacho", url: "https://sugalabo.com/" },
     hommage:   { zh: "Hommage", en: "Hommage", q: "Hommage Asakusa", url: "https://www.hommage-arai.com/en/" },
@@ -156,19 +156,9 @@ window.TRIP = {
       items: [
         { type: "leg", from: { zh: "香港", en: "Hong Kong" }, to: { zh: "東京", en: "Tokyo" }, via: { zh: "航班待定", en: "Flight TBC" }, dur: "~4h" },
         { time: { zh: "入住", en: "Check in" }, place: "blossom", sub: { zh: "暫定，尚未預訂", en: "Likely, not booked" } },
-        { type: "branches", mode: "or", head: { zh: "抵達當晚視乎時間選擇", en: "Choose by arrival time" }, options: [
-          { label: { zh: "約 16:30 前放下行李，仍有精神", en: "Bags dropped by about 16:30 and still energetic" }, items: [
-            { time: { zh: "17:00–18:00", en: "17:00–18:00" }, place: "hibiya", sub: { zh: "日比谷商場及燈飾", en: "Hibiya shopping and lights" } },
-            { time: { zh: "18:00–19:00", en: "18:00–19:00" }, place: "ginza", sub: { zh: "銀座購物", en: "Ginza shopping" } },
-            { time: { zh: "晚餐", en: "Dinner" }, place: "ushigoro", sub: { zh: "銀座高級和牛燒肉，私人房間由店員代烤；四人", en: "Premium wagyu yakiniku in Ginza, grilled for you in a private room; four people" }, status: "tobook" }
-          ] },
-          { label: { zh: "抵達較晚或想休息", en: "Later arrival or prefer an easy night" }, items: [
-            { time: { zh: "晚餐", en: "Dinner" }, place: "shinbashi", sub: { zh: "在酒店附近用餐", en: "Dinner near the hotel" } },
-            { time: { zh: "晚上", en: "Evening" }, place: "hibiya", sub: { zh: "若有精神，短逛日比谷燈飾", en: "Short Hibiya lights walk if energy remains" }, optional: true }
-          ] }
-        ] },
-        { type: "note", text: { zh: "銀座晚餐要航班、入境及入住都順利才前往；如有延誤，改在酒店附近用餐。", en: "The Ginza dinner only works if the flight, immigration and check-in run to time; if delayed, eat near the hotel instead." } },
-        { type: "tbd", text: { zh: "USHIGORO S. 尚未訂位，四人座位及時間待確認。", en: "USHIGORO S. is not booked; four-person availability and time to confirm." } }
+        { time: { zh: "傍晚", en: "Early evening" }, place: "hibiya", sub: { zh: "如時間許可，晚餐前短逛日比谷燈飾或銀座", en: "If time allows, a short look at the Hibiya lights or Ginza before dinner" }, optional: true },
+        { time: { zh: "18:30", en: "18:30" }, place: "ushigoro", sub: { zh: "銀座高級和牛燒肉，私人房間由店員代烤；四人，Q 套餐（已預付）", en: "Premium wagyu yakiniku in Ginza, grilled for you in a private room; four people, Q course (prepaid)" }, status: "booked" },
+        { type: "tbd", text: { zh: "航班尚未訂；須選能趕及 18:30 晚餐的班次。", en: "Flight not booked yet; pick one that lands in time for the 18:30 dinner." } }
       ] },
     { date: "2026-12-21", who: "all", title: { zh: "明治神宮、表參道及澀谷購物", en: "Meiji Jingu, Omotesando and main Shibuya shopping" },
       items: [
@@ -211,31 +201,18 @@ window.TRIP = {
           ] }
         ] },
         { time: { zh: "16:00", en: "16:00" }, place: "sakecenter", sub: { zh: "酒店附近的清酒品酒，約 16:00–17:00；免費入場，試飲另付。若下午行程較趕，可略過並直接回酒店休息", en: "Sake tasting near the hotel, about 16:00–17:00; free entry, tastings paid. Skip it and rest at the hotel if the afternoon runs late" } },
-        { type: "branches", mode: "or", head: { zh: "晚餐選擇", en: "Dinner choices" }, options: [
-          { label: { zh: "虎之門 unis", en: "unis, Toranomon" }, items: [
-            { time: { zh: "18:00", en: "18:00" }, place: "unis", sub: { zh: "虎之門之丘的創意法國菜，8 席吧枱，完全預約制；由清酒中心乘的士約 5 分鐘", en: "Innovative French at Toranomon Hills, an 8-seat counter, reservations only; about 5 minutes by taxi from the sake centre" }, status: "tobook" }
-          ] },
-          { label: { zh: "南青山 L'Effervescence", en: "L'Effervescence, Minami-Aoyama" }, items: [
-            { time: { zh: "晚餐", en: "Dinner" }, place: "leffervescence", sub: { zh: "南青山法國菜，以日本食材及發酵為主題；由淺草乘車約 40 分鐘", en: "Minami-Aoyama French built on Japanese ingredients and fermentation; about 40 minutes by car from Asakusa" }, status: "tobook" }
-          ] },
-          { label: { zh: "西麻布 AZUR", en: "AZUR, Nishiazabu" }, items: [
-            { time: { zh: "晚餐", en: "Dinner" }, place: "azur", sub: { zh: "聖誕套餐每位 ¥41,800，另加 10% 稅及 10% 服務費；乘的士前往", en: "Christmas course ¥41,800 pp plus 10% tax and 10% service; by taxi" }, status: "tobook" }
-          ] },
-          { label: { zh: "較輕鬆：酒店附近", en: "Easier: near the hotel" }, items: [
-            { time: { zh: "晚上", en: "Evening" }, place: "hibiya", sub: { zh: "在日比谷或新橋用餐", en: "Dinner in Hibiya or Shinbashi" } }
-          ] }
-        ] },
+        { time: { zh: "17:00–20:00", en: "17:00–20:00" }, place: "blossom", sub: { zh: "回酒店休息", en: "Rest at the hotel" } },
+        { time: { zh: "20:30", en: "20:30" }, place: "kitafuku", sub: { zh: "銀座螃蟹料理，冬季活松葉蟹套餐；四人。由酒店步行或乘的士約 10 分鐘", en: "Crab in Ginza: the winter live Matsuba crab course; four people. About 10 minutes from the hotel on foot or by taxi" }, status: "booked" },
         { type: "branches", mode: "split", head: { zh: "晚飯後可分頭活動（可選）", en: "Optional split after dinner" }, options: [
           { label: { zh: "John 與 Vanjai", en: "John and Vanjai" }, items: [
             { type: "note", text: { zh: "自由散步，或返回酒店休息。", en: "A stroll of your own, or back to the hotel." } }
           ] },
           { label: { zh: "Ben 與 Christine：選一間酒吧", en: "Ben and Christine: pick a bar" }, items: [
-            { place: "mementomori", sub: { zh: "與 unis 同在虎之門之丘；可可及植物雞尾酒，平日營業至 23:00", en: "In Toranomon Hills, like unis; cacao and botanical cocktails, weekdays to 23:00" }, optional: true },
             { place: "sotoroku", sub: { zh: "酒店內，葡萄酒、清酒及威士忌", en: "In the hotel: wine, sake and whisky" }, optional: true },
             { place: "imperialbar", sub: { zh: "經典雞尾酒；晚上不設預約", en: "Classic cocktails; evening walk-in only" }, optional: true }
           ] }
         ] },
-        { type: "tbd", text: { zh: "合羽橋多數店舖約 10:00–17:00 營業。清酒中心 12 月的開放時間待確認。三間晚餐餐廳均尚未訂位；unis 只有 8 席。", en: "Most Kappabashi shops open about 10:00–17:00. The sake centre's December hours are still to check. None of the three dinner choices is booked; unis has only 8 seats." } }
+        { type: "tbd", text: { zh: "合羽橋多數店舖約 10:00–17:00 營業。清酒中心 12 月的開放時間待確認。", en: "Most Kappabashi shops open about 10:00–17:00. The sake centre's December hours are still to check." } }
       ] },
     { date: "2026-12-23", who: "all", title: { zh: "前往富士吉田，入住溫泉旅館", en: "To Fujiyoshida for a night at the ryokan" },
       items: [
@@ -563,12 +540,10 @@ window.TRIP = {
     },
     {
       title: { zh: "四人晚餐", en: "Dinners for all four" },
-      intro: { zh: "以下是四人晚餐的候選餐廳，全部尚未訂位。", en: "Dinner choices for all four of us; none booked yet." },
+      intro: { zh: "20 日及 22 日已訂位；其餘尚未訂位。", en: "20 and 22 Dec are booked; the rest are not yet." },
       items: [
-        { place: "ushigoro", kind: { zh: "燒肉 · 銀座 · 20 日", en: "Yakiniku · Ginza · 20 Dec" }, status: "first", note: { zh: "20 日四人晚餐；時間及座位尚未確認。尚未訂位。", en: "Four-person dinner on 20 Dec; time and seats still to confirm. Not booked." } },
-        { place: "unis", kind: { zh: "創意法國菜 · 虎之門 · 22 日選擇", en: "Innovative French · Toranomon · 22 Dec choice" }, price: { zh: "每位約 ¥50,000–60,000；8 席吧枱", en: "About ¥50,000–60,000 pp; 8-seat counter" }, status: "first", note: { zh: "22 日 18:00 四人；完全預約制，只有 8 席，座位待確認。尚未訂位。", en: "Four at 18:00 on 22 Dec; reservations only, just 8 seats, to confirm. Not booked." } },
-        { place: "azur", kind: { zh: "法國菜 · 西麻布 · 22 日選擇", en: "French · Nishiazabu · 22 Dec choice" }, price: { zh: "聖誕套餐 ¥41,800／位，另加 10% 服務費及稅", en: "Christmas course ¥41,800 pp plus 10% service and tax" }, status: "idea", note: { zh: "22 日四人晚餐選擇之一；逢星期一休息，四人座位待確認。尚未訂位。", en: "One of the 22 Dec choices for four; closed Mondays, four seats to confirm. Not booked." } },
-        { place: "leffervescence", kind: { zh: "法國菜 · 南青山 · 22 日選擇", en: "French · Minami-Aoyama · 22 Dec choice" }, price: { zh: "每位約 ¥60,000–80,000，另加 15% 服務費", en: "About ¥60,000–80,000 pp plus 15% service" }, status: "idea", note: { zh: "22 日四人晚餐選擇之一；逢星期一休息，22 日營業時間待確認。尚未訂位。", en: "One of the 22 Dec choices for four; closed Mondays, 22 Dec hours to confirm. Not booked." } },
+        { place: "ushigoro", kind: { zh: "燒肉 · 銀座 · 20 日", en: "Yakiniku · Ginza · 20 Dec" }, price: { zh: "Q 套餐 ¥22,500／位，已預付", en: "Q course ¥22,500 pp, prepaid" }, status: "booked", note: { zh: "20 日 18:30，四人。已訂位。", en: "18:30 on 20 Dec, four people. Booked." } },
+        { place: "kitafuku", kind: { zh: "螃蟹料理 · 銀座 · 22 日", en: "Crab · Ginza · 22 Dec" }, price: { zh: "活松葉蟹套餐 ¥55,000／位，另加 10% 服務費；在店內付款，或按當日蟹價調整", en: "Live Matsuba crab course ¥55,000 pp plus 10% service; paid at the restaurant, may rise with the day's crab price" }, status: "booked", note: { zh: "22 日 20:30，四人。已訂位。", en: "20:30 on 22 Dec, four people. Booked." } },
         { place: "largent", kind: { zh: "法國菜 · 霞關 · 25 日", en: "French · Kasumigaseki · 25 Dec" }, price: { zh: "聖誕套餐每位 ¥28,600（最終金額以付款頁為準）", en: "Christmas course ¥28,600 pp (check final total at checkout)" }, status: "first", note: { zh: "25 日 18:30 四人聖誕晚餐，與新豐洲聖誕市集二選一。尚未訂位。", en: "Christmas dinner for four at 18:30 on 25 Dec, instead of the Shin-Toyosu market. Not booked." } },
         { place: "icho", kind: { zh: "鐵板燒 · 台場 · 26 日", en: "Teppanyaki · Daiba · 26 Dec" }, price: { zh: "晚餐約 ¥28,000–35,000（含稅及服務費）", en: "Dinner about ¥28,000–35,000 pp incl. tax and service" }, status: "first", note: { zh: "26 日四人晚餐，配合台場一天；時間及座位尚未確認。尚未訂位。", en: "Four-person dinner on 26 Dec, after a day in Odaiba; time and seats to confirm. Not booked." } },
         { place: "sezanne", kind: { zh: "法國菜 · 京橋／丸之內", en: "French · Kyobashi / Marunouchi" }, price: { zh: "節日套餐每位 ¥75,900，未計飲品", en: "Festive course ¥75,900 pp before drinks" }, status: "idea", note: { zh: "仍在考慮中；逢星期一、二休息，日期待定。男士須穿外套。尚未訂位。", en: "Still under consideration; closed Mondays and Tuesdays, date TBC. Jacket for men. Not booked." } },

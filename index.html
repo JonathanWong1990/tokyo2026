@@ -626,7 +626,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
       return null;
     }
     var h = '<h1><span class="zh">每日行程</span><span class="en">Daily plan</span></h1>' +
-      '<p class="lede"><span class="zh">以下仍是計劃；除富士吉田旅館外，其他均未預訂。點擊可查看每日的去處與活動。對某天有意見，只需說出日期，例如「21 日步行太多」。</span><span class="en">Still plans; only the Fuji ryokan is booked. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
+      '<p class="lede"><span class="zh">以下仍是計劃；已預訂的是富士吉田旅館，以及 20 日和 22 日的晚餐，其他均未預訂。點擊可查看每日的去處與活動。對某天有意見，只需說出日期，例如「21 日步行太多」。</span><span class="en">Still plans; the Fuji ryokan and the dinners on 20 and 22 Dec are booked. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
     var curP, open = false;
     T.calendar.forEach(function (c) {
       var p = periodOf(c.date);
@@ -789,7 +789,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 
   screens.food = function () {
     var h = '<h1><span class="zh">餐廳</span><span class="en">Restaurants</span></h1>' +
-      '<p class="lede"><span class="zh">全部尚未預訂。價錢以每位計，不含飲品，或有變動。點擊可查看詳情，點「地圖・相片」可看照片。</span><span class="en">None booked. Prices per person before drinks, and may change. Tap for details; use Map & photos to see pictures.</span></p>';
+      '<p class="lede"><span class="zh">標示「已訂」的已預訂，其餘尚未預訂。價錢以每位計，不含飲品，或有變動。點擊可查看詳情，點「地圖・相片」可看照片。</span><span class="en">Ones marked Booked are reserved; the rest are not. Prices per person before drinks, and may change. Tap for details; use Map & photos to see pictures.</span></p>';
     T.food.forEach(function (g) {
       h += '<div class="food-group"><h3>' + bi(g.title) + '</h3>' + (g.intro ? '<p class="intro">' + bi(g.intro) + '</p>' : '');
       if (g.empty && !(g.items && g.items.length)) h += '<div class="empty-slot">' + bi(g.empty) + '</div>';
