@@ -266,6 +266,17 @@ window.PLACE_INFO = {
       { zh: "元町・中華街站出站即達", en: "Right outside Motomachi-Chukagai Station" }
     ]
   },
+  yamashita: {
+    about: { zh: "橫濱港旁的海濱公園，沿海散步可看到港口及停泊的冰川丸，與中華街相鄰。", en: "Yokohama's harbourside park next to Chinatown, with a seafront promenade and the moored Hikawa Maru liner." },
+    todo: [
+      { zh: "沿海濱步道散步看港口", en: "Walk the seafront promenade" },
+      { zh: "順道逛元町購物街", en: "Add the Motomachi shopping street nearby" },
+      { zh: "步行往紅磚倉庫", en: "Walk on to the Red Brick Warehouses" }
+    ],
+    tips: [
+      { zh: "由中華街步行約 5 分鐘", en: "About 5 minutes on foot from Chinatown" }
+    ]
+  },
   kichijoji: {
     about: { zh: "東京人最喜愛的住宅區之一。井之頭公園有大湖，周邊滿是咖啡店和小店。", en: "One of Tokyo's best-loved neighbourhoods. Inokashira Park has a big pond, with cafés and small shops around it." },
     todo: [
@@ -637,6 +648,16 @@ window.PLACE_INFO = {
       { zh: "My CUPNOODLES Factory 須預約時段", en: "My CUPNOODLES Factory needs a timed booking" }
     ]
   },
+  ugai: {
+    about: { zh: "銀座 1 丁目的傳統日本懷石料理，只有七個吧枱座位，按季節編排多道菜。", en: "Traditional Japanese kaiseki in Ginza 1-chome: a seven-seat counter serving a seasonal multi-course meal." },
+    todo: [
+      { zh: "在吧枱前品嚐按季節編排的懷石套餐", en: "A seasonal kaiseki course served at the counter" }
+    ],
+    tips: [
+      { zh: "26 日四人晚餐；尚未訂位，套餐價錢待確認", en: "Four-person dinner on 26 Dec; not booked yet, course price TBC" },
+      { zh: "地址：銀座 1-4-6 地庫 1 樓", en: "Address: B1F, 1-4-6 Ginza" }
+    ]
+  },
   kitafuku: {
     about: { zh: "銀座的螃蟹專門店，以活蟹即場處理，冬季供應松葉蟹全蟹套餐。", en: "A crab specialist in Ginza that prepares live crab to order; in winter it serves a whole Matsuba snow crab course." },
     todo: [
@@ -667,7 +688,6 @@ window.PLACE_INFO = {
     ],
     tips: [
       { zh: "晚餐約 ¥28,000–35,000／位，含稅及服務費；通常 17:30–21:30", en: "Dinner is roughly ¥28,000–35,000 per person including tax and service; usually 17:30–21:30" },
-      { zh: "26 日四人晚餐；尚未訂位", en: "Four-person dinner on 26 Dec; not booked yet" }
     ]
   },
   largent: {
