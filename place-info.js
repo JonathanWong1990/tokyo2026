@@ -277,6 +277,16 @@ window.PLACE_INFO = {
       { zh: "由中華街步行約 5 分鐘", en: "About 5 minutes on foot from Chinatown" }
     ]
   },
+  nihombashi: {
+    about: { zh: "日本橋是東京的老牌商業區：三越本店及高島屋都是歷史悠久的百貨公司，建築典雅，氣氛寧靜。", en: "Nihombashi is Tokyo's old merchant district: the Mitsukoshi main store and Takashimaya are historic department stores with handsome buildings and a calm atmosphere." },
+    todo: [
+      { zh: "參觀三越本店的中庭及高島屋的古典建築", en: "See Mitsukoshi's atrium and Takashimaya's classic building" },
+      { zh: "在地庫美食街試吃及購買手信", en: "Taste and buy gifts in the basement food halls" }
+    ],
+    tips: [
+      { zh: "由東京站步行約 10 分鐘", en: "About 10 minutes on foot from Tokyo Station" }
+    ]
+  },
   kichijoji: {
     about: { zh: "東京人最喜愛的住宅區之一。井之頭公園有大湖，周邊滿是咖啡店和小店。", en: "One of Tokyo's best-loved neighbourhoods. Inokashira Park has a big pond, with cafés and small shops around it." },
     todo: [
@@ -345,6 +355,17 @@ window.PLACE_INFO = {
     tips: [
       { zh: "車站範圍很大，與人相約時須說明在哪個出口會合", en: "The station is huge; agree on a specific exit when meeting" },
       { zh: "前往箱根的浪漫特快亦由新宿出發", en: "The Romancecar to Hakone also leaves from here" }
+    ]
+  },
+  roppongihills: {
+    about: { zh: "六本木之丘的櫸木坂是東京著名的冬季燈飾街道，與東京鐵塔同框；附近的麻布台之丘亦有聖誕裝飾。", en: "Keyakizaka in Roppongi Hills is one of Tokyo's best-known winter illumination streets, with Tokyo Tower in view; nearby Azabudai Hills also decorates for Christmas." },
+    todo: [
+      { zh: "沿櫸木坂欣賞燈飾，拍攝東京鐵塔", en: "Walk Keyakizaka under the lights and photograph Tokyo Tower" },
+      { zh: "逛六本木之丘的商店", en: "Browse the Roppongi Hills shops" }
+    ],
+    tips: [
+      { zh: "2026 年燈飾及聖誕市集日期尚未公布", en: "2026 illumination and market dates are not announced yet" },
+      { zh: "由麻布台之丘步行或乘的士約 10 分鐘", en: "About 10 minutes from Azabudai Hills on foot or by taxi" }
     ]
   },
   roppongi: {
@@ -646,6 +667,17 @@ window.PLACE_INFO = {
     ],
     tips: [
       { zh: "My CUPNOODLES Factory 須預約時段", en: "My CUPNOODLES Factory needs a timed booking" }
+    ]
+  },
+  sassa: {
+    about: { zh: "廣尾的日本料理，以懷石形式的 omakase 為主，只有八個吧枱座位，晚餐於 18:00 全店同時開始。", en: "Japanese cuisine in Hiroo: a kaiseki-style omakase at an eight-seat counter, with everyone starting dinner together at 18:00." },
+    todo: [
+      { zh: "品嚐按季節編排的多道菜 omakase", en: "A seasonal multi-course omakase" }
+    ],
+    tips: [
+      { zh: "21 日 Ben 與 Christine 的晚餐目標；尚未訂位", en: "The target dinner for Ben and Christine on 21 Dec; not booked yet" },
+      { zh: "每位 ¥35,200（含稅）+ 10% 服務費；逢星期日及不定期休息", en: "¥35,200 pp incl. tax + 10% service; closed Sundays and some irregular days" },
+      { zh: "請準時於 18:00 前到達；地址：廣尾 5-13-6 ARISTO 廣尾 1 樓", en: "Arrive before 18:00; address: ARISTO Hiroo 1F, 5-13-6 Hiroo" }
     ]
   },
   ugai: {
