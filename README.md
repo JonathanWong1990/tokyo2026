@@ -2,7 +2,7 @@
 
 A phone-first, read-only page for the family (Traditional Chinese by default, with an English toggle). It will be hosted on GitHub Pages.
 
-- `trip-data.js` holds **all the content**. `calendar` is the day-by-day plan (shown in the 每日 tab, one page per date at `#/day/YYYY-MM-DD`); `ideas` A–L are the other options (選擇 tab). Update this file when the plan changes. The format is described at the top of the file.
+- `trip-data.js` holds **all the content**. `calendar` is the day-by-day plan (shown in the 每日 tab, one page per date at `#/day/YYYY-MM-DD`); `ideas` is now empty: the old options tab (選擇) was removed on 27 Oct 2026 once the plan settled. Each day can also have `xmas`, the Christmas lights and markets for that day, shown as a separate section under the day plan so it doesn't mix with the itinerary or restaurants. Update this file when the plan changes. The format is described at the top of the file.
 - `place-info.js` holds each place's description: `about`, `todo` (what to do) and `tips`, keyed by the place id from `trip-data.js`.
 - `place-img.js` plus `img/` hold the photos. Use free-licensed Wikimedia Commons images only, resized to about 960px, and fill in the credit fields (the page is public).
 - `index.html` holds the layout and design: a small app with a bottom tab bar and a page per place (`#/place/<id>`). It shouldn't need changes when the content changes.
@@ -17,4 +17,9 @@ Planning research lives in the markdown files in the parent folder. That's the s
 
 ## Photos
 
-The page is public. Use only free-licensed photos (Wikimedia Commons), downloaded into `img/` with author, licence and source in `place-img.js`. Never hotlink or copy restaurant, Tabelog, magazine or venue photos: they are copyrighted. Restaurants without a free photo use the 地圖・相片 button, which opens Google Maps photos. If a photo shows a building's outside or a similar dish rather than the venue itself, add a `note: {zh, en}` caption to its `place-img.js` entry.
+Every place shown on the page should have a photo (decided by John, 27 Oct 2026). Order of preference:
+1. A free-licensed Wikimedia Commons photo.
+2. The venue's own photo from its official site or booking page (usually its `og:image`). Credit it with `by` = the owner, `lic: { zh: "© 官方相片", en: "© official photo" }` and `page` = the page it came from. Prefer official sources over user-posted photos.
+3. A Commons photo of the surrounding area, with a `note` saying it shows the area rather than the venue.
+
+Download every photo into `img/` at about 960px wide; never hotlink. Don't use photos where private individuals, especially children, are the main subject. If a photo shows a building's outside, a similar dish or a past year's event rather than the venue itself, add a `note: {zh, en}` caption.

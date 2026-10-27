@@ -277,15 +277,52 @@ window.PLACE_INFO = {
       { zh: "由中華街步行約 5 分鐘", en: "About 5 minutes on foot from Chinatown" }
     ]
   },
-  nihombashi: {
-    about: { zh: "日本橋是東京的老牌商業區：三越本店及高島屋都是歷史悠久的百貨公司，建築典雅，氣氛寧靜。", en: "Nihombashi is Tokyo's old merchant district: the Mitsukoshi main store and Takashimaya are historic department stores with handsome buildings and a calm atmosphere." },
+  eastgardens: {
+    about: { zh: "皇居東御苑是昔日江戶城本丸及二之丸的所在地，現為免費開放的庭園，就在東京站以西步行約 15 分鐘。", en: "The East Gardens sit on the old inner citadel of Edo Castle and are open to the public for free, about 15 minutes' walk west of Tokyo Station." },
     todo: [
-      { zh: "參觀三越本店的中庭及高島屋的古典建築", en: "See Mitsukoshi's atrium and Takashimaya's classic building" },
-      { zh: "在地庫美食街試吃及購買手信", en: "Taste and buy gifts in the basement food halls" }
+      { zh: "登上天守台石垣，眺望本丸草坪", en: "Climb the old keep's stone base and look over the Honmaru lawn" },
+      { zh: "在二之丸庭園的池畔散步", en: "Walk around the pond in the Ninomaru garden" }
     ],
     tips: [
-      { zh: "由東京站步行約 10 分鐘", en: "About 10 minutes on foot from Tokyo Station" }
+      { zh: "逢星期一及星期五休園，12 月 28 日起年末休園；26 日為星期六，照常開放", en: "Closed Mondays and Fridays, and for the year-end from 28 Dec; the 26th is a Saturday, so it's open" },
+      { zh: "冬季約 16:00 閉園，宜上午前往", en: "Closes around 16:00 in winter, so go in the morning" }
     ]
+  },
+  nihombashi: {
+    about: { zh: "三越本店是日本歷史最悠久的百貨公司之一，現存建築於 1935 年完成，中庭有高大的天女像，地庫美食街選擇豐富。", en: "Mitsukoshi's main store is one of Japan's oldest department stores; the current building dates from 1935, with a towering Tennyo statue in the atrium and a large basement food hall." },
+    todo: [
+      { zh: "在中庭欣賞天女像及古典裝潢", en: "See the Tennyo statue and classic interiors in the atrium" },
+      { zh: "在地庫美食街試吃及購買手信", en: "Taste and buy gifts in the basement food hall" }
+    ],
+    tips: [
+      { zh: "由日本橋向北步行數分鐘", en: "A few minutes' walk north of Nihonbashi Bridge" }
+    ]
+  },
+  takashimaya: {
+    about: { zh: "日本橋高島屋本館於 1933 年落成，是首間被列為日本重要文化財的百貨公司建築。", en: "Takashimaya's Nihombashi main building opened in 1933 and was the first department store to be named an Important Cultural Property of Japan." },
+    todo: [
+      { zh: "欣賞大堂及舊式手動升降機", en: "See the lobby and the old hand-operated lifts" },
+      { zh: "在地庫美食街買手信", en: "Pick up gifts in the basement food hall" }
+    ],
+    tips: [
+      { zh: "本日以三越為主要購物點，此處短逛即可", en: "Mitsukoshi is the day's main shopping stop, so keep this one short" }
+    ]
+  },
+  nihonbashibridge: {
+    about: { zh: "日本橋是江戶時代五條主要街道的起點，至今仍是日本道路距離的原點；現存石橋於 1911 年建成。", en: "Nihonbashi Bridge was the starting point of the five great Edo-era roads and is still the zero point for Japan's road distances; the stone bridge dates from 1911." },
+    todo: [
+      { zh: "看橋上的麒麟及獅子銅像", en: "Look for the bronze kirin and lion statues" },
+      { zh: "找出路中央的「日本國道路元標」", en: "Find the road-origin marker in the middle of the road" }
+    ],
+    tips: []
+  },
+  fukutoku: {
+    about: { zh: "福德神社是大廈之間的一座小神社，歷史可追溯至平安時代；旁邊的 COREDO 室町有不少日本工藝、刀具、和菓子及茶店。", en: "Fukutoku Shrine is a small shrine tucked between office towers, with roots going back to the Heian period; next door, COREDO Muromachi has Japanese crafts, knives, sweets and tea shops." },
+    todo: [
+      { zh: "參拜神社", en: "Pay a visit at the shrine" },
+      { zh: "在 COREDO 室町逛工藝及手信店，或坐下喝茶", en: "Browse the craft and gift shops at COREDO Muromachi, or stop for tea" }
+    ],
+    tips: []
   },
   kichijoji: {
     about: { zh: "東京人最喜愛的住宅區之一。井之頭公園有大湖，周邊滿是咖啡店和小店。", en: "One of Tokyo's best-loved neighbourhoods. Inokashira Park has a big pond, with cafés and small shops around it." },
@@ -357,6 +394,68 @@ window.PLACE_INFO = {
       { zh: "前往箱根的浪漫特快亦由新宿出發", en: "The Romancecar to Hakone also leaves from here" }
     ]
   },
+  omotesandolights: {
+    about: { zh: "表參道兩旁的櫸樹在 12 月掛滿暖黃色燈飾，由原宿一直延伸至表參道十字路口。", en: "In December the zelkova trees along Omotesando are wrapped in warm lights, from Harajuku down to the Omotesando crossing." },
+    todo: [
+      { zh: "黃昏時沿大道散步", en: "Walk the avenue at dusk" },
+      { zh: "在表參道之丘的天橋上拍攝整條燈飾大道", en: "Photograph the avenue from the pedestrian bridge by Omotesando Hills" }
+    ],
+    tips: [
+      { zh: "2026 年 12 月 1–25 日（暫定），黃昏至 22:00", en: "1–25 Dec 2026 (provisional), dusk to 22:00" },
+      { zh: "免費", en: "Free" }
+    ]
+  },
+  bluecave: {
+    about: { zh: "由澀谷公園通至代代木公園櫸樹大道的藍色燈飾，整條路像一條藍色隧道。", en: "Blue lights from Shibuya's Koen-dori to Yoyogi Park's zelkova avenue, turning the whole street into a blue tunnel." },
+    todo: [
+      { zh: "沿燈飾大道散步拍照", en: "Walk and take photos along the lit avenue" }
+    ],
+    tips: [
+      { zh: "2026 年日期待主辦單位確認（資料顯示 12 月 11–27 日）；2025 年為 17:00–22:00", en: "2026 dates await the organiser's confirmation (listed as 11–27 Dec); 2025 hours were 17:00–22:00" },
+      { zh: "免費；由澀谷站步行約 10 分鐘", en: "Free; about 10 minutes' walk from Shibuya Station" }
+    ]
+  },
+  minamilumi: {
+    about: { zh: "新宿站南口 Southern Terrace 一帶的冬季燈飾，就在車站旁邊。", en: "Winter lights around the Southern Terrace by Shinjuku Station's south exit, right next to the station." },
+    todo: [
+      { zh: "由南口出站即可欣賞", en: "See them straight out of the south exit" }
+    ],
+    tips: [
+      { zh: "2026 年 11 月 11 日至 2027 年 2 月 14 日，16:30–24:00", en: "11 Nov 2026 to 14 Feb 2027, 16:30–24:00" },
+      { zh: "免費", en: "Free" }
+    ]
+  },
+  azabudaixmas: {
+    about: { zh: "麻布台之丘中央廣場的聖誕市集，有小木屋攤位及聖誕裝飾，就在 teamLab Borderless 所在的建築群內。", en: "A Christmas market in Azabudai Hills' central plaza, with wooden stalls and decorations, in the same complex as teamLab Borderless." },
+    todo: [
+      { zh: "逛攤位、喝熱飲", en: "Browse the stalls and have a hot drink" },
+      { zh: "參觀 teamLab Borderless 前後順道前往", en: "Fit it in before or after teamLab Borderless" }
+    ],
+    tips: [
+      { zh: "2026 年 11 月 21 日至 12 月 25 日，11:00–21:00", en: "21 Nov to 25 Dec 2026, 11:00–21:00" },
+      { zh: "免費入場", en: "Free entry" }
+    ]
+  },
+  meguro: {
+    about: { zh: "大崎至五反田一帶的目黑川兩岸冬季燈飾，以粉紅色燈光為主，燈飾以回收食油製成的生質燃料發電。", en: "Winter lights along the Meguro River between Osaki and Gotanda, mostly in pink, powered by biodiesel made from recycled cooking oil." },
+    todo: [
+      { zh: "沿河散步欣賞燈飾", en: "Walk along the river under the lights" }
+    ],
+    tips: [
+      { zh: "2026 年 12 月 4 日至 2027 年 1 月 31 日，17:00–22:00", en: "4 Dec 2026 to 31 Jan 2027, 17:00–22:00" },
+      { zh: "主要會場為五反田觸水廣場一帶；由惠比壽乘 JR 山手線兩個站到五反田", en: "Centred on Gotanda Fureai Mizube Hiroba; two stops from Ebisu to Gotanda on the JR Yamanote Line" }
+    ]
+  },
+  domecity: {
+    about: { zh: "東京巨蛋城的冬季燈飾，遊樂設施與燈飾相映，適合晚上散步。", en: "Tokyo Dome City's winter illumination, with the amusement rides lit up around it; an easy evening stroll." },
+    todo: [
+      { zh: "晚上散步欣賞燈飾", en: "An evening walk among the lights" }
+    ],
+    tips: [
+      { zh: "2026 年 11 月 19 日至 2027 年 2 月 28 日，17:00–24:00", en: "19 Nov 2026 to 28 Feb 2027, 17:00–24:00" },
+      { zh: "免費", en: "Free" }
+    ]
+  },
   roppongihills: {
     about: { zh: "六本木之丘的櫸木坂是東京著名的冬季燈飾街道，與東京鐵塔同框；附近的麻布台之丘亦有聖誕裝飾。", en: "Keyakizaka in Roppongi Hills is one of Tokyo's best-known winter illumination streets, with Tokyo Tower in view; nearby Azabudai Hills also decorates for Christmas." },
     todo: [
@@ -364,7 +463,7 @@ window.PLACE_INFO = {
       { zh: "逛六本木之丘的商店", en: "Browse the Roppongi Hills shops" }
     ],
     tips: [
-      { zh: "2026 年燈飾及聖誕市集日期尚未公布", en: "2026 illumination and market dates are not announced yet" },
+      { zh: "櫸木坂燈飾 2026 年 11 月 5 日至 12 月 25 日，17:00–22:00；聖誕市集 11 月 21 日至 12 月 25 日，11:00–21:00", en: "Keyakizaka lights 5 Nov to 25 Dec 2026, 17:00–22:00; Christmas market 21 Nov to 25 Dec, 11:00–21:00" },
       { zh: "由麻布台之丘步行或乘的士約 10 分鐘", en: "About 10 minutes from Azabudai Hills on foot or by taxi" }
     ]
   },

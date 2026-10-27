@@ -33,8 +33,8 @@
   --f-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   --f-latin: "Cormorant Garamond", "Times New Roman", serif;
 
-  --s-xs: 0.875rem;
-  --s-sm: 0.9375rem;
+  --s-xs: 0.9375rem;
+  --s-sm: 1rem;
   --s-md: 1.0625rem;
   --s-lg: 1.3125rem;
   --s-xl: 1.875rem;
@@ -101,10 +101,10 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-.tabs .row { max-width: 34rem; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); height: var(--tabs-h); }
+.tabs .row { max-width: 34rem; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); height: var(--tabs-h); }
 .tabs a {
   display: grid; place-items: center; align-content: center; gap: 3px; text-decoration: none;
-  color: var(--muted); font-size: 0.8125rem; font-weight: 500;
+  color: var(--muted); font-size: 0.875rem; font-weight: 500;
 }
 .tabs a svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .tabs a[aria-current="page"] { color: var(--ink); }
@@ -127,11 +127,10 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .wip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .changes { margin-top: 16px; padding: 12px 14px; border-radius: 14px; background: var(--bronze-soft); font-size: var(--s-sm); line-height: 1.6; }
 .changes .lbl { display: block; font-size: var(--s-xs); color: var(--bronze); font-weight: 500; letter-spacing: .04em; margin-bottom: 2px; }
-.badge { display: inline-block; font-size: 0.8125rem; font-weight: 500; padding: 1px 8px; border-radius: 6px; margin-left: 6px; vertical-align: 1px; white-space: nowrap; }
-.badge.b-booked { color: var(--moss); background: var(--moss-soft); }
-.badge.b-tobook, .badge.b-idea { color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
-.badge.b-first { color: var(--bg); background: var(--bronze); }
-.badge.b-review { color: var(--ochre); background: var(--ochre-soft); }
+.badge { display: inline-block; font-size: 0.875rem; font-weight: 500; padding: 1px 8px; border-radius: 6px; margin-left: 6px; vertical-align: 1px; white-space: nowrap; }
+.badge.b-booked { color: var(--surface); background: var(--moss); }
+.badge.b-tobook { color: var(--ochre); box-shadow: inset 0 0 0 1.5px var(--ochre); }
+.opt { font-size: var(--s-xs); color: var(--muted); margin-left: 6px; white-space: nowrap; }
 .pick { font-size: 0.8125rem; font-weight: 500; padding: 1px 9px; border-radius: 999px; white-space: nowrap; }
 .pick.suggested { background: var(--ink); color: var(--bg); }
 .pick.either { background: var(--bronze-soft); color: var(--bronze); }
@@ -157,13 +156,13 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .lrow .th { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; background: var(--bronze-soft); }
 .lrow .th.ph { display: grid; place-items: center; }
 .lrow .th.ph svg { width: 24px; height: 24px; stroke: var(--bronze); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.lrow .t { font-size: var(--s-xs); color: var(--bronze); font-weight: 500; width: 3.4em; }
+.lrow .t { display: block; font-size: var(--s-xs); color: var(--bronze); font-weight: 700; letter-spacing: .02em; margin-bottom: 1px; }
 .lrow .w { min-width: 0; line-height: 1.45; }
 .lrow .w b { font-weight: 500; }
-.lrow .w small { display: block; color: var(--muted); font-size: var(--s-xs); margin-top: 2px; }
+.lrow .w small { display: block; color: var(--muted); font-size: var(--s-sm); margin-top: 3px; line-height: 1.55; }
 .lrow .w .price { display: block; font-size: var(--s-xs); margin-top: 1px; }
-.lrow.slim { grid-template-columns: 1fr auto; }
-.lrow.timed { grid-template-columns: auto auto 1fr auto; }
+.lrow.slim { grid-template-columns: 1fr; }
+.lrow .th { align-self: start; margin-top: 2px; }
 
 /* Route choices and split days */
 .fork { display: grid; gap: 10px; padding: 14px; border-radius: 18px; box-shadow: inset 0 0 0 1.5px var(--line); }
@@ -191,6 +190,7 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 
 /* Home */
 .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tiles .tile:first-child { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
 .tile { position: relative; display: block; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; text-decoration: none; background: var(--pass); }
 .tile img { width: 100%; height: 100%; object-fit: cover; }
 .tile > span {
@@ -202,6 +202,20 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .today-card .lbl { font-size: var(--s-xs); color: var(--bronze); font-weight: 700; letter-spacing: .06em; }
 .today-card b { font-family: var(--f-display); font-weight: 400; font-size: 1.25rem; }
 .today-card .nts { font-size: var(--s-xs); color: var(--ochre); }
+.today { padding: 16px; border: 1.5px solid var(--bronze); display: grid; gap: 12px; }
+.today .lbl { font-size: var(--s-xs); color: var(--bronze); font-weight: 700; letter-spacing: .06em; }
+.today h2 { font-family: var(--f-display); font-weight: 400; font-size: 1.3125rem; margin: 2px 0 0; line-height: 1.4; }
+.tl { list-style: none; margin: 0; padding: 0; display: grid; }
+.tl li { display: grid; grid-template-columns: 6.6em 1fr; gap: 10px; padding: 8px 0; border-top: 1px solid var(--line); line-height: 1.45; }
+.tl .tm { font-size: var(--s-xs); color: var(--muted); font-weight: 500; }
+.tl li.past { opacity: .5; }
+.tl li.now, .tl li.next { margin-inline: -16px; padding-inline: 16px; background: var(--bronze-soft); }
+.tl .tag { display: inline-block; font-size: 0.8125rem; font-weight: 700; color: var(--surface); background: var(--bronze); border-radius: 6px; padding: 0 7px; margin-right: 6px; }
+.tl .acts { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.mini { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 14px; border: 0; border-radius: 12px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); text-decoration: none; font-weight: 500; font-size: var(--s-sm); cursor: pointer; }
+.mini svg { width: 20px; height: 20px; stroke: var(--bronze); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.home-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.count { margin-top: 12px; font-size: var(--s-sm); color: var(--bronze); font-weight: 500; }
 .todo-list { padding: 4px 14px; }
 .todo-list a { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; padding: 12px 0; text-decoration: none; }
 .todo-list a + a { border-top: 1px solid var(--line); }
@@ -220,7 +234,7 @@ h1 { font-family: var(--f-display); font-weight: 300; font-size: var(--s-xl); le
 .daylist .dn { text-align: center; line-height: 1.1; }
 .daylist .dn b { display: block; font-family: var(--f-latin); font-weight: 500; font-size: 1.5rem; color: var(--bronze); }
 .daylist .dn small { font-size: 0.75rem; color: var(--muted); }
-.daylist .tx { font-size: var(--s-sm); line-height: 1.5; min-width: 0; }
+.daylist .tx { font-size: var(--s-md); line-height: 1.5; min-width: 0; }
 .daylist a.is-today { background: var(--bronze-soft); margin-inline: -14px; padding-inline: 14px; }
 .who { display: inline-block; font-size: 0.8125rem; font-weight: 500; padding: 1px 8px; border-radius: 999px; white-space: nowrap; vertical-align: 1px; }
 .who-all { color: var(--moss); background: var(--moss-soft); }
@@ -354,6 +368,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 }
 .sheet .hint { font-size: var(--s-xs); color: var(--muted); letter-spacing: .06em; }
 .sheet .ja { font-family: "Hiragino Mincho ProN", "Yu Mincho", var(--f-display); font-size: clamp(1.8rem, 9vw, 2.6rem); line-height: 1.35; font-weight: 500; overflow-wrap: anywhere; }
+.sheet .addr { font-family: "Hiragino Sans", "Yu Gothic", var(--f-body); font-size: 1.25rem; line-height: 1.5; }
 .sheet .please { font-size: var(--s-lg); }
 .sheet .please small { display: block; font-size: var(--s-xs); color: var(--muted); }
 .sheet .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
@@ -394,6 +409,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="taxi-ja">
     <div class="hint"><span class="zh">請向司機出示此畫面</span><span class="en">Show this to the driver</span></div>
     <div class="ja" id="taxi-ja" lang="ja"></div>
+    <div class="addr" id="taxi-addr" lang="ja" hidden></div>
     <div class="please"><span lang="ja">ここまでお願いします。</span><small lang="zh-Hant"><span class="zh">（請帶我們到這裡）</span><span class="en">(Please take us here.)</span></small></div>
     <div class="row">
       <a class="sbtn" id="taxi-map" href="#" target="_blank" rel="noopener"><span class="zh">開啟地圖</span><span class="en">Open map</span></a>
@@ -402,19 +418,18 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   </div>
 </div>
 
-<script src="trip-data.js?v=29"></script>
-<script src="place-info.js?v=29"></script>
-<script src="place-img.js?v=29"></script>
+<script src="trip-data.js?v=34"></script>
+<script src="place-info.js?v=34"></script>
+<script src="place-img.js?v=34"></script>
 <script>
 (function () {
   var T = window.TRIP, INFO = window.PLACE_INFO || {}, IMG = window.PLACE_IMG || {};
   var root = document.documentElement, view = document.getElementById('view');
   var WEEK_ZH = ['日','一','二','三','四','五','六'], WEEK_EN = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var PICK = { suggested: { zh: '建議', en: 'Suggested' }, either: { zh: '二選一', en: 'Pick one' }, alt: { zh: '後備', en: 'Backup' } };
-  var STATUS = {
-    booked: { zh: '已訂', en: 'Booked' }, first: { zh: '優先考慮', en: 'Top pick' }, idea: { zh: '候選', en: 'Option' },
-    review: { zh: '保留？', en: 'Keep?' }, tobook: { zh: '未訂', en: 'Not booked' }
-  };
+  // Two visible states only: booked, or still to book. "idea"/"review" show no tag.
+  var STATUS = { booked: { zh: '✓ 已訂', en: '✓ Booked' }, tobook: { zh: '未訂', en: 'Not booked' } };
+  var STATUS_OF = { booked: 'booked', tobook: 'tobook', first: 'tobook' };
   var ICON = {
     home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
     plans: '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5"/>',
@@ -440,11 +455,12 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   function parse(s) { return new Date(s + 'T00:00:00'); }
   function md(d) { return (d.getMonth() + 1) + '/' + d.getDate(); }
   function dur(d) {
-    var m = /^(~?)([\d.]+(?:[–-][\d.]+)?)\s*(min|h)$/.exec(String(d).trim());
+    var m = /^(~?)([\d.]+(?:[–-][\d.]+)?)\s*(min|m|h)$/.exec(String(d).trim());
     if (!m) return { zh: d, en: d };
     return { zh: (m[1] ? '約 ' : '') + m[2] + (m[3] === 'h' ? ' 小時' : ' 分鐘'), en: m[1] + m[2] + (m[3] === 'h' ? ' h' : ' min') };
   }
-  function badge(st) { return st && STATUS[st] ? '<span class="badge b-' + st + '">' + bi(STATUS[st]) + '</span>' : ''; }
+  function badge(st) { st = STATUS_OF[st]; return st ? '<span class="badge b-' + st + '">' + bi(STATUS[st]) + '</span>' : ''; }
+  var OPT = '<span class="opt"><span class="zh">· 可選</span><span class="en">· optional</span></span>';
   function walkBar(n) {
     return '<span><span class="zh">步行量</span><span class="en">Walking</span> <span class="walk" role="img" aria-label="' + n + '/3">' +
       [1, 2, 3].map(function (k) { return '<i class="' + (k <= n ? 'on' : '') + '"></i>'; }).join('') + '</span></span>';
@@ -490,27 +506,38 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     return parts.join(' → ');
   }
 
-  var now = new Date(); now.setHours(0, 0, 0, 0);
-  var todayStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
-  var inTrip = todayStr >= T.start && todayStr <= T.end;
+  // "Today" follows Japan time, whatever the phone's own time zone. ?demo=2026-12-26T14:30 previews a moment of the trip.
+  var demo = (/[?&]demo=([\d-]{10})(?:T(\d\d):(\d\d))?/.exec(location.search) || null);
+  var todayStr, nowMin, inTrip, now;
+  function clock() {
+    if (demo) { todayStr = demo[1]; nowMin = demo[2] ? +demo[2] * 60 + +demo[3] : 12 * 60; }
+    else {
+      var f = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+      var g = {}; f.forEach(function (x) { g[x.type] = x.value; });
+      todayStr = g.year + '-' + g.month + '-' + g.day; nowMin = +g.hour * 60 + +g.minute;
+    }
+    now = parse(todayStr); inTrip = todayStr >= T.start && todayStr <= T.end;
+  }
+  clock();
   var tbc = T.datesConfirmed ? '' : '?';
 
   // ---------- Pieces ----------
   function thumb(id, fallback) {
     var im = IMG[id];
-    return im ? '<img class="th" src="' + esc(im.src) + '" alt="" loading="lazy">'
+    return im ? '<img class="th" src="' + esc(small(im)) + '" alt="" loading="lazy">'
       : '<span class="th ph" aria-hidden="true">' + svg(foodById[id] ? 'food' : hotelById[id] ? 'hotels' : 'map') + '</span>';
   }
+  function small(im) { return im.src.replace(/^img\//, 'img/t/'); }
   function placeRow(it) {
     var p = T.places[it.place];
-    var inner = '<span class="w"><b>' + (p ? bi(p) : bi(it.name)) + '</b>' + badge(it.status) + (it.optional ? '<span class="badge b-idea"><span class="zh">可選</span><span class="en">Optional</span></span>' : '') + (it.sub ? '<small>' + bi(it.sub) + '</small>' : '') + '</span>';
     var t = it.time ? '<span class="t">' + bi(it.time) + '</span>' : '';
-    if (!p) return '<div class="lrow slim' + (t ? ' timed' : '') + '" style="grid-template-columns:' + (t ? 'auto 1fr' : '1fr') + '">' + t + inner + '</div>';
-    return '<a class="lrow' + (t ? ' timed' : '') + '" href="#/place/' + esc(it.place) + '">' + t + thumb(it.place) + inner + svg('chev', 'chev') + '</a>';
+    var inner = '<span class="w">' + t + '<b>' + (p ? bi(p) : bi(it.name)) + '</b>' + badge(it.status) + (it.optional ? OPT : '') + (it.sub ? '<small>' + bi(it.sub) + '</small>' : '') + '</span>';
+    if (!p) return '<div class="lrow slim">' + inner + '</div>';
+    return '<a class="lrow" href="#/place/' + esc(it.place) + '">' + thumb(it.place) + inner + svg('chev', 'chev') + '</a>';
   }
   function foodRow(r) {
     var p = T.places[r.place];
-    return '<a class="lrow slim" href="#/place/' + esc(r.place) + '">' + thumb(r.place) + '<span class="w"><b>' + bi(p) + '</b>' + badge(r.status) +
+    return '<a class="lrow" href="#/place/' + esc(r.place) + '">' + thumb(r.place) + '<span class="w"><b>' + bi(p) + '</b>' + badge(r.status) +
       '<small>' + bi(r.kind) + '</small>' + (r.price ? '<span class="price">' + bi(r.price) + '</span>' : '') +
       '</span>' + svg('chev', 'chev') + '</a>';
   }
@@ -530,6 +557,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
             ? '<span class="zh">分頭行動</span><span class="en">Split up</span>'
             : '<span class="zh">選擇一條路線</span><span class="en">Pick one route</span>') + '</div>' +
           it.options.map(function (o, k) {
+            if (o.backup) return '<details class="more"><summary><span>' + bi(o.label) + '</span><span class="cnt"><span class="zh">按此展開</span><span class="en">Show</span></span></summary><div style="padding:0 12px 12px">' + renderItems(o.items) + '</div></details>';
             return (k && !split ? '<div class="fork-or"><span class="zh">或</span><span class="en">or</span></div>' : '') +
               '<div class="fork-opt"><div class="fork-lbl">' + (split ? '' : '<span class="fork-n">' + (k + 1) + '</span>') + bi(o.label) + '</div>' + renderItems(o.items) + '</div>';
           }).join('') + '</div>';
@@ -544,8 +572,9 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     flush();
     return '<div class="stack">' + out + '</div>';
   }
+  function lic(im) { return typeof im.lic === 'object' ? bi(im.lic) : esc(im.lic); }
   function credit(im) {
-    return im ? '<div class="credit"><span class="zh">相片</span><span class="en">Photo</span>: ' + (im.note ? bi(im.note) + ' · ' : '') + '<a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + esc(im.lic) + '</div>' : '';
+    return im ? '<div class="credit"><span class="zh">相片</span><span class="en">Photo</span>: ' + (im.note ? bi(im.note) + ' · ' : '') + '<a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + lic(im) + '</div>' : '';
   }
 
   // ---------- Day helpers ----------
@@ -566,7 +595,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
              en: 'Day ' + (dayIndex(c.date) + 1) + ' · ' + WEEK_EN[d.getDay()] + ' ' + d.getDate() + ' Dec' };
   }
   function daysWith(id) { return T.calendar.filter(function (c) { return flat(c.items || []).some(function (it) { return it.place === id; }); }); }
-  function dayChip(c) { var d = parse(c.date); return '<a class="chip" href="#/day/' + c.date + '"><b>' + d.getDate() + '</b><span class="zh">12月 · 週' + WEEK_ZH[d.getDay()] + '</span><span class="en">' + WEEK_EN[d.getDay()] + '</span></a>'; }
+  function dayChip(c) { var d = parse(c.date); return '<a class="chip" href="#/day/' + c.date + '"><b>' + d.getDate() + '</b><span class="zh">日 · 週' + WEEK_ZH[d.getDay()] + '</span><span class="en">' + WEEK_EN[d.getDay()] + '</span></a>'; }
   function whoTag(c) { return c.who && WHO[c.who] ? '<span class="who who-' + c.who + '">' + bi(WHO[c.who]) + '</span>' : ''; }
 
   // ---------- Screens ----------
@@ -574,20 +603,15 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 
   screens.home = function () {
     var s = parse(T.start), e = parse(T.end), nights = Math.round((e - s) / 864e5);
-    var today = '';
-    if (inTrip) {
-      var c = T.calendar.filter(function (x) { return x.date === todayStr; })[0];
-      var tn = c && c.notes ? c.notes.map(function (n) { return bi(n); }).join(' · ') : '';
-      today = '<a class="card today-card" href="' + (c ? '#/day/' + c.date : '#/days') + '"><span class="lbl"><span class="zh">今日 · ' + md(now) + '</span><span class="en">TODAY · ' + md(now) + '</span></span>' +
-        '<b>' + (c && c.title ? bi(c.title) : bi({ zh: '自由活動', en: 'Free time' })) + '</b>' +
-        (tn ? '<span class="nts">' + tn + '</span>' : '') + '</a>';
-    }
+    var today = inTrip ? todayCard() : '';
     var h = '<div class="eyebrow">Tokyo · December 2026</div>' +
       '<h1><span class="zh">東京聖誕之旅</span><span class="en">Tokyo at Christmas</span></h1>' +
       '<div class="meta"><span class="zh">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : '（暫定）') + ' · ' + esc(T.people.zh) + '</span>' +
       '<span class="en">' + md(s) + '–' + md(e) + (T.datesConfirmed ? '' : ' (draft)') + ' · ' + esc(T.people.en) + '</span></div>';
+    var left = Math.round((s - now) / 864e5);
     if (today) h += '<div class="sec" style="margin-top:16px">' + today + '</div>';
-    else h += (T.status ? '<div class="wip">' + bi(T.status) + '</div>' : '') +
+    else h += (left > 0 ? '<div class="count"><span class="zh">還有 ' + left + ' 日出發</span><span class="en">' + left + ' days to go</span></div>' : '') +
+      (T.status ? '<div class="wip">' + bi(T.status) + '</div>' : '') +
       (T.changes ? '<div class="changes"><span class="lbl"><span class="zh">本次更新 · 第 ' + T.version + ' 版 · ' + esc(T.updated) + '</span><span class="en">What\'s new · v' + T.version + ' · ' + esc(T.updated) + '</span></span>' + bi(T.changes) + '</div>' : '');
 
     // Day list at a glance
@@ -601,7 +625,6 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     var img = function (id) { return IMG[id] ? '<img src="' + esc(IMG[id].src) + '" alt="" loading="lazy">' : ''; };
     h += '<div class="sec tiles">' +
       '<a class="tile" href="#/days">' + img('kawaguchiko') + '<span><span class="zh">每日行程</span><span class="en">Daily plan</span><small>' + md(s) + '–' + md(e) + '</small></span></a>' +
-      '<a class="tile" href="#/plans">' + img('skytree') + '<span><span class="zh">其他選擇</span><span class="en">Other options</span><small><span class="zh">' + T.ideas.length + ' 個</span><span class="en">' + T.ideas.length + ' ideas</span></small></span></a>' +
       '<a class="tile" href="#/hotels">' + img('hibiya') + '<span><span class="zh">酒店</span><span class="en">Hotels</span><small><span class="zh">' + (T.hotels || []).length + ' 間</span><span class="en">' + (T.hotels || []).length + ' hotels</span></small></span></a>' +
       '<a class="tile" href="#/food">' + img('tsukiji') + '<span><span class="zh">餐廳</span><span class="en">Food</span><small><span class="zh">' + foodRows.length + ' 間</span><span class="en">' + foodRows.length + ' places</span></small></span></a>' +
       '</div>';
@@ -620,13 +643,55 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     return { title: null, html: h };
   };
 
+  // ---------- Today ----------
+  function startMin(it) {
+    var m = /(\d{1,2}):(\d\d)/.exec(it.time ? it.time.en : '');
+    return m ? +m[1] * 60 + +m[2] : null;
+  }
+  // The day's stops in order; for a route choice, the main route only.
+  function dayStops(items) {
+    var out = [];
+    items.forEach(function (it) {
+      if (it.type === 'branches') {
+        if (it.mode === 'split') it.options.forEach(function (o) { dayStops(o.items).forEach(function (x) { out.push({ it: x.it, who: o.label }); }); });
+        else out = out.concat(dayStops(it.options[0].items));
+      } else if (it.place || it.name) out.push({ it: it });
+    });
+    return out;
+  }
+  function stayFor(date) { var c = T.calendar.filter(function (x) { return x.date === date; })[0]; return (c && c.stay) || T.base; }
+  function taxiBtn(id, label) {
+    return T.places[id] && T.places[id].ja ? '<button class="mini" type="button" data-taxi="' + esc(id) + '">' + svg('taxi') + '<span>' + bi(label || { zh: '的士卡', en: 'Taxi card' }) + '</span></button>' : '';
+  }
+  function todayCard() {
+    var c = T.calendar.filter(function (x) { return x.date === todayStr; })[0];
+    var stops = c ? dayStops(c.items || []) : [], cur = -1, nxt = -1;
+    stops.forEach(function (x, k) { var m = startMin(x.it); if (m != null && m <= nowMin) cur = k; });
+    for (var k = cur + 1; k < stops.length; k++) { if (startMin(stops[k].it) != null || cur >= 0) { nxt = k; break; } }
+    if (cur < 0 && nxt < 0 && stops.length) nxt = 0;
+    var list = stops.map(function (x, k) {
+      var it = x.it, p = T.places[it.place], cls = k === cur ? 'now' : k === nxt ? 'next' : k < cur ? 'past' : '';
+      var tag = k === cur ? bi({ zh: '現在', en: 'Now' }) : k === nxt ? bi({ zh: '下一站', en: 'Next' }) : '';
+      var acts = k === nxt && p ? '<div class="acts">' + taxiBtn(it.place) + '<a class="mini" href="' + esc(mapUrl(p)) + '" target="_blank" rel="noopener">' + svg('map') + '<span>' + bi({ zh: '地圖', en: 'Map' }) + '</span></a></div>' : '';
+      return '<li class="' + cls + '"><span class="tm">' + (it.time ? bi(it.time) : '') + '</span><span>' + (tag ? '<span class="tag">' + tag + '</span>' : '') +
+        (p ? '<a href="#/place/' + esc(it.place) + '"><b>' + bi(p) + '</b></a>' : '<b>' + bi(it.name) + '</b>') + (it.optional ? OPT : '') +
+        (x.who ? '<small style="display:block;color:var(--muted)">' + bi(x.who) + '</small>' : '') + acts + '</span></li>';
+    }).join('');
+    var stay = stayFor(todayStr);
+    return '<div class="card today"><div><span class="lbl"><span class="zh">今日 · ' + md(now) + '</span><span class="en">TODAY · ' + md(now) + '</span></span>' +
+      '<h2>' + (c ? bi(c.title) : bi({ zh: '自由活動', en: 'Free time' })) + '</h2></div>' +
+      (list ? '<ul class="tl">' + list + '</ul>' : '') +
+      '<div class="home-btns">' + (c ? '<a class="mini" href="#/day/' + c.date + '">' + svg('days') + '<span>' + bi({ zh: '今日詳情', en: 'Full day' }) + '</span></a>' : '') +
+      taxiBtn(stay, { zh: '回酒店', en: 'Back to hotel' }) + '</div></div>';
+  }
+
   screens.days = function () {
     function periodOf(date) {
       for (var i = 0; i < (T.periods || []).length; i++) { var p = T.periods[i]; if (date >= p.from && date <= p.to) return p; }
       return null;
     }
     var h = '<h1><span class="zh">每日行程</span><span class="en">Daily plan</span></h1>' +
-      '<p class="lede"><span class="zh">以下仍是計劃；已預訂的是富士吉田旅館，以及 20 日和 22 日的晚餐，其他均未預訂。點擊可查看每日的去處與活動。對某天有意見，只需說出日期，例如「21 日步行太多」。</span><span class="en">Still plans; the Fuji ryokan and the dinners on 20 and 22 Dec are booked. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
+      '<p class="lede"><span class="zh">標示「已訂」的已經預訂，其餘仍在計劃中。點擊可查看每日的去處與活動。對某天有意見，只需說出日期，例如「21 日步行太多」。</span><span class="en">Anything marked Booked is reserved; the rest is still a plan. Tap a day to see where we go. Just mention the date if you have thoughts, e.g. "too much walking on the 21st".</span></p>';
     var curP, open = false;
     T.calendar.forEach(function (c) {
       var p = periodOf(c.date);
@@ -644,7 +709,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
         '<span class="w"><b>' + bi(c.title) + '</b>' +
         (uniq.length ? '<small><span class="zh">' + uniq.map(function (p) { return esc(p.zh); }).join(' · ') + '</span><span class="en">' + uniq.map(function (p) { return esc(p.en); }).join(' · ') + '</span></small>' : '') +
         (c.who && c.who !== 'all' ? whoTag(c) : '') + '</span>' +
-        (im ? '<img class="th" src="' + esc(im.src) + '" alt="" loading="lazy">' : '<span></span>') + '</a>';
+        (im ? '<img class="th" src="' + esc(small(im)) + '" alt="" loading="lazy">' : '<span></span>') + '</a>';
     });
     if (open) h += '</div>';
     return { title: { zh: '每日行程', en: 'Daily plan' }, html: h, after: function () {
@@ -661,6 +726,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
       '<div class="facts-row">' + whoTag(c) + '</div></div>';
     if (c.notes && c.notes.length) h += '<div class="sec stack">' + c.notes.map(function (n) { return '<div class="flag note"><span class="k"><span class="zh">留意</span><span class="en">Note</span></span><span>' + bi(n) + '</span></div>'; }).join('') + '</div>';
     if (c.items && c.items.length) h += '<div class="sec">' + renderItems(c.items) + '</div>';
+    if (c.xmas && c.xmas.length) h += '<div class="sec"><h2 class="sec-title"><span class="zh">聖誕燈飾及市集</span><span class="en">Christmas lights &amp; markets</span></h2>' + renderItems(c.xmas) + '</div>';
     var x = c.plan ? ideaByCode[c.plan] : null;
     if (x) {
       var eats = foodRows.filter(function (f) { return f.plan === x.code; });
@@ -726,6 +792,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     var im = IMG[id], info = INFO[id], food = foodById[id], hotel = hotelById[id];
     var h = (im ? '<div class="hero"><img src="' + esc(im.src) + '" alt=""></div>' + credit(im) : '') +
       '<div class="title-block"><h1>' + bi(p) + '</h1>' +
+      (p.addr ? '<div class="ja" lang="ja">' + esc(p.addr) + '</div>' : '') +
       (p.ja && p.ja !== p.zh ? '<div class="ja"><span class="zh">日文：</span><span class="en">Japanese: </span><span lang="ja">' + esc(p.ja) + '</span></div>' : '') +
       (food ? '<div class="facts-row">' + badge(food.r.status) + '<span>' + bi(food.r.kind) + '</span></div>' : '') +
       (hotel ? '<div class="facts-row">' + badge(hotel.status) + '<span>' + bi(hotel.area) + '</span></div>' : '') +
@@ -777,7 +844,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 
   screens.hotels = function () {
     var h = '<h1><span class="zh">酒店</span><span class="en">Hotels</span></h1>' +
-      '<p class="lede"><span class="zh">富士吉田的別墅然然已有兩張訂房確認；東京暫定入住 THE BLOSSOM HIBIYA，尚未正式預訂。其他酒店保留作比較。訂房號碼只存放於私人文件夾。</span><span class="en">We have two Bessho Sasa confirmations. THE BLOSSOM HIBIYA is the likely Tokyo base but is not booked yet; the other hotels remain comparisons. Booking numbers stay in the private folder.</span></p><div class="stack">';
+      '<p class="lede"><span class="zh">標示「已訂」的已經預訂。按酒店可查看地址及的士卡。</span><span class="en">Anything marked Booked is reserved. Tap a hotel for its address and taxi card.</span></p><div class="stack">';
     (T.hotels || []).forEach(function (ho) {
       var p = T.places[ho.place];
       h += '<a class="card hcard" href="#/place/' + esc(ho.place) + '"><div class="body"><b>' + bi(p) + badge(ho.status) + '</b>' +
@@ -789,7 +856,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 
   screens.food = function () {
     var h = '<h1><span class="zh">餐廳</span><span class="en">Restaurants</span></h1>' +
-      '<p class="lede"><span class="zh">標示「已訂」的已預訂，其餘尚未預訂。價錢以每位計，不含飲品，或有變動。點擊可查看詳情，點「地圖・相片」可看照片。</span><span class="en">Ones marked Booked are reserved; the rest are not. Prices per person before drinks, and may change. Tap for details; use Map & photos to see pictures.</span></p>';
+      '<p class="lede"><span class="zh">標示「已訂」的已經預訂。價錢以每位計，不含飲品，或有變動。點擊可查看詳情。</span><span class="en">Anything marked Booked is reserved. Prices are per person before drinks, and may change. Tap for details.</span></p>';
     T.food.forEach(function (g) {
       h += '<div class="food-group"><h3>' + bi(g.title) + '</h3>' + (g.intro ? '<p class="intro">' + bi(g.intro) + '</p>' : '');
       if (g.empty && !(g.items && g.items.length)) h += '<div class="empty-slot">' + bi(g.empty) + '</div>';
@@ -806,10 +873,10 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
 
   screens.credits = function () {
     var h = '<h1><span class="zh">相片來源</span><span class="en">Photo credits</span></h1>' +
-      '<p class="lede"><span class="zh">所有相片均來自 Wikimedia Commons，按各自授權使用。</span><span class="en">All photos are from Wikimedia Commons, used under their licences.</span></p><ul class="card credits">';
+      '<p class="lede"><span class="zh">景點相片大多來自 Wikimedia Commons，按各自授權使用；餐廳、酒店及活動相片來自其官方網站或訂位頁面，版權屬原擁有者。</span><span class="en">Most sightseeing photos are from Wikimedia Commons, used under their licences. Restaurant, hotel and event photos come from their official or booking pages and remain the copyright of their owners.</span></p><ul class="card credits">';
     Object.keys(IMG).forEach(function (id) {
       var im = IMG[id], p = T.places[id];
-      h += '<li><b>' + (p ? bi(p) : esc(id)) + '</b> · <a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + esc(im.lic) + '</li>';
+      h += '<li><b>' + (p ? bi(p) : esc(id)) + '</b> · <a href="' + esc(im.page) + '" target="_blank" rel="noopener">' + esc(im.by) + '</a> · ' + lic(im) + '</li>';
     });
     return { title: { zh: '相片來源', en: 'Photo credits' }, html: h + '</ul>' };
   };
@@ -822,7 +889,6 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   var TABS = [
     { id: 'home', href: '#/', l: { zh: '首頁', en: 'Home' } },
     { id: 'days', href: '#/days', l: { zh: '每日', en: 'Daily' } },
-    { id: 'plans', href: '#/plans', l: { zh: '選擇', en: 'Options' } },
     { id: 'hotels', href: '#/hotels', l: { zh: '酒店', en: 'Hotels' } },
     { id: 'food', href: '#/food', l: { zh: '餐廳', en: 'Food' } }
   ];
@@ -932,6 +998,7 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
     var p = T.places[id]; if (!p) return;
     opener = btn || null;
     document.getElementById('taxi-ja').textContent = p.ja;
+    var ad = document.getElementById('taxi-addr'); ad.textContent = p.addr || ''; ad.hidden = !p.addr;
     document.getElementById('taxi-map').href = mapUrl(p);
     setInert(true); document.body.classList.add('locked');
     taxi.hidden = false;
@@ -942,6 +1009,11 @@ footer a { color: var(--bronze); display: inline-block; padding-block: 12px; }
   document.getElementById('taxi-close').addEventListener('click', closeTaxi);
   taxi.addEventListener('click', function (ev) { if (ev.target === taxi) closeTaxi(); });
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !taxi.hidden) closeTaxi(); });
+
+  function tick() { var was = todayStr + nowMin; clock(); if (todayStr + nowMin !== was && routeOf(location.hash).name === 'home' && taxi.hidden) render(true); }
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) tick(); });
+  window.addEventListener('pageshow', tick);
+  setInterval(tick, 60000);
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   navStack = [location.hash || '#/'];
